@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  QuickWebKit
+
+  Created by pcjbird on 2017/12/24.
+  Copyright © 2017年 Zero Status. All rights reserved.
+*/
+"QuickWebServiceVersionNotSupportFormat" = "JS 函數:%s 僅V%@及以後的版本才支持！";
+"QuickWebServiceNotFoundFormat" = "JS service '%@' 不支持！";

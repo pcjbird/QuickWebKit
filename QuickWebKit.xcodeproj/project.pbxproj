@@ -54,6 +54,15 @@
 		890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */; };
 		890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7721FEF8FDE003E8E7C /* Localizable.strings */; };
 		890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7701FEF8FD6003E8E7C /* Info.plist */; };
+		890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */; };
+		890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */; };
+		890BF7871FEFCE1E003E8E7C /* QuickWebInvokedCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */; };
+		890BF7881FEFCE1E003E8E7C /* QuickWebInvokedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */; };
+		890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */; };
+		890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */; };
+		890BF7911FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */; };
+		890BF7921FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */; };
+		890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7A11FEFDBC8003E8E7C /* Localizable.strings */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -101,6 +110,20 @@
 		890BF7731FEF8FDE003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		890BF7771FEF8FF7003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		890BF7781FEF8FF9003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgePlugin.h; sourceTree = "<group>"; };
+		890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgePlugin.m; sourceTree = "<group>"; };
+		890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebInvokedCommand.h; sourceTree = "<group>"; };
+		890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebInvokedCommand.m; sourceTree = "<group>"; };
+		890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebDataParseUtil.h; sourceTree = "<group>"; };
+		890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebDataParseUtil.m; sourceTree = "<group>"; };
+		890BF78E1FEFCFF6003E8E7C /* QuickWebServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebServiceProtocol.h; sourceTree = "<group>"; };
+		890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebServiceInvokeResult.h; sourceTree = "<group>"; };
+		890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebServiceInvokeResult.m; sourceTree = "<group>"; };
+		890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebJSBridgePluginResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		890BF7991FEFDB46003E8E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890BF7A01FEFDBC8003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF7A21FEFDBCA003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF7A31FEFDBCB003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickWebKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
 		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +144,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		890BF75C1FEF8E95003E8E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890BF7941FEFDB46003E8E7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -179,6 +209,7 @@
 			children = (
 				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */,
 				890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */,
+				890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */,
 			);
 			path = QuickWebResources;
 			sourceTree = "<group>";
@@ -221,6 +252,8 @@
 			children = (
 				890BF7221FEE3F85003E8E7C /* QuickWebStringUtil.h */,
 				890BF7231FEE3F85003E8E7C /* QuickWebStringUtil.m */,
+				890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */,
+				890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */,
 				890BF72A1FEE47B4003E8E7C /* UIImage+QuickWeb.h */,
 				890BF72B1FEE47B4003E8E7C /* UIImage+QuickWeb.m */,
 				890BF73F1FEE8FEA003E8E7C /* UIView+QuickWeb.h */,
@@ -242,6 +275,7 @@
 			children = (
 				890BF7431FEEA1A8003E8E7C /* QuickWebToastPlugin */,
 				890BF7481FEEB058003E8E7C /* QuickWebProviderPlugin */,
+				890BF7801FEFCA87003E8E7C /* QuickWebJSBridgePlugin */,
 			);
 			path = QuickWebPlugins;
 			sourceTree = "<group>";
@@ -279,6 +313,29 @@
 			path = QuickWebProviderPluginResource;
 			sourceTree = "<group>";
 		};
+		890BF7801FEFCA87003E8E7C /* QuickWebJSBridgePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */,
+				890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */,
+				890BF78E1FEFCFF6003E8E7C /* QuickWebServiceProtocol.h */,
+				890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */,
+				890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */,
+				890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */,
+				890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */,
+			);
+			path = QuickWebJSBridgePlugin;
+			sourceTree = "<group>";
+		};
+		890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7A11FEFDBC8003E8E7C /* Localizable.strings */,
+				890BF7991FEFDB46003E8E7C /* Info.plist */,
+			);
+			path = QuickWebJSBridgePluginResource;
+			sourceTree = "<group>";
+		};
 		898A50B51FE7FDE7002DDFA7 = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +355,7 @@
 				898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */,
 				890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */,
 				890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */,
+				890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,13 +378,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890BF7871FEFCE1E003E8E7C /* QuickWebInvokedCommand.h in Headers */,
+				890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */,
 				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
+				890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */,
 				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
 				890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */,
 				890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */,
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
+				890BF7911FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h in Headers */,
 				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
 				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
 				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
@@ -372,6 +434,23 @@
 			productReference = 890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginResource" */;
+			buildPhases = (
+				890BF7931FEFDB46003E8E7C /* Sources */,
+				890BF7941FEFDB46003E8E7C /* Frameworks */,
+				890BF7951FEFDB46003E8E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickWebJSBridgePluginResource;
+			productName = QuickWebJSBridgePluginResource;
+			productReference = 890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		898A50BE1FE7FDE7002DDFA7 /* QuickWebKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 898A50C71FE7FDE7002DDFA7 /* Build configuration list for PBXNativeTarget "QuickWebKit" */;
@@ -412,6 +491,10 @@
 					890BF75A1FEF8E95003E8E7C = {
 						ProvisioningStyle = Automatic;
 					};
+					890BF7961FEFDB46003E8E7C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					898A50BE1FE7FDE7002DDFA7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -436,6 +519,7 @@
 				890BF6BA1FED31A1003E8E7C /* QuickWebKitResource */,
 				890BF6D11FED4EB6003E8E7C /* QuickWebKit-Universal */,
 				890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginResource */,
+				890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */,
 			);
 		};
 /* End PBXProject section */
@@ -462,10 +546,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		890BF7951FEFDB46003E8E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898A50BD1FE7FDE7002DDFA7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,11 +666,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		890BF7931FEFDB46003E8E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898A50BA1FE7FDE7002DDFA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */,
 				890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */,
+				890BF7881FEFCE1E003E8E7C /* QuickWebInvokedCommand.m in Sources */,
+				890BF7921FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m in Sources */,
 				890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */,
 				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
 				890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */,
@@ -587,6 +689,7 @@
 				890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */,
 				890BF7471FEEA1F3003E8E7C /* QuickWebToastPlugin.m in Sources */,
 				890BF7251FEE3F85003E8E7C /* QuickWebStringUtil.m in Sources */,
+				890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */,
 				890BF72D1FEE47B4003E8E7C /* UIImage+QuickWeb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +713,16 @@
 				890BF7731FEF8FDE003E8E7C /* en */,
 				890BF7771FEF8FF7003E8E7C /* zh-Hant */,
 				890BF7781FEF8FF9003E8E7C /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		890BF7A11FEFDBC8003E8E7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				890BF7A01FEFDBC8003E8E7C /* zh-Hans */,
+				890BF7A21FEFDBCA003E8E7C /* zh-Hant */,
+				890BF7A31FEFDBCB003E8E7C /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -699,6 +812,42 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
 				PRODUCT_NAME = QuickWebProviderPlugin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		890BF79B1FEFDB46003E8E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebJSBridgePluginResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		890BF79C1FEFDB46003E8E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebJSBridgePluginResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -919,6 +1068,15 @@
 			buildConfigurations = (
 				890BF7641FEF8E95003E8E7C /* Debug */,
 				890BF7651FEF8E95003E8E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginResource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890BF79B1FEFDB46003E8E7C /* Debug */,
+				890BF79C1FEFDB46003E8E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
