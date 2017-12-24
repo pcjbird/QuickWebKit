@@ -1,0 +1,947 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		890BF6D11FED4EB6003E8E7C /* QuickWebKit-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 890BF6D21FED4EB6003E8E7C /* Build configuration list for PBXAggregateTarget "QuickWebKit-Universal" */;
+			buildPhases = (
+				890BF77E1FEF95BF003E8E7C /* ShellScript */,
+				890BF77B1FEF93F5003E8E7C /* ShellScript */,
+				890BF77D1FEF9569003E8E7C /* ShellScript */,
+				890BF77F1FEF9675003E8E7C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "QuickWebKit-Universal";
+			productName = "QuickWebViewController-Universal";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1107382E4CB600AF1A785817 /* Pods_QuickWebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8636CA81E4185C2F693E56E /* Pods_QuickWebKit.framework */; };
+		1A174AA7861BDD374EC7AE3F /* Pods_QuickWebViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */; };
+		890BF6C31FED3868003E8E7C /* navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C11FED3867003E8E7C /* navbar_return@2x.png */; };
+		890BF6C41FED3868003E8E7C /* navbar_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C21FED3868003E8E7C /* navbar_return@3x.png */; };
+		890BF6C71FED3FCB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C91FED3FCB003E8E7C /* Localizable.strings */; };
+		890BF6CF1FED429F003E8E7C /* navbar_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6CD1FED429F003E8E7C /* navbar_close@3x.png */; };
+		890BF6D01FED429F003E8E7C /* navbar_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6CE1FED429F003E8E7C /* navbar_close@2x.png */; };
+		890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF71E1FEE3B59003E8E7C /* QuickWebKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7221FEE3F85003E8E7C /* QuickWebStringUtil.h */; };
+		890BF7251FEE3F85003E8E7C /* QuickWebStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7231FEE3F85003E8E7C /* QuickWebStringUtil.m */; };
+		890BF72C1FEE47B4003E8E7C /* UIImage+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF72A1FEE47B4003E8E7C /* UIImage+QuickWeb.h */; };
+		890BF72D1FEE47B4003E8E7C /* UIImage+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF72B1FEE47B4003E8E7C /* UIImage+QuickWeb.m */; };
+		890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF72E1FEE484E003E8E7C /* QuickWebNavigationButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF72F1FEE484E003E8E7C /* QuickWebNavigationButton.m */; };
+		890BF7331FEE5027003E8E7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890BF7321FEE5026003E8E7C /* CoreGraphics.framework */; };
+		890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF73B1FEE8716003E8E7C /* QuickWebPluginProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF73F1FEE8FEA003E8E7C /* UIView+QuickWeb.h */; };
+		890BF7421FEE8FEA003E8E7C /* UIView+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7401FEE8FEA003E8E7C /* UIView+QuickWeb.m */; };
+		890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7441FEEA1F3003E8E7C /* QuickWebToastPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890BF7471FEEA1F3003E8E7C /* QuickWebToastPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7451FEEA1F3003E8E7C /* QuickWebToastPlugin.m */; };
+		890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7491FEEB090003E8E7C /* QuickWebProviderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF74A1FEEB090003E8E7C /* QuickWebProviderPlugin.m */; };
+		890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF74D1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h */; };
+		890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */; };
+		890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */; };
+		890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */; };
+		890BF7571FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */; };
+		890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */; };
+		890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7721FEF8FDE003E8E7C /* Localizable.strings */; };
+		890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7701FEF8FD6003E8E7C /* Info.plist */; };
+		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		48113C2509BFE74D6AD279EA /* Pods-QuickWebViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebViewController/Pods-QuickWebViewController.release.xcconfig"; sourceTree = "<group>"; };
+		5BC210AE85F08549ACBCB815 /* Pods-QuickWebViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebViewController/Pods-QuickWebViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		890BF6BD1FED31A1003E8E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890BF6C11FED3867003E8E7C /* navbar_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_return@2x.png"; sourceTree = "<group>"; };
+		890BF6C21FED3868003E8E7C /* navbar_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_return@3x.png"; sourceTree = "<group>"; };
+		890BF6CA1FED3FE1003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF6CB1FED3FEB003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF6CC1FED413C003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		890BF6CD1FED429F003E8E7C /* navbar_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_close@3x.png"; sourceTree = "<group>"; };
+		890BF6CE1FED429F003E8E7C /* navbar_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_close@2x.png"; sourceTree = "<group>"; };
+		890BF7081FEE3082003E8E7C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		890BF7091FEE3082003E8E7C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		890BF70C1FEE30EE003E8E7C /* QuickWebKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QuickWebKit.podspec; sourceTree = "<group>"; };
+		890BF71E1FEE3B59003E8E7C /* QuickWebKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebKit.h; sourceTree = "<group>"; };
+		890BF7221FEE3F85003E8E7C /* QuickWebStringUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebStringUtil.h; sourceTree = "<group>"; };
+		890BF7231FEE3F85003E8E7C /* QuickWebStringUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebStringUtil.m; sourceTree = "<group>"; };
+		890BF72A1FEE47B4003E8E7C /* UIImage+QuickWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QuickWeb.h"; sourceTree = "<group>"; };
+		890BF72B1FEE47B4003E8E7C /* UIImage+QuickWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QuickWeb.m"; sourceTree = "<group>"; };
+		890BF72E1FEE484E003E8E7C /* QuickWebNavigationButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebNavigationButton.h; sourceTree = "<group>"; };
+		890BF72F1FEE484E003E8E7C /* QuickWebNavigationButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebNavigationButton.m; sourceTree = "<group>"; };
+		890BF7321FEE5026003E8E7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		890BF7391FEE5B92003E8E7C /* QuickWebKitDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebKitDefines.h; sourceTree = "<group>"; };
+		890BF73B1FEE8716003E8E7C /* QuickWebPluginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebPluginProtocol.h; sourceTree = "<group>"; };
+		890BF73F1FEE8FEA003E8E7C /* UIView+QuickWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+QuickWeb.h"; sourceTree = "<group>"; };
+		890BF7401FEE8FEA003E8E7C /* UIView+QuickWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+QuickWeb.m"; sourceTree = "<group>"; };
+		890BF7441FEEA1F3003E8E7C /* QuickWebToastPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebToastPlugin.h; sourceTree = "<group>"; };
+		890BF7451FEEA1F3003E8E7C /* QuickWebToastPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebToastPlugin.m; sourceTree = "<group>"; };
+		890BF7491FEEB090003E8E7C /* QuickWebProviderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebProviderPlugin.h; sourceTree = "<group>"; };
+		890BF74A1FEEB090003E8E7C /* QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebProviderPlugin.m; sourceTree = "<group>"; };
+		890BF74D1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+QuickWebProviderPlugin.h"; sourceTree = "<group>"; };
+		890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+QuickWebProviderPlugin.m"; sourceTree = "<group>"; };
+		890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebProvider.h; sourceTree = "<group>"; };
+		890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebProvider.m; sourceTree = "<group>"; };
+		890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QuickWebProviderPlugin.h"; sourceTree = "<group>"; };
+		890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QuickWebProviderPlugin.m"; sourceTree = "<group>"; };
+		890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebProviderPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		890BF7671FEF8E95003E8E7C /* QuickWebKitResource copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickWebKitResource copy-Info.plist"; path = "/mygithub/QuickWebViewController/QuickWebKitResource copy-Info.plist"; sourceTree = "<absolute>"; };
+		890BF7701FEF8FD6003E8E7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890BF7731FEF8FDE003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		890BF7771FEF8FF7003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		890BF7781FEF8FF9003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickWebKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
+		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebViewController.m; sourceTree = "<group>"; };
+		99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.debug.xcconfig"; sourceTree = "<group>"; };
+		A990D00AD447FD00808963BC /* Pods_SuperWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.release.xcconfig"; sourceTree = "<group>"; };
+		E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8636CA81E4185C2F693E56E /* Pods_QuickWebKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickWebKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		890BF6B81FED31A1003E8E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890BF75C1FEF8E95003E8E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898A50BB1FE7FDE7002DDFA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890BF7331FEE5027003E8E7C /* CoreGraphics.framework in Frameworks */,
+				1A174AA7861BDD374EC7AE3F /* Pods_QuickWebViewController.framework in Frameworks */,
+				1107382E4CB600AF1A785817 /* Pods_QuickWebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04DCC5772402FEB190EC0A34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7321FEE5026003E8E7C /* CoreGraphics.framework */,
+				A990D00AD447FD00808963BC /* Pods_SuperWebViewController.framework */,
+				E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */,
+				E8636CA81E4185C2F693E56E /* Pods_QuickWebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */ = {
+			isa = PBXGroup;
+			children = (
+				890BF6C11FED3867003E8E7C /* navbar_return@2x.png */,
+				890BF6C21FED3868003E8E7C /* navbar_return@3x.png */,
+				890BF6CE1FED429F003E8E7C /* navbar_close@2x.png */,
+				890BF6CD1FED429F003E8E7C /* navbar_close@3x.png */,
+				890BF6C91FED3FCB003E8E7C /* Localizable.strings */,
+				890BF6BD1FED31A1003E8E7C /* Info.plist */,
+			);
+			path = QuickWebViewControllerResource;
+			sourceTree = "<group>";
+		};
+		890BF7071FEE305F003E8E7C /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				890BF70C1FEE30EE003E8E7C /* QuickWebKit.podspec */,
+				890BF7091FEE3082003E8E7C /* LICENSE */,
+				890BF7081FEE3082003E8E7C /* README.md */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
+		890BF70E1FEE34DD003E8E7C /* QuickWebResources */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */,
+				890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */,
+			);
+			path = QuickWebResources;
+			sourceTree = "<group>";
+		};
+		890BF71C1FEE3B33003E8E7C /* QuickWebKit */ = {
+			isa = PBXGroup;
+			children = (
+				890BF71E1FEE3B59003E8E7C /* QuickWebKit.h */,
+				890BF7381FEE5B72003E8E7C /* QuickWebKitDefines */,
+				890BF7211FEE3F15003E8E7C /* QuickWebUtil */,
+				890BF71D1FEE3B43003E8E7C /* QuickWebCore */,
+				890BF73D1FEE88AE003E8E7C /* QuickWebPlugins */,
+				890BF71F1FEE3BD0003E8E7C /* Supporting Files */,
+			);
+			path = QuickWebKit;
+			sourceTree = "<group>";
+		};
+		890BF71D1FEE3B43003E8E7C /* QuickWebCore */ = {
+			isa = PBXGroup;
+			children = (
+				898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */,
+				898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */,
+				890BF72E1FEE484E003E8E7C /* QuickWebNavigationButton.h */,
+				890BF72F1FEE484E003E8E7C /* QuickWebNavigationButton.m */,
+				890BF73B1FEE8716003E8E7C /* QuickWebPluginProtocol.h */,
+			);
+			path = QuickWebCore;
+			sourceTree = "<group>";
+		};
+		890BF71F1FEE3BD0003E8E7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				898A50C31FE7FDE7002DDFA7 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		890BF7211FEE3F15003E8E7C /* QuickWebUtil */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7221FEE3F85003E8E7C /* QuickWebStringUtil.h */,
+				890BF7231FEE3F85003E8E7C /* QuickWebStringUtil.m */,
+				890BF72A1FEE47B4003E8E7C /* UIImage+QuickWeb.h */,
+				890BF72B1FEE47B4003E8E7C /* UIImage+QuickWeb.m */,
+				890BF73F1FEE8FEA003E8E7C /* UIView+QuickWeb.h */,
+				890BF7401FEE8FEA003E8E7C /* UIView+QuickWeb.m */,
+			);
+			path = QuickWebUtil;
+			sourceTree = "<group>";
+		};
+		890BF7381FEE5B72003E8E7C /* QuickWebKitDefines */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7391FEE5B92003E8E7C /* QuickWebKitDefines.h */,
+			);
+			path = QuickWebKitDefines;
+			sourceTree = "<group>";
+		};
+		890BF73D1FEE88AE003E8E7C /* QuickWebPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7431FEEA1A8003E8E7C /* QuickWebToastPlugin */,
+				890BF7481FEEB058003E8E7C /* QuickWebProviderPlugin */,
+			);
+			path = QuickWebPlugins;
+			sourceTree = "<group>";
+		};
+		890BF7431FEEA1A8003E8E7C /* QuickWebToastPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7441FEEA1F3003E8E7C /* QuickWebToastPlugin.h */,
+				890BF7451FEEA1F3003E8E7C /* QuickWebToastPlugin.m */,
+			);
+			path = QuickWebToastPlugin;
+			sourceTree = "<group>";
+		};
+		890BF7481FEEB058003E8E7C /* QuickWebProviderPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7491FEEB090003E8E7C /* QuickWebProviderPlugin.h */,
+				890BF74A1FEEB090003E8E7C /* QuickWebProviderPlugin.m */,
+				890BF74D1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h */,
+				890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */,
+				890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */,
+				890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */,
+				890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */,
+				890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */,
+			);
+			path = QuickWebProviderPlugin;
+			sourceTree = "<group>";
+		};
+		890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */ = {
+			isa = PBXGroup;
+			children = (
+				890BF7721FEF8FDE003E8E7C /* Localizable.strings */,
+				890BF7701FEF8FD6003E8E7C /* Info.plist */,
+			);
+			path = QuickWebProviderPluginResource;
+			sourceTree = "<group>";
+		};
+		898A50B51FE7FDE7002DDFA7 = {
+			isa = PBXGroup;
+			children = (
+				890BF7071FEE305F003E8E7C /* Metadata */,
+				890BF71C1FEE3B33003E8E7C /* QuickWebKit */,
+				890BF70E1FEE34DD003E8E7C /* QuickWebResources */,
+				898A50C01FE7FDE7002DDFA7 /* Products */,
+				BFE7BF4B698FFD4D49E6C860 /* Pods */,
+				04DCC5772402FEB190EC0A34 /* Frameworks */,
+				890BF7671FEF8E95003E8E7C /* QuickWebKitResource copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		898A50C01FE7FDE7002DDFA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */,
+				890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */,
+				890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFE7BF4B698FFD4D49E6C860 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BC210AE85F08549ACBCB815 /* Pods-QuickWebViewController.debug.xcconfig */,
+				48113C2509BFE74D6AD279EA /* Pods-QuickWebViewController.release.xcconfig */,
+				99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */,
+				B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		898A50BC1FE7FDE7002DDFA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
+				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
+				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
+				890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */,
+				890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */,
+				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
+				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
+				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
+				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
+				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
+				890BF7571FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h in Headers */,
+				890BF72C1FEE47B4003E8E7C /* UIImage+QuickWeb.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		890BF6BA1FED31A1003E8E7C /* QuickWebKitResource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitResource" */;
+			buildPhases = (
+				890BF6B71FED31A1003E8E7C /* Sources */,
+				890BF6B81FED31A1003E8E7C /* Frameworks */,
+				890BF6B91FED31A1003E8E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickWebKitResource;
+			productName = QuickWebViewControllerResource;
+			productReference = 890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginResource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginResource" */;
+			buildPhases = (
+				890BF75B1FEF8E95003E8E7C /* Sources */,
+				890BF75C1FEF8E95003E8E7C /* Frameworks */,
+				890BF75D1FEF8E95003E8E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickWebProviderPluginResource;
+			productName = QuickWebViewControllerResource;
+			productReference = 890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		898A50BE1FE7FDE7002DDFA7 /* QuickWebKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 898A50C71FE7FDE7002DDFA7 /* Build configuration list for PBXNativeTarget "QuickWebKit" */;
+			buildPhases = (
+				938AEC3F0E9B87F7E021FCD6 /* [CP] Check Pods Manifest.lock */,
+				898A50BA1FE7FDE7002DDFA7 /* Sources */,
+				898A50BB1FE7FDE7002DDFA7 /* Frameworks */,
+				898A50BC1FE7FDE7002DDFA7 /* Headers */,
+				898A50BD1FE7FDE7002DDFA7 /* Resources */,
+				1114B5BFBB2B963DE8FB0F94 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickWebKit;
+			productName = SuperWebViewController;
+			productReference = 898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		898A50B61FE7FDE7002DDFA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Zero Status";
+				TargetAttributes = {
+					890BF6BA1FED31A1003E8E7C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					890BF6D11FED4EB6003E8E7C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					890BF75A1FEF8E95003E8E7C = {
+						ProvisioningStyle = Automatic;
+					};
+					898A50BE1FE7FDE7002DDFA7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 898A50B91FE7FDE7002DDFA7 /* Build configuration list for PBXProject "QuickWebKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				"zh-Hans",
+				"zh-Hant",
+				en,
+			);
+			mainGroup = 898A50B51FE7FDE7002DDFA7;
+			productRefGroup = 898A50C01FE7FDE7002DDFA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				898A50BE1FE7FDE7002DDFA7 /* QuickWebKit */,
+				890BF6BA1FED31A1003E8E7C /* QuickWebKitResource */,
+				890BF6D11FED4EB6003E8E7C /* QuickWebKit-Universal */,
+				890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginResource */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		890BF6B91FED31A1003E8E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890BF6CF1FED429F003E8E7C /* navbar_close@3x.png in Resources */,
+				890BF6C31FED3868003E8E7C /* navbar_return@2x.png in Resources */,
+				890BF6C71FED3FCB003E8E7C /* Localizable.strings in Resources */,
+				890BF6D01FED429F003E8E7C /* navbar_close@2x.png in Resources */,
+				890BF6C41FED3868003E8E7C /* navbar_return@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890BF75D1FEF8E95003E8E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */,
+				890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898A50BD1FE7FDE7002DDFA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1114B5BFBB2B963DE8FB0F94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		890BF77B1FEF93F5003E8E7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FMK_NAME=${PRODUCT_NAME}\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Resource\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
+		};
+		890BF77D1FEF9569003E8E7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FMK_NAME=\"QuickWebProviderPlugin\"\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Resource\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
+		};
+		890BF77E1FEF95BF003E8E7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FMK_NAME=${PRODUCT_NAME}\n\n# Install dir will be the final output to the framework.\n\n# The following line create it in the root folder of the current project.\n\nINSTALL_DIR=${SRCROOT}/products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\n\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# -configuration ${CONFIGURATION}\n\n# Clean and Building both architectures.\n\nxcodebuild -workspace \"${FMK_NAME}\".xcworkspace -scheme \"${FMK_NAME}\" -configuration \"Release\" -sdk iphoneos clean build\n\nxcodebuild -workspace \"${FMK_NAME}\".xcworkspace -scheme \"${FMK_NAME}\" -configuration \"Release\" -sdk iphonesimulator clean build\n\n# Cleaning the oldest.\n\nif [ -d \"${INSTALL_DIR}\" ]\n\nthen\n\nrm -rf \"${INSTALL_DIR}\"\n\nfi\n\nmkdir -p \"${INSTALL_DIR}\"\n\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\n\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\n\n";
+		};
+		890BF77F1FEF9675003E8E7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WRK_DIR=build\nINSTALL_DIR=${SRCROOT}/products\n\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"";
+		};
+		938AEC3F0E9B87F7E021FCD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuickWebKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		890BF6B71FED31A1003E8E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890BF75B1FEF8E95003E8E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898A50BA1FE7FDE7002DDFA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */,
+				890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */,
+				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
+				890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */,
+				890BF7421FEE8FEA003E8E7C /* UIView+QuickWeb.m in Sources */,
+				898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */,
+				890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */,
+				890BF7471FEEA1F3003E8E7C /* QuickWebToastPlugin.m in Sources */,
+				890BF7251FEE3F85003E8E7C /* QuickWebStringUtil.m in Sources */,
+				890BF72D1FEE47B4003E8E7C /* UIImage+QuickWeb.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		890BF6C91FED3FCB003E8E7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				890BF6CA1FED3FE1003E8E7C /* zh-Hans */,
+				890BF6CB1FED3FEB003E8E7C /* zh-Hant */,
+				890BF6CC1FED413C003E8E7C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		890BF7721FEF8FDE003E8E7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				890BF7731FEF8FDE003E8E7C /* en */,
+				890BF7771FEF8FF7003E8E7C /* zh-Hant */,
+				890BF7781FEF8FF9003E8E7C /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		890BF6BE1FED31A1003E8E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebViewControllerResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
+				PRODUCT_NAME = QuickWebKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		890BF6BF1FED31A1003E8E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebViewControllerResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
+				PRODUCT_NAME = QuickWebKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		890BF6D31FED4EB6003E8E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = QuickWebKit;
+			};
+			name = Debug;
+		};
+		890BF6D41FED4EB6003E8E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = QuickWebKit;
+			};
+			name = Release;
+		};
+		890BF7641FEF8E95003E8E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebProviderPluginResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
+				PRODUCT_NAME = QuickWebProviderPlugin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		890BF7651FEF8E95003E8E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = NO;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebProviderPluginResource/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
+				PRODUCT_NAME = QuickWebProviderPlugin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		898A50C51FE7FDE7002DDFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		898A50C61FE7FDE7002DDFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		898A50C81FE7FDE7002DDFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebKit/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/QMUIKit/QMUIKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SmartJSWebView/SmartJSWebView.framework/Headers\"",
+					"-fembed-bitcode",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"QMUIKit\"",
+					"-framework",
+					"\"SmartJSWebView\"",
+					"-fembed-bitcode",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebViewController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		898A50C91FE7FDE7002DDFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebKit/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/QMUIKit/QMUIKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SmartJSWebView/SmartJSWebView.framework/Headers\"",
+					"-fembed-bitcode",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"QMUIKit\"",
+					"-framework",
+					"\"SmartJSWebView\"",
+					"-fembed-bitcode",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebViewController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitResource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890BF6BE1FED31A1003E8E7C /* Debug */,
+				890BF6BF1FED31A1003E8E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890BF6D21FED4EB6003E8E7C /* Build configuration list for PBXAggregateTarget "QuickWebKit-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890BF6D31FED4EB6003E8E7C /* Debug */,
+				890BF6D41FED4EB6003E8E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginResource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890BF7641FEF8E95003E8E7C /* Debug */,
+				890BF7651FEF8E95003E8E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		898A50B91FE7FDE7002DDFA7 /* Build configuration list for PBXProject "QuickWebKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				898A50C51FE7FDE7002DDFA7 /* Debug */,
+				898A50C61FE7FDE7002DDFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		898A50C71FE7FDE7002DDFA7 /* Build configuration list for PBXNativeTarget "QuickWebKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				898A50C81FE7FDE7002DDFA7 /* Debug */,
+				898A50C91FE7FDE7002DDFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 898A50B61FE7FDE7002DDFA7 /* Project object */;
+}
