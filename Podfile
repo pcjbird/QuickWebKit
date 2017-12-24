@@ -8,7 +8,8 @@ target 'QuickWebKit' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
   use_frameworks!
 
-  # Pods for QuickWebViewController
+  # Pods for QuickWebKit
   pod 'SmartJSWebView'
+  # Pods for QuickWebToastPlugin
   pod 'Toast'
 end
