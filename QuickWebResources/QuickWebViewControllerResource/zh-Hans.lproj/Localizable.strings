@@ -8,3 +8,6 @@
 
 "Back" = "返回";
 "Close" = "关闭";
+
+"QuickWebJSFunctionOnlySupportVersionFormat" = "JS 函数:%s 仅V%@及以后版本才支持！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "JS Bridge 代理 '%@' 不支持！";

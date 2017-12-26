@@ -8,3 +8,6 @@
 
 "Back" = "Back";
 "Close" = "Close";
+
+"QuickWebJSFunctionOnlySupportVersionFormat" = "JS function:%s only support after V%@！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "JS proxy '%@' not support now！";

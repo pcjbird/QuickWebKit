@@ -213,8 +213,8 @@
 		890BF70E1FEE34DD003E8E7C /* QuickWebResources */ = {
 			isa = PBXGroup;
 			children = (
-				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */,
 				890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */,
+				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */,
 				890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */,
 			);
 			path = QuickWebResources;
@@ -247,6 +247,9 @@
 				890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */,
 				890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */,
 				890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */,
+				890BF78E1FEFCFF6003E8E7C /* QuickWebJSBridgeProxyProtocol.h */,
+				890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */,
+				890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */,
 			);
 			path = QuickWebCore;
 			sourceTree = "<group>";
@@ -330,9 +333,6 @@
 			children = (
 				890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */,
 				890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */,
-				890BF78E1FEFCFF6003E8E7C /* QuickWebJSBridgeProxyProtocol.h */,
-				890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */,
-				890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */,
 			);
 			path = QuickWebJSBridgePlugin;
 			sourceTree = "<group>";
