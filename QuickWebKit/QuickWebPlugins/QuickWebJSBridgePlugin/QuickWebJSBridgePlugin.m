@@ -14,7 +14,7 @@
 @interface QuickWebJSBridgePlugin()
 {
     NSMutableDictionary *_webViewMap;
-    NSMutableDictionary *_serviceMap;
+    NSMutableDictionary *_proxyMap;
     NSMutableDictionary *_resultMap;
 }
 @end
@@ -50,7 +50,7 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     if(self = [super init])
     {
         _webViewMap = [NSMutableDictionary dictionary];
-        _serviceMap = [NSMutableDictionary dictionary];
+        _proxyMap = [NSMutableDictionary dictionary];
         _resultMap = [NSMutableDictionary dictionary];
     }
     return self;
@@ -98,23 +98,24 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
 - (NSString*)exec:(NSString*)secretId :(NSString*)service :(NSString*)action :(NSString*)callbackId :(NSString*)args
 {
     if(![service isKindOfClass:[NSString class]]) return NSStringFromBOOL(FALSE);
-    id<QuickWebServiceProtocol> servicePlugin = [_serviceMap objectForKey:service];
+    id<QuickWebJSBridgeProxyProtocol> proxy = [_proxyMap objectForKey:service];
     weak(weakSelf);
-    if(![servicePlugin conformsToProtocol:@protocol(QuickWebServiceProtocol)])
+    if(![proxy conformsToProtocol:@protocol(QuickWebJSBridgeProxyProtocol)])
     {
         dispatch_async(dispatch_get_main_queue(), ^{
             SmartJSWebView *webView = [weakSelf getSmartJSWebViewBySecretId:secretId];
             if([webView isKindOfClass:[SmartJSWebView class]])
             {
-                [webView makeToast:QuickWebServiceNotFound(service) duration:3.0f position:CSToastPositionTop];
+                [webView makeToast:QuickWebJSBridgeProxyNotFound(service) duration:3.0f position:CSToastPositionTop];
             }
         });
         return NSStringFromBOOL(FALSE);
     }
-    QuickWebInvokedCommand *command = [QuickWebInvokedCommand commandFromSecretId:secretId callbackId:callbackId jsonArgs:args];
+    QuickWebJSBridgeInvokeCommand *command = [QuickWebJSBridgeInvokeCommand commandFromSecretId:secretId callbackId:callbackId jsonArgs:args];
     
-    return [servicePlugin callAction:action command:command callback:^(QuickWebServiceInvokeResult *result) {
-        if(![result isKindOfClass:[QuickWebServiceInvokeResult class]]) return;
+    return [proxy callAction:action command:command callback:^(QuickWebJSInvokeResult *result) {
+        
+        if(![result isKindOfClass:[QuickWebJSInvokeResult class]]) return;
         
         SmartJSWebView *webView = [weakSelf getSmartJSWebViewBySecretId:result.secretId];
         
@@ -149,31 +150,10 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     
     return @"";
 }
-
-#pragma mark - Service
-- (void)registerService:(id<QuickWebServiceProtocol>)service
+#pragma mark - QuickWebJSInvokeResultHandlerProtocol
+-(void)handleQuickWebJSInvokeResult:(QuickWebJSInvokeResult *)result
 {
-    if(![service conformsToProtocol:@protocol(QuickWebServiceProtocol)])
-    {
-        SDK_LOG(@"注册服务失败，请确保您的服务实现了QuickWebServiceProtocol协议。");
-        return;
-    }
-    if([QuickWebStringUtil isStringBlank:service.name])
-    {
-        SDK_LOG(@"注册服务失败，服务名不能为空。");
-        return;
-    }
-    if([_serviceMap objectForKey:service.name])
-    {
-        SDK_LOG(@"注册服务失败，服务'%@'已经存在。", service.name);
-        return;
-    }
-    [_serviceMap setObject:service forKey:service.name];
-}
-
-- (void) sendServiceResult:(QuickWebServiceInvokeResult*)result
-{
-    if(![result isKindOfClass:[QuickWebServiceInvokeResult class]]) return;
+    if(![result isKindOfClass:[QuickWebJSInvokeResult class]]) return;
     
     SmartJSWebView *webView = [self getSmartJSWebViewBySecretId:result.secretId];
     NSMutableArray *cacheResults = [_resultMap objectForKey:result.secretId];
@@ -192,5 +172,28 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     }
     
 }
+
+#pragma mark - 注册Proxy
+- (void)registerProxy:(id<QuickWebJSBridgeProxyProtocol>)proxy
+{
+    if(![proxy conformsToProtocol:@protocol(QuickWebJSBridgeProxyProtocol)])
+    {
+        SDK_LOG(@"注册服务失败，请确保您的服务实现了QuickWebServiceProtocol协议。");
+        return;
+    }
+    if([QuickWebStringUtil isStringBlank:proxy.name])
+    {
+        SDK_LOG(@"注册服务失败，服务名不能为空。");
+        return;
+    }
+    if([_proxyMap objectForKey:proxy.name])
+    {
+        SDK_LOG(@"注册服务失败，服务'%@'已经存在。", proxy.name);
+        return;
+    }
+    [_proxyMap setObject:proxy forKey:proxy.name];
+}
+
+
 
 @end

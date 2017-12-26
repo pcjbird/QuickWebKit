@@ -28,6 +28,18 @@
 -(void)webViewControllerDidWebViewCreated:(QuickWebViewController*)webViewController;
 
 /*
+ * @brief webView注册通知观察者完成
+ * @param webViewController 浏览器控制器
+ */
+-(void)webViewControllerDidRegisterNotificationObserver:(QuickWebViewController*)webViewController;
+
+/*
+ * @brief webView移除通知观察者完成
+ * @param webViewController 浏览器控制器
+ */
+-(void)webViewControllerDidRemoveNotificationObserver:(QuickWebViewController*)webViewController;
+
+/*
  * @brief 完成子视图布局
  * @param webViewController 浏览器控制器
  */

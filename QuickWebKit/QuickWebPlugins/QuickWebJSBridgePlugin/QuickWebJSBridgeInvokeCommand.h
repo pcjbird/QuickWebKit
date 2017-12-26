@@ -1,5 +1,5 @@
 //
-//  QuickWebInvokedCommand.h
+//  QuickWebJSBridgeInvokeCommand.h
 //  QuickWebKit
 //
 //  Created by pcjbird on 2017/12/24.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuickWebInvokedCommand : NSObject
+@interface QuickWebJSBridgeInvokeCommand : NSObject
 {
     NSString* _secretId;
     NSString* _callbackId;
@@ -19,6 +19,6 @@
 @property (nonatomic, readonly) NSString* callbackId;
 @property (nonatomic, readonly) NSDictionary* arguments;
 
-+ (QuickWebInvokedCommand*)commandFromSecretId:(NSString *)secretId callbackId:(NSString*)callbackId jsonArgs:(NSString*)argString;
++ (QuickWebJSBridgeInvokeCommand*)commandFromSecretId:(NSString *)secretId callbackId:(NSString*)callbackId jsonArgs:(NSString*)argString;
 
 @end

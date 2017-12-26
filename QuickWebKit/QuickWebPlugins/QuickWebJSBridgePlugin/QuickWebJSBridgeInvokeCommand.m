@@ -1,15 +1,15 @@
 //
-//  QuickWebInvokedCommand.m
+//  QuickWebJSBridgeInvokeCommand.m
 //  QuickWebKit
 //
 //  Created by pcjbird on 2017/12/24.
 //  Copyright © 2017年 Zero Status. All rights reserved.
 //
 
-#import "QuickWebInvokedCommand.h"
+#import "QuickWebJSBridgeInvokeCommand.h"
 #import "QuickWebDataParseUtil.h"
 
-@implementation QuickWebInvokedCommand
+@implementation QuickWebJSBridgeInvokeCommand
 @synthesize secretId = _secretId;
 @synthesize callbackId = _callbackId;
 @synthesize arguments = _arguments;
@@ -25,8 +25,8 @@
     return self;
 }
 
-+ (QuickWebInvokedCommand*)commandFromSecretId:(NSString *)secretId callbackId:(NSString*)callbackId jsonArgs:(NSString*)argString
++ (QuickWebJSBridgeInvokeCommand*)commandFromSecretId:(NSString *)secretId callbackId:(NSString*)callbackId jsonArgs:(NSString*)argString
 {
-    return [[QuickWebInvokedCommand alloc] initFromSecretId:secretId callbackId:callbackId jsonArgs:argString];
+    return [[QuickWebJSBridgeInvokeCommand alloc] initFromSecretId:secretId callbackId:callbackId jsonArgs:argString];
 }
 @end

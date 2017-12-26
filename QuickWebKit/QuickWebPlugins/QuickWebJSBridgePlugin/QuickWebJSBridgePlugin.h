@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "QuickWebPluginProtocol.h"
+#import "QuickWebJSInvokeResultHandlerProtocol.h"
 #import "QuickWebViewController.h"
-#import "QuickWebServiceProtocol.h"
+#import "QuickWebJSBridgeProxyProtocol.h"
 
-@interface QuickWebJSBridgePlugin : NSObject<QuickWebPluginProtocol, SmartJSBridgeProtocol>
+
+@interface QuickWebJSBridgePlugin : NSObject<QuickWebPluginProtocol,QuickWebJSInvokeResultHandlerProtocol, SmartJSBridgeProtocol>
 
 + (QuickWebJSBridgePlugin *) sharedPlugin;
 
 - (NSString*)exec:(NSString*)secretId :(NSString*)service :(NSString*)action :(NSString*)callbackId :(NSString*)args;
 - (NSString*)retrieve:(NSString*)secretId;
 
-- (void)registerService:(id<QuickWebServiceProtocol>)service;
-- (void) sendServiceResult:(QuickWebServiceInvokeResult*)result;
+- (void)registerProxy:(id<QuickWebJSBridgeProxyProtocol>)proxy;
 @end

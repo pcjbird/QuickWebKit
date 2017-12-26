@@ -11,6 +11,7 @@
 #import "QuickWebNavigationButton.h"
 #import "UIView+QuickWeb.h"
 #import "QuickWebKitDefines.h"
+#import "QuickWebJSInvokeProviderProtocol.h"
 
 #define ShowNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
@@ -21,7 +22,7 @@
 // navigationBar相关frame
 #define NavigationBarHeight (44)
 
-@interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate>
+@interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, QuickWebJSInvokeProviderProtocol>
 {
     NSString * _initUrl;
     SmartJSWebView*   _contentWebView;
@@ -95,16 +96,103 @@
     [self updateLeftBarButtonItems];
 }
 
--(void)loadPage:(NSString *)url
+-(void) registerNotificationObserver
 {
-    if (![_contentWebView isKindOfClass:[SmartJSWebView class]] || [QuickWebStringUtil isStringBlank:url]) return;
-    [_contentWebView loadPage:url];
-    //bReload = FALSE;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnJSInvokeNotification:) name:QUICKWEBJSINVOKENOTIFICATION object:nil];
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewControllerDidRegisterNotificationObserver:)])
+        {
+            [obj webViewControllerDidRegisterNotificationObserver:weakSelf];
+        }
+    }];
+    [self didRegisterNotificationObserver];
 }
+
+-(void) didRegisterNotificationObserver{}
+
+-(void)removeNotificationObserver
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewControllerDidRemoveNotificationObserver:)])
+        {
+            [obj webViewControllerDidRemoveNotificationObserver:weakSelf];
+        }
+    }];
+    [self didRemoveNotificationObserver];
+}
+
+-(void) didRemoveNotificationObserver{}
+
+-(void)dealloc
+{
+    [self removeNotificationObserver];
+}
+
+#pragma mark - 处理JS调用
+-(void) OnJSInvokeNotification:(NSNotification *)notification
+{
+    QuickWebJSInvokeCommand *command = notification.object;
+    if(![command isKindOfClass:[QuickWebJSInvokeCommand class]])
+    {
+        return;
+    }
+    if(![_contentWebView.secretId isEqualToString:command.secretId])
+    {
+        return;
+    }
+    if([QuickWebStringUtil isStringBlank:command.provider])
+    {
+        SDK_LOG(@"JS调用失败，提供者(provider)不能为空。");
+        return;
+    }
+    if([command.provider isEqualToString:self.jsProviderName])
+    {
+        [self callAction:command.actionId command:command callback:^(QuickWebJSInvokeResult *result) {
+            if(command.resultHandler && [command.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [command.resultHandler handleQuickWebJSInvokeResult:result];
+                });
+            }
+            
+        }];
+    }
+    else
+    {
+        [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+           if([obj conformsToProtocol:@protocol(QuickWebJSInvokeProviderProtocol)])
+           {
+               id<QuickWebJSInvokeProviderProtocol> provider = (id<QuickWebJSInvokeProviderProtocol>)obj;
+               if([provider.jsProviderName isEqualToString:command.provider])
+               {
+                   [provider callAction:command.actionId command:command callback:^(QuickWebJSInvokeResult *result) {
+                       if(command.resultHandler && [command.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
+                       {
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               [command.resultHandler handleQuickWebJSInvokeResult:result];
+                           });
+                       }
+                   }];
+               }
+           }
+        }];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 加载页面
+-(void)loadPage:(NSString *)url
+{
+    if (![_contentWebView isKindOfClass:[SmartJSWebView class]] || [QuickWebStringUtil isStringBlank:url]) return;
+    [_contentWebView loadPage:url];
 }
 
 #pragma mark - 手势处理
@@ -444,6 +532,23 @@
         return;
     }
     [_pluginMap setObject:plugin forKey:plugin.name];
+}
+
+#pragma mark - QuickWebJSInvokeProviderProtocol
+
+-(NSString *)jsProviderName
+{
+    return @"MasterProvider";
+}
+
+-(void)setJsProviderName:(NSString *)jsProviderName
+{
+    
+}
+
+-(void)callAction:(NSString *)actionId command:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+
 }
 
 #pragma mark - UIWebViewDelegate

@@ -77,4 +77,14 @@
  */
 - (void)registerPlugin:(id<QuickWebPluginProtocol>)plugin;
 
+/*
+ * @brief 注册通知观察者完成
+ */
+-(void) didRegisterNotificationObserver;
+
+/*
+ * @brief 移除通知观察者完成
+ */
+-(void) didRemoveNotificationObserver;
+
 @end

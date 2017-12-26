@@ -7,4 +7,4 @@
 */
 
 "QuickWebServiceVersionNotSupportFormat" = "JS 函数:%s 仅V%@及以后版本才支持！";
-"QuickWebServiceNotFoundFormat" = "JS service '%@' 不支持！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "JS service '%@' 不支持！";

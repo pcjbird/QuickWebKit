@@ -6,4 +6,4 @@
   Copyright © 2017年 Zero Status. All rights reserved.
 */
 "QuickWebServiceVersionNotSupportFormat" = "JS 函數:%s 僅V%@及以後的版本才支持！";
-"QuickWebServiceNotFoundFormat" = "JS service '%@' 不支持！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "JS service '%@' 不支持！";

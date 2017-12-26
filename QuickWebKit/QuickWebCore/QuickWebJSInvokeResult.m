@@ -1,16 +1,16 @@
 //
-//  QuickWebServiceInvokeResult.m
+//  QuickWebJSInvokeResult.m
 //  QuickWebKit
 //
 //  Created by pcjbird on 2017/12/24.
 //  Copyright © 2017年 Zero Status. All rights reserved.
 //
 
-#import "QuickWebServiceInvokeResult.h"
+#import "QuickWebJSInvokeResult.h"
 #import "QuickWebStringUtil.h"
 #import "QuickWebDataParseUtil.h"
 
-@implementation QuickWebServiceInvokeResult
+@implementation QuickWebJSInvokeResult
 @synthesize secretId = _secretId;
 @synthesize callbackId = _callbackId;
 @synthesize results = _results;
@@ -53,14 +53,14 @@
     return self;
 }
 
-+(QuickWebServiceInvokeResult *)resultWithStatus:(BOOL)bSuccess secretId:(NSString*)secretId callbackId:(NSString*)callbackId resultWithString:(NSString*)result
++(QuickWebJSInvokeResult *)resultWithStatus:(BOOL)bSuccess secretId:(NSString*)secretId callbackId:(NSString*)callbackId resultWithString:(NSString*)result
 {
-    return [[QuickWebServiceInvokeResult alloc] initWithStatus:(BOOL)bSuccess secretId:secretId callbackId:callbackId resultWithString:result];
+    return [[QuickWebJSInvokeResult alloc] initWithStatus:(BOOL)bSuccess secretId:secretId callbackId:callbackId resultWithString:result];
 }
 
-+(QuickWebServiceInvokeResult *)resultWithStatus:(BOOL)bSuccess secretId:(NSString*)secretId callbackId:(NSString*)callbackId resultWithDict:(NSDictionary*)result
++(QuickWebJSInvokeResult *)resultWithStatus:(BOOL)bSuccess secretId:(NSString*)secretId callbackId:(NSString*)callbackId resultWithDict:(NSDictionary*)result
 {
-    return [[QuickWebServiceInvokeResult alloc] initWithStatus:(BOOL)bSuccess secretId:secretId callbackId:callbackId resultWithDict:result];
+    return [[QuickWebJSInvokeResult alloc] initWithStatus:(BOOL)bSuccess secretId:secretId callbackId:callbackId resultWithDict:result];
 }
 
 

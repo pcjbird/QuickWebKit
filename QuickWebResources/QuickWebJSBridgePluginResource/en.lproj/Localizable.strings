@@ -6,4 +6,4 @@
   Copyright © 2017年 Zero Status. All rights reserved.
 */
 "QuickWebServiceVersionNotSupportFormat" = "JS function:%s only support after V%@！";
-"QuickWebServiceNotFoundFormat" = "JS service '%@' not support now！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "JS service '%@' not support now！";

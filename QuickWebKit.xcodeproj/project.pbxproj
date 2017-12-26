@@ -56,13 +56,15 @@
 		890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7701FEF8FD6003E8E7C /* Info.plist */; };
 		890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */; };
 		890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */; };
-		890BF7871FEFCE1E003E8E7C /* QuickWebInvokedCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */; };
-		890BF7881FEFCE1E003E8E7C /* QuickWebInvokedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */; };
+		890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */; };
+		890BF7881FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */; };
 		890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */; };
 		890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */; };
-		890BF7911FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */; };
-		890BF7921FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */; };
+		890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */; };
+		890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */; };
 		890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7A11FEFDBC8003E8E7C /* Localizable.strings */; };
+		890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */; };
+		890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -112,18 +114,22 @@
 		890BF7781FEF8FF9003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgePlugin.h; sourceTree = "<group>"; };
 		890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgePlugin.m; sourceTree = "<group>"; };
-		890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebInvokedCommand.h; sourceTree = "<group>"; };
-		890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebInvokedCommand.m; sourceTree = "<group>"; };
+		890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeInvokeCommand.h; sourceTree = "<group>"; };
+		890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeInvokeCommand.m; sourceTree = "<group>"; };
 		890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebDataParseUtil.h; sourceTree = "<group>"; };
 		890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebDataParseUtil.m; sourceTree = "<group>"; };
-		890BF78E1FEFCFF6003E8E7C /* QuickWebServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebServiceProtocol.h; sourceTree = "<group>"; };
-		890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebServiceInvokeResult.h; sourceTree = "<group>"; };
-		890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebServiceInvokeResult.m; sourceTree = "<group>"; };
+		890BF78E1FEFCFF6003E8E7C /* QuickWebJSBridgeProxyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeProxyProtocol.h; sourceTree = "<group>"; };
+		890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeResult.h; sourceTree = "<group>"; };
+		890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSInvokeResult.m; sourceTree = "<group>"; };
 		890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebJSBridgePluginResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		890BF7991FEFDB46003E8E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890BF7A01FEFDBC8003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		890BF7A21FEFDBCA003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		890BF7A31FEFDBCB003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeCommand.h; sourceTree = "<group>"; };
+		890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSInvokeCommand.m; sourceTree = "<group>"; };
+		890BF7A81FF13B2B003E8E7C /* QuickWebJSInvokeProviderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeProviderProtocol.h; sourceTree = "<group>"; };
+		890BF7A91FF29064003E8E7C /* QuickWebJSInvokeResultHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeResultHandlerProtocol.h; sourceTree = "<group>"; };
 		898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickWebKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
 		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +241,12 @@
 				890BF72E1FEE484E003E8E7C /* QuickWebNavigationButton.h */,
 				890BF72F1FEE484E003E8E7C /* QuickWebNavigationButton.m */,
 				890BF73B1FEE8716003E8E7C /* QuickWebPluginProtocol.h */,
+				890BF7A81FF13B2B003E8E7C /* QuickWebJSInvokeProviderProtocol.h */,
+				890BF7A91FF29064003E8E7C /* QuickWebJSInvokeResultHandlerProtocol.h */,
+				890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */,
+				890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */,
+				890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */,
+				890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */,
 			);
 			path = QuickWebCore;
 			sourceTree = "<group>";
@@ -318,11 +330,9 @@
 			children = (
 				890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */,
 				890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */,
-				890BF78E1FEFCFF6003E8E7C /* QuickWebServiceProtocol.h */,
-				890BF78F1FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h */,
-				890BF7901FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m */,
-				890BF7851FEFCE1E003E8E7C /* QuickWebInvokedCommand.h */,
-				890BF7861FEFCE1E003E8E7C /* QuickWebInvokedCommand.m */,
+				890BF78E1FEFCFF6003E8E7C /* QuickWebJSBridgeProxyProtocol.h */,
+				890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */,
+				890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */,
 			);
 			path = QuickWebJSBridgePlugin;
 			sourceTree = "<group>";
@@ -378,7 +388,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				890BF7871FEFCE1E003E8E7C /* QuickWebInvokedCommand.h in Headers */,
+				890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */,
 				890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */,
 				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
 				890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */,
@@ -386,9 +396,10 @@
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
 				890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */,
 				890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */,
+				890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */,
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
-				890BF7911FEFD05B003E8E7C /* QuickWebServiceInvokeResult.h in Headers */,
+				890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */,
 				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
 				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
 				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
@@ -678,9 +689,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */,
+				890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */,
 				890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */,
-				890BF7881FEFCE1E003E8E7C /* QuickWebInvokedCommand.m in Sources */,
-				890BF7921FEFD05B003E8E7C /* QuickWebServiceInvokeResult.m in Sources */,
+				890BF7881FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m in Sources */,
+				890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */,
 				890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */,
 				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
 				890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */,
