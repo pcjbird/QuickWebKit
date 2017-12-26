@@ -47,4 +47,14 @@ Pod::Spec.new do |s|
         }
     end
 
+    s.subspec 'QuickWebJSBridgePlugin' do |ss|
+    ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin'
+    ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin/*.{h}'
+    ss.dependency 'QuickWebKit/QuickWebViewController'
+    ss.dependency 'Toast'
+    ss.resource_bundles = {
+        'QuickWebJSBridgePlugin' => ['QuickWebResources/QuickWebJSBridgePluginResource/*.*'],
+    }
+    end
+
 end

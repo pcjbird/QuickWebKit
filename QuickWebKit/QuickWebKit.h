@@ -38,5 +38,9 @@ FOUNDATION_EXPORT const unsigned char QuickWebKitVersionString[];
 #import "QuickWebProviderPlugin.h"
 #endif
 
+#if __has_include("QuickWebJSBridgePlugin.h")
+#import "QuickWebJSBridgePlugin.h"
+#endif
+
 
 #endif /* QuickWebKit_h */
