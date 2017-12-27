@@ -34,7 +34,7 @@
     UIColor *scrollBackColor = webViewController.webView.scrollView.backgroundColor;
     QuickWebProvider *provider = [QuickWebProvider new];
     provider.backgroundColor = [UIColor clearColor];
-    provider.font = [UIFont systemFontOfSize:12.0f];
+    provider.font = [UIFont systemFontOfSize:11.0f];
     provider.textColor = [[scrollBackColor quickweb_inversecolor] colorWithAlphaComponent:0.70f];
     webViewController.webView.scrollView.quickweb_provider = provider;
 }
