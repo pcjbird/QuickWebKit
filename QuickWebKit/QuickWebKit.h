@@ -22,6 +22,8 @@ FOUNDATION_EXPORT double QuickWebKitVersionNumber;
 //! Project version string for QuickWebKit.
 FOUNDATION_EXPORT const unsigned char QuickWebKitVersionString[];
 
+#define QUICKWEBREQUESTURLHANDLERNOTIFICATION @"QuickWebRequestUrlHandlerNotification"
+
 #if __has_include("QuickWebViewController.h")
 #import "QuickWebViewController.h"
 #endif

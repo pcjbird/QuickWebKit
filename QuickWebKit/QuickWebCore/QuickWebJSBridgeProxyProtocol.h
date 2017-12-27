@@ -11,6 +11,7 @@
 #import "QuickWebJSInvokeResult.h"
 #import "QuickWebJSBridgeInvokeCommand.h"
 #import "QuickWebJSInvokeResultHandlerProtocol.h"
+#import <SmartJSWebView/SmartJSWebView.h>
 
 #define QuickWebMainAppVersion ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
 #define QUICKWEB_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebJSBridgeInvokeCommand class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
@@ -25,15 +26,13 @@
 
 #define NSStringFromBOOL(v) ( (v) ? @"TRUE" : @"FALSE")
 
-
-
 @protocol QuickWebJSBridgeProxyProtocol <NSObject>
 /*
  * @brief Proxy名称
  */
 @property(nonatomic, strong) NSString* name;
 
--(id)initWithResultHandler:(id<QuickWebJSInvokeResultHandlerProtocol>)handler;
+-(id)initWithResultHandler:(id<QuickWebJSInvokeResultHandlerProtocol, SmartJSBridgeProtocol>)handler;
 
 -(NSString*)callAction:(NSString*)actionId command:(QuickWebJSBridgeInvokeCommand*)command callback:(QuickWebJSCallBack)callback;
 @end

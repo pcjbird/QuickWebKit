@@ -18,4 +18,19 @@
     return UIEdgeInsetsZero;
 }
 
+- (UIViewController *) quickweb_FindViewController
+{
+    id target = self;
+    while (target) {
+        target = ((UIResponder *)target).nextResponder;
+        if ([target isKindOfClass:[UIViewController class]]) {
+            break;
+        }
+    }
+    if(!target)
+    {
+        target = [[UIApplication sharedApplication] keyWindow].rootViewController;
+    }
+    return target;
+}
 @end

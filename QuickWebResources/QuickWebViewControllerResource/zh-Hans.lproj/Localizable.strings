@@ -8,6 +8,13 @@
 
 "Back" = "返回";
 "Close" = "关闭";
+"Confirm" = "确定";
+"Cancel" = "取消";
 
 "QuickWebJSFunctionOnlySupportVersionFormat" = "JS 函数:%s 仅V%@及以后版本才支持！";
 "QuickWebJSBridgeProxyNotFoundFormat" = "JS Bridge 代理 '%@' 不支持！";
+
+"CellularNetworksVideoPlayTip" = "当前使用非wifi网络观看视频，将消耗运营商流量！";
+"Continue Play" = "继续观看";
+
+"Network Not Available" = "当前似乎没有连接到网络哟！";

@@ -8,6 +8,13 @@
 
 "Back" = "Back";
 "Close" = "Close";
+"Confirm" = "Confirm";
+"Cancel" = "Cancel";
 
 "QuickWebJSFunctionOnlySupportVersionFormat" = "JS function:%s only support after V%@！";
 "QuickWebJSBridgeProxyNotFoundFormat" = "JS proxy '%@' not support now！";
+
+"CellularNetworksVideoPlayTip" = "The current use of non wifi network to watch video, it would consume the carrier cellular data!";
+"Continue Play" = "Play";
+
+"Network Not Available" = "Network is not available now.";

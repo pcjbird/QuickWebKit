@@ -12,4 +12,6 @@
 
 - (UIEdgeInsets)quickweb_safeAreaInsets;
 
+- (UIViewController *) quickweb_FindViewController;
+
 @end

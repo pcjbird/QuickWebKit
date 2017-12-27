@@ -8,6 +8,13 @@
 
 "Back" = "返回";
 "Close" = "關閉";
+"Confirm" = "確定";
+"Cancel" = "取消";
 
 "QuickWebJSFunctionOnlySupportVersionFormat" = "JS 函數:%s 僅V%@及以後的版本才支持！";
 "QuickWebJSBridgeProxyNotFoundFormat" = "JS 代理 '%@' 不支持！";
+
+"CellularNetworksVideoPlayTip" = "當前使用非wifi網路觀看視頻，將消耗運營商流量！";
+"Continue Play" = "仍然觀看";
+
+"Network Not Available" = "當前似乎沒有網路可用唷！";

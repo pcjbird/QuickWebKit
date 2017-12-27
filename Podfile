@@ -12,4 +12,8 @@ target 'QuickWebKit' do
   pod 'SmartJSWebView'
   # Pods for QuickWebToastPlugin
   pod 'Toast'
+  # Pods for QuickWebJSBridgeImagePlayProxy
+  pod 'IDMPhotoBrowser'
+  # Pods for QuickWebJSBridgeVideoPlayProxy
+  pod 'ZFPlayer'
 end

@@ -22,6 +22,38 @@
 // navigationBar相关frame
 #define NavigationBarHeight (44)
 
+/*
+ * @brief 页面"离开/重新进入"事件定义
+ */
+typedef enum
+{
+    QuickWebPauseResumeEvent_Pause = 0,  //离开
+    QuickWebPauseResumeEvent_Resume = 1, //重新进入
+}QuickWebPauseResumeEvent;
+
+
+/*
+ * @brief 页面"离开/重新进入"事件
+ */
+@interface QuickWebPauseResumeEventObject: NSObject
+
+@property(nonatomic, strong) NSString* callbackId;
+@property(nonatomic, weak) id<QuickWebJSInvokeResultHandlerProtocol> resultHandler;
+
+-(QuickWebJSInvokeResult*) toResultWithSecretId:(NSString*)secretId event:(QuickWebPauseResumeEvent)event;
+
+@end
+
+@implementation QuickWebPauseResumeEventObject
+
+-(QuickWebJSInvokeResult*) toResultWithSecretId:(NSString*)secretId event:(QuickWebPauseResumeEvent)event
+{
+    NSString* result = (event == QuickWebPauseResumeEvent_Pause) ?  @"pause" : @"resume";
+    return [QuickWebJSInvokeResult resultWithStatus:YES secretId:secretId callbackId:_callbackId resultWithString:[NSString stringWithFormat:@"%@", result]];
+}
+
+@end
+
 @interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, QuickWebJSInvokeProviderProtocol>
 {
     NSString * _initUrl;
@@ -34,7 +66,8 @@
 @property (nonatomic, strong) UIBarButtonItem *backItem;
 //关闭按钮
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
-
+//页面"离开/重新进入"事件监听对象
+@property(nonatomic, strong) QuickWebPauseResumeEventObject * pauseResumeEventListenObject;
 @end
 
 @implementation QuickWebViewController
@@ -71,11 +104,41 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:_navbarTransparent animated:animated];
+    if([self.pauseResumeEventListenObject isKindOfClass:[QuickWebPauseResumeEventObject class]] && self.pauseResumeEventListenObject.resultHandler)
+    {
+        [self.pauseResumeEventListenObject.resultHandler handleQuickWebJSInvokeResult:[self.pauseResumeEventListenObject toResultWithSecretId:_contentWebView.secretId event:QuickWebPauseResumeEvent_Resume]];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    if([self.pauseResumeEventListenObject isKindOfClass:[QuickWebPauseResumeEventObject class]] && self.pauseResumeEventListenObject.resultHandler)
+    {
+        [self.pauseResumeEventListenObject.resultHandler handleQuickWebJSInvokeResult:[self.pauseResumeEventListenObject toResultWithSecretId:_contentWebView.secretId event:QuickWebPauseResumeEvent_Pause]];
+    }
+    if(self.navigationController && [self.navigationController.viewControllers isKindOfClass:[NSArray class]])
+    {
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        if (viewControllers.count > 1 && [viewControllers objectAtIndex:(viewControllers.count - 2)] == self)
+        {
+            [self didPushedToNextVC:animated];
+        }
+        else if ([viewControllers indexOfObject:self] == NSNotFound)
+        {
+            [self willPopToPrevVC:animated];
+        }
+    }
+}
+
+-(void)willPopToPrevVC:(BOOL)animated
+{
+    self.pauseResumeEventListenObject = nil;
+}
+
+-(void)didPushedToNextVC:(BOOL)animated
+{
+    
 }
 
 - (void)viewDidLoad {
@@ -548,7 +611,104 @@
 
 -(void)callAction:(NSString *)actionId command:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
 {
+    if([actionId isEqualToString:@"100"])
+    {
+        [self webViewGoBack:command callback:callback];
+    }
+    else if([actionId isEqualToString:@"101"])
+    {
+        [self webViewClose:command callback:callback];
+    }
+    else if([actionId isEqualToString:@"102"])
+    {
+        [self listenWebViewPauseResumeEvent:command callback:callback];
+    }
+    else if([actionId isEqualToString:@"103"])
+    {
+        [self applyNavBar:command callback:callback];
+    }
+}
 
+-(void)webViewGoBack:(QuickWebJSInvokeCommand*)command callback:(QuickWebJSCallBack)callback
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf goBack:nil];
+    });
+}
+
+-(void)webViewClose:(QuickWebJSInvokeCommand*)command callback:(QuickWebJSCallBack)callback
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf close:nil];
+    });
+}
+
+-(void)listenWebViewPauseResumeEvent:(QuickWebJSInvokeCommand*)command callback:(QuickWebJSCallBack)callback
+{
+    self.pauseResumeEventListenObject = [QuickWebPauseResumeEventObject new];
+    self.pauseResumeEventListenObject.callbackId = command.callbackId;
+    self.pauseResumeEventListenObject.resultHandler = command.resultHandler;
+}
+
+-(void)applyNavBar:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+    NSDictionary*params = command.param;
+    if([params isKindOfClass:[NSDictionary class]])
+    {
+        /*NSDictionary *primaryAction = [params objectForKey:@"primaryAction"];
+        if([primaryAction isKindOfClass:[NSDictionary class]])
+        {
+            self.primaryButton = [JSButtonActionObject itemWithCallbackId:command.callbackId action:[primaryAction objectForKey:@"action"] title:[primaryAction objectForKey:@"des"] icon:[primaryAction objectForKey:@"iconUrl"]];
+        }
+        else
+        {
+            self.primaryButton = nil;
+        }
+        NSArray *moreAction = [params objectForKey:@"moreAction"];
+        if([moreAction isKindOfClass:[NSArray class]] && [moreAction count] > 0)
+        {
+            [self.popItems removeAllObjects];
+            for (NSDictionary* dict in moreAction) {
+                JSButtonActionObject* buttonObject = [JSButtonActionObject itemWithCallbackId:command.callbackId action:[dict objectForKey:@"action"] title:[dict objectForKey:@"des"] icon:[dict objectForKey:@"iconUrl"]];
+                [self.popItems addObject:buttonObject];
+            }
+        }
+        NSString* headerColor = [params objectForKey:@"headerColor"];
+        if(![StringUtil isStringBlank:headerColor])
+        {
+            self.navBarBackColor = [UIColor colorWithHexString:headerColor];
+        }
+        else
+        {
+            self.navBarBackColor = nil;
+        }
+        
+        NSString* titleColor = [params objectForKey:@"titleColor"];
+        if(![StringUtil isStringBlank:titleColor])
+        {
+            self.navBarTitleColor = [UIColor colorWithHexString:titleColor];
+        }
+        else
+        {
+            self.navBarTitleColor = nil;
+        }
+        NSString* titleLogo = [params objectForKey:@"logoUrl"];
+        if(![StringUtil isStringBlank:titleLogo])
+        {
+            self.navBarTitleImageUrl = titleLogo;
+        }
+        else
+        {
+            self.navBarTitleImageUrl = nil;
+        }
+        [GCDQueue executeInMainQueue:^{
+            [weakSelf applyNavBar];
+            [weakSelf updateRightBarButtonItems];
+        }];*/
+        
+    }
 }
 
 #pragma mark - UIWebViewDelegate

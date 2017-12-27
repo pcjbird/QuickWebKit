@@ -67,6 +67,28 @@
 		890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
+		89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */; };
+		89B310971FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310951FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m */; };
+		89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310981FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h */; };
+		89B3109B1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310991FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m */; };
+		89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B3109C1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h */; };
+		89B3109F1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3109D1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m */; };
+		89B310A11FF3629B000D07CB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B310A01FF3629B000D07CB /* AddressBook.framework */; };
+		89B310A31FF362A1000D07CB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B310A21FF362A1000D07CB /* AddressBookUI.framework */; };
+		89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A41FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h */; };
+		89B310A71FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310A51FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m */; };
+		89B310AA1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A81FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h */; };
+		89B310AB1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310A91FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m */; };
+		89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */; };
+		89B310B01FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310AE1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m */; };
+		89B310B31FF3742F000D07CB /* light_btn_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B11FF3742F000D07CB /* light_btn_close@3x.png */; };
+		89B310B41FF3742F000D07CB /* light_btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B21FF3742F000D07CB /* light_btn_close@2x.png */; };
+		89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */; };
+		89B310B81FF374B6000D07CB /* NSString+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */; };
+		89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */; };
+		89B310BC1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310BA1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m */; };
+		89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */; };
+		89B310C01FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310BE1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +156,28 @@
 		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
 		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebViewController.m; sourceTree = "<group>"; };
+		89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeSystemProxy.h; sourceTree = "<group>"; };
+		89B310951FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeSystemProxy.m; sourceTree = "<group>"; };
+		89B310981FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeAccountProxy.h; sourceTree = "<group>"; };
+		89B310991FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeAccountProxy.m; sourceTree = "<group>"; };
+		89B3109C1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeContactProxy.h; sourceTree = "<group>"; };
+		89B3109D1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeContactProxy.m; sourceTree = "<group>"; };
+		89B310A01FF3629B000D07CB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		89B310A21FF362A1000D07CB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		89B310A41FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeNavBarProxy.h; sourceTree = "<group>"; };
+		89B310A51FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeNavBarProxy.m; sourceTree = "<group>"; };
+		89B310A81FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeShareProxy.h; sourceTree = "<group>"; };
+		89B310A91FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeShareProxy.m; sourceTree = "<group>"; };
+		89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeImagePlayProxy.h; sourceTree = "<group>"; };
+		89B310AE1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeImagePlayProxy.m; sourceTree = "<group>"; };
+		89B310B11FF3742F000D07CB /* light_btn_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light_btn_close@3x.png"; sourceTree = "<group>"; };
+		89B310B21FF3742F000D07CB /* light_btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light_btn_close@2x.png"; sourceTree = "<group>"; };
+		89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+QuickWeb.h"; sourceTree = "<group>"; };
+		89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+QuickWeb.m"; sourceTree = "<group>"; };
+		89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeVideoPlayProxy.h; sourceTree = "<group>"; };
+		89B310BA1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeVideoPlayProxy.m; sourceTree = "<group>"; };
+		89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgePushMessageProxy.h; sourceTree = "<group>"; };
+		89B310BE1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgePushMessageProxy.m; sourceTree = "<group>"; };
 		99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A990D00AD447FD00808963BC /* Pods_SuperWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B310A31FF362A1000D07CB /* AddressBookUI.framework in Frameworks */,
+				89B310A11FF3629B000D07CB /* AddressBook.framework in Frameworks */,
 				890BF7331FEE5027003E8E7C /* CoreGraphics.framework in Frameworks */,
 				1A174AA7861BDD374EC7AE3F /* Pods_QuickWebViewController.framework in Frameworks */,
 				1107382E4CB600AF1A785817 /* Pods_QuickWebKit.framework in Frameworks */,
@@ -179,6 +225,8 @@
 		04DCC5772402FEB190EC0A34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89B310A21FF362A1000D07CB /* AddressBookUI.framework */,
+				89B310A01FF3629B000D07CB /* AddressBook.framework */,
 				890BF7321FEE5026003E8E7C /* CoreGraphics.framework */,
 				A990D00AD447FD00808963BC /* Pods_SuperWebViewController.framework */,
 				E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */,
@@ -194,6 +242,8 @@
 				890BF6C21FED3868003E8E7C /* navbar_return@3x.png */,
 				890BF6CE1FED429F003E8E7C /* navbar_close@2x.png */,
 				890BF6CD1FED429F003E8E7C /* navbar_close@3x.png */,
+				89B310B21FF3742F000D07CB /* light_btn_close@2x.png */,
+				89B310B11FF3742F000D07CB /* light_btn_close@3x.png */,
 				890BF6C91FED3FCB003E8E7C /* Localizable.strings */,
 				890BF6BD1FED31A1003E8E7C /* Info.plist */,
 			);
@@ -273,6 +323,8 @@
 				890BF72B1FEE47B4003E8E7C /* UIImage+QuickWeb.m */,
 				890BF73F1FEE8FEA003E8E7C /* UIView+QuickWeb.h */,
 				890BF7401FEE8FEA003E8E7C /* UIView+QuickWeb.m */,
+				89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */,
+				89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */,
 			);
 			path = QuickWebUtil;
 			sourceTree = "<group>";
@@ -374,8 +426,40 @@
 		89B310921FF34999000D07CB /* Proxies */ = {
 			isa = PBXGroup;
 			children = (
+				89B310931FF34BBF000D07CB /* CoreProxies */,
+				89B310AC1FF36AD7000D07CB /* ExtProxies */,
 			);
 			path = Proxies;
+			sourceTree = "<group>";
+		};
+		89B310931FF34BBF000D07CB /* CoreProxies */ = {
+			isa = PBXGroup;
+			children = (
+				89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */,
+				89B310951FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m */,
+				89B310981FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h */,
+				89B310991FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m */,
+				89B3109C1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h */,
+				89B3109D1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m */,
+				89B310A41FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h */,
+				89B310A51FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m */,
+				89B310A81FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h */,
+				89B310A91FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m */,
+			);
+			path = CoreProxies;
+			sourceTree = "<group>";
+		};
+		89B310AC1FF36AD7000D07CB /* ExtProxies */ = {
+			isa = PBXGroup;
+			children = (
+				89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */,
+				89B310AE1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m */,
+				89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */,
+				89B310BA1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m */,
+				89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */,
+				89B310BE1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m */,
+			);
+			path = ExtProxies;
 			sourceTree = "<group>";
 		};
 		BFE7BF4B698FFD4D49E6C860 /* Pods */ = {
@@ -396,9 +480,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B310AA1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h in Headers */,
 				890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */,
+				89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */,
 				890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */,
+				89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */,
 				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
+				89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */,
 				890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */,
 				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
@@ -408,11 +496,16 @@
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
 				890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */,
+				89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */,
 				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
 				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
 				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
 				890BF7571FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h in Headers */,
+				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF72C1FEE47B4003E8E7C /* UIImage+QuickWeb.h in Headers */,
+				89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */,
+				89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */,
+				89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +669,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B310B31FF3742F000D07CB /* light_btn_close@3x.png in Resources */,
+				89B310B41FF3742F000D07CB /* light_btn_close@2x.png in Resources */,
 				890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,20 +791,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B310B81FF374B6000D07CB /* NSString+QuickWeb.m in Sources */,
 				890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */,
 				890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */,
 				890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */,
 				890BF7881FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m in Sources */,
+				89B310A71FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m in Sources */,
+				89B310971FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m in Sources */,
 				890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */,
 				890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */,
+				89B3109B1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m in Sources */,
+				89B310AB1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m in Sources */,
 				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
 				890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */,
 				890BF7421FEE8FEA003E8E7C /* UIView+QuickWeb.m in Sources */,
 				898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */,
+				89B310B01FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m in Sources */,
+				89B3109F1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m in Sources */,
 				890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */,
 				890BF7471FEEA1F3003E8E7C /* QuickWebToastPlugin.m in Sources */,
 				890BF7251FEE3F85003E8E7C /* QuickWebStringUtil.m in Sources */,
 				890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */,
+				89B310C01FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m in Sources */,
+				89B310BC1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m in Sources */,
 				890BF72D1FEE47B4003E8E7C /* UIImage+QuickWeb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
