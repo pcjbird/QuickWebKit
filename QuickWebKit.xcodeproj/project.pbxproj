@@ -333,6 +333,7 @@
 			children = (
 				890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */,
 				890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */,
+				89B310921FF34999000D07CB /* Proxies */,
 			);
 			path = QuickWebJSBridgePlugin;
 			sourceTree = "<group>";
@@ -368,6 +369,13 @@
 				890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		89B310921FF34999000D07CB /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Proxies;
 			sourceTree = "<group>";
 		};
 		BFE7BF4B698FFD4D49E6C860 /* Pods */ = {
