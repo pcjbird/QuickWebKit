@@ -129,7 +129,6 @@
 		890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QuickWebProviderPlugin.h"; sourceTree = "<group>"; };
 		890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QuickWebProviderPlugin.m"; sourceTree = "<group>"; };
 		890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebProviderPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		890BF7671FEF8E95003E8E7C /* QuickWebKitResource copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickWebKitResource copy-Info.plist"; path = "/mygithub/QuickWebViewController/QuickWebKitResource copy-Info.plist"; sourceTree = "<absolute>"; };
 		890BF7701FEF8FD6003E8E7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890BF7731FEF8FDE003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		890BF7771FEF8FF7003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -408,7 +407,6 @@
 				898A50C01FE7FDE7002DDFA7 /* Products */,
 				BFE7BF4B698FFD4D49E6C860 /* Pods */,
 				04DCC5772402FEB190EC0A34 /* Frameworks */,
-				890BF7671FEF8E95003E8E7C /* QuickWebKitResource copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
