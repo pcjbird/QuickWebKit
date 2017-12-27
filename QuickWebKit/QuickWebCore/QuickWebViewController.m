@@ -10,8 +10,11 @@
 #import "QuickWebStringUtil.h"
 #import "QuickWebNavigationButton.h"
 #import "UIView+QuickWeb.h"
+#import "UIColor+QuickWeb.h"
 #import "QuickWebKitDefines.h"
 #import "QuickWebJSInvokeProviderProtocol.h"
+#import <YYWebImage/YYWebImage.h>
+#import <FTPopOverMenu/FTPopOverMenu.h>
 
 #define ShowNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
@@ -64,7 +67,7 @@ typedef enum
 @property(nonatomic, strong)NSString* action;
 @property(nonatomic, strong)NSString* title;
 @property(nonatomic, strong)NSString* icon;
-
+@property(nonatomic, weak) id<QuickWebJSInvokeResultHandlerProtocol> resultHandler;
 +(QuickWebJSButtonActionObject*) itemWithCallbackId:(NSString*)callbackId action:(NSString*)action title:(NSString*)title icon:(NSString*)icon;
 
 -(QuickWebJSInvokeResult*) toResultWithSecretId:(NSString*)secretId;
@@ -115,6 +118,15 @@ typedef enum
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
 //页面"离开/重新进入"事件监听对象
 @property(nonatomic, strong) QuickWebPauseResumeEventObject * pauseResumeEventListenObject;
+//导航栏右侧主要按钮（JSButton）
+@property(nonatomic, strong) QuickWebJSButtonActionObject* primaryButton;
+//点击弹出的菜单项（JSButton）列表
+@property(nonatomic, strong) NSMutableArray* popItems;
+
+//导航栏相关样式
+@property(nonatomic, strong) UIColor *navBarBackColor;
+@property(nonatomic, strong) UIColor *navBarTitleColor;
+@property(nonatomic, strong) NSString *navBarTitleImageUrl;
 @end
 
 @implementation QuickWebViewController
@@ -124,9 +136,7 @@ typedef enum
     if(self = [super init])
     {
         _initUrl = nil;
-        _progressHidden = NO;
-        _navbarTransparent = NO;
-        _pluginMap = [NSMutableDictionary dictionary];
+        [self initVariables];
     }
     return self;
 }
@@ -140,11 +150,17 @@ typedef enum
     if(self = [super init])
     {
         _initUrl = url;
-        _progressHidden = NO;
-        _navbarTransparent = NO;
-        _pluginMap = [NSMutableDictionary dictionary];
+        
     }
     return self;
+}
+
+-(void) initVariables
+{
+    _progressHidden = NO;
+    _navbarTransparent = NO;
+    _pluginMap = [NSMutableDictionary dictionary];
+    _popItems = [NSMutableArray array];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -617,6 +633,155 @@ typedef enum
     }
 }
 
+#pragma mark - 更新导航右侧按钮
+
+-(void) updateRightBarButtonItems
+{
+    NSMutableArray *rightBtns = [NSMutableArray array];
+    if([self.primaryButton isKindOfClass:[QuickWebJSButtonActionObject class]])
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button yy_setImageWithURL:[NSURL URLWithString:self.primaryButton.icon] forState:UIControlStateNormal placeholder:nil];
+        CGSize size = [button.imageView sizeThatFits:CGSizeMake(HUGE, 40)];
+        button.frame = CGRectMake(0, 0, size.width, size.height);
+        [button addTarget:self action:@selector(OnPrimaryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [rightBtns addObject:primaryBtn];
+    }
+    if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        CGSize size = [button.imageView sizeThatFits:CGSizeMake(HUGE, 40)];
+        button.frame = CGRectMake(0, 0, size.width, size.height);
+        [button addTarget:self action:@selector(popView:event:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [rightBtns addObject:moreBtn];
+    }
+    else
+    {
+        weak(weakSelf);
+        [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+            if([obj respondsToSelector:@selector(webViewControllerRequestRightBarButtonItems:)])
+            {
+                NSArray<UIBarButtonItem *>* buttons = [obj webViewControllerRequestRightBarButtonItems:weakSelf];
+                if([buttons isKindOfClass:[NSArray<UIBarButtonItem *> class]])
+                {
+                    [rightBtns addObjectsFromArray:buttons];
+                }
+            }
+        }];
+    }
+    self.navigationItem.rightBarButtonItems = rightBtns;
+}
+
+-(void) applyNavBar
+{
+    if([self.navBarBackColor isKindOfClass:[UIColor class]])
+    {
+        [self.navigationController.navigationBar setBarTintColor:self.navBarBackColor];
+        
+    }
+    else
+    {
+        UINavigationBar *apperance = [UINavigationBar appearance];
+        if([apperance.barTintColor isKindOfClass:[UIColor class]])
+        {
+            [self.navigationController.navigationBar setBarTintColor:apperance.barTintColor];
+        }
+    }
+    //trigger reload statusbar style
+    self.navigationController.navigationBarHidden = NO;
+    
+    if([self.navBarTitleColor isKindOfClass:[UIColor class]])
+    {
+        [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName:self.navBarTitleColor}];
+    }
+    else
+    {
+        UINavigationBar *apperance = [UINavigationBar appearance];
+        NSDictionary<NSAttributedStringKey, id> *titleTextAttributes = [apperance titleTextAttributes];
+        if([titleTextAttributes isKindOfClass:[NSDictionary class]])
+        {
+            UIColor *titleColor = [titleTextAttributes objectForKey:NSForegroundColorAttributeName];
+            if([titleColor isKindOfClass:[UIColor class]])
+            {
+                [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName:titleColor}];
+            }
+        }
+    }
+    
+    if(![QuickWebStringUtil isStringBlank:self.navBarTitleImageUrl])
+    {
+        __weak typeof(self) weakSelf = self;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        __block UIImageView *weakImageView = imageView;
+        [imageView yy_setImageWithURL:[NSURL URLWithString:self.navBarTitleImageUrl] placeholder:nil options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            if([error isKindOfClass:[NSError class]]) return;
+            CGSize size = [weakImageView sizeThatFits:CGSizeMake([[UIScreen mainScreen] bounds].size.width, 40)];
+            weakImageView.frame = CGRectMake(0, 0, size.width, size.height);
+            weakImageView.contentMode = UIViewContentModeScaleAspectFit;
+            weakSelf.navigationItem.titleView = weakImageView;
+        }];
+    }
+    else
+    {
+        self.navigationItem.titleView = nil;
+    }
+}
+
+-(void) OnPrimaryBtnClick:(id)sender
+{
+    if([self.primaryButton isKindOfClass:[QuickWebJSButtonActionObject class]])
+    {
+        if([self.primaryButton.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
+        {
+            [self.primaryButton.resultHandler handleQuickWebJSInvokeResult:[self.primaryButton toResultWithSecretId:_contentWebView.secretId]];
+        }
+    }
+}
+
+-(void)popView:(id)sender event:(UIEvent *)event
+{
+    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
+    configuration.menuRowHeight = 40;
+    configuration.menuWidth = 127;
+    configuration.textColor = [UIColor quickweb_ColorWithHexString:@"#faa208"];
+    configuration.textFont = [UIFont systemFontOfSize:13.0f];
+    configuration.tintColor = [UIColor whiteColor];
+    configuration.borderColor = [UIColor whiteColor];
+    configuration.borderWidth = 0.5;
+    
+    __weak typeof(self) weakSelf = self;
+    if (self.popItems && self.popItems.count > 0)
+    {
+        NSMutableArray *menuItems = [NSMutableArray array];
+        NSMutableArray *iconItems = [NSMutableArray array];
+        BOOL isIconEmpty = YES;
+        for (QuickWebJSButtonActionObject*item in self.popItems) {
+            [menuItems addObject:item.title];
+            [iconItems addObject:[QuickWebStringUtil isStringBlank:item.icon] ? @"" : item.icon];
+            if(![QuickWebStringUtil isStringBlank:item.icon])
+            {
+                isIconEmpty = NO;
+            }
+        }
+        [FTPopOverMenu showFromEvent:event withMenuArray:menuItems imageArray:isIconEmpty ? nil : iconItems doneBlock:^(NSInteger selectedIndex) {
+            QuickWebJSButtonActionObject* item = [weakSelf.popItems objectAtIndex:selectedIndex];
+            if([item isKindOfClass:[QuickWebJSButtonActionObject class]])
+            {
+                if([item.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
+                {
+                    [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:_contentWebView.secretId]];
+                }
+            }
+        } dismissBlock:^{
+            
+        }];
+    }
+    
+}
+
 #pragma mark - 是否在返回或关闭按钮上使用文字  默认YES
 -(BOOL)useTextWithBackOrCloseButton
 {
@@ -704,10 +869,10 @@ typedef enum
     NSDictionary*params = command.param;
     if([params isKindOfClass:[NSDictionary class]])
     {
-        /*NSDictionary *primaryAction = [params objectForKey:@"primaryAction"];
+        NSDictionary *primaryAction = [params objectForKey:@"primaryAction"];
         if([primaryAction isKindOfClass:[NSDictionary class]])
         {
-            self.primaryButton = [JSButtonActionObject itemWithCallbackId:command.callbackId action:[primaryAction objectForKey:@"action"] title:[primaryAction objectForKey:@"des"] icon:[primaryAction objectForKey:@"iconUrl"]];
+            self.primaryButton = [QuickWebJSButtonActionObject itemWithCallbackId:command.callbackId action:[primaryAction objectForKey:@"action"] title:[primaryAction objectForKey:@"des"] icon:[primaryAction objectForKey:@"iconUrl"]];
         }
         else
         {
@@ -718,14 +883,14 @@ typedef enum
         {
             [self.popItems removeAllObjects];
             for (NSDictionary* dict in moreAction) {
-                JSButtonActionObject* buttonObject = [JSButtonActionObject itemWithCallbackId:command.callbackId action:[dict objectForKey:@"action"] title:[dict objectForKey:@"des"] icon:[dict objectForKey:@"iconUrl"]];
+                QuickWebJSButtonActionObject* buttonObject = [QuickWebJSButtonActionObject itemWithCallbackId:command.callbackId action:[dict objectForKey:@"action"] title:[dict objectForKey:@"des"] icon:[dict objectForKey:@"iconUrl"]];
                 [self.popItems addObject:buttonObject];
             }
         }
         NSString* headerColor = [params objectForKey:@"headerColor"];
-        if(![StringUtil isStringBlank:headerColor])
+        if(![QuickWebStringUtil isStringBlank:headerColor])
         {
-            self.navBarBackColor = [UIColor colorWithHexString:headerColor];
+            self.navBarBackColor = [UIColor quickweb_ColorWithHexString:headerColor];
         }
         else
         {
@@ -733,16 +898,16 @@ typedef enum
         }
         
         NSString* titleColor = [params objectForKey:@"titleColor"];
-        if(![StringUtil isStringBlank:titleColor])
+        if(![QuickWebStringUtil isStringBlank:titleColor])
         {
-            self.navBarTitleColor = [UIColor colorWithHexString:titleColor];
+            self.navBarTitleColor = [UIColor quickweb_ColorWithHexString:titleColor];
         }
         else
         {
             self.navBarTitleColor = nil;
         }
         NSString* titleLogo = [params objectForKey:@"logoUrl"];
-        if(![StringUtil isStringBlank:titleLogo])
+        if(![QuickWebStringUtil isStringBlank:titleLogo])
         {
             self.navBarTitleImageUrl = titleLogo;
         }
@@ -750,13 +915,16 @@ typedef enum
         {
             self.navBarTitleImageUrl = nil;
         }
-        [GCDQueue executeInMainQueue:^{
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf applyNavBar];
             [weakSelf updateRightBarButtonItems];
-        }];*/
-        
+        });
     }
 }
+
+
+
 
 #pragma mark - UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView
@@ -819,5 +987,31 @@ typedef enum
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
     HideNetworkActivityIndicator();
+}
+
+#pragma mark - Status Bar
+
+-(BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    UIColor * navBarTintColor = [UIColor whiteColor];
+    if([self.navBarBackColor isKindOfClass:[UIColor class]])
+    {
+        navBarTintColor = self.navBarBackColor;
+    }
+    else
+    {
+        UINavigationBar *apperance = [UINavigationBar appearance];
+        if([apperance.barTintColor isKindOfClass:[UIColor class]])
+        {
+            navBarTintColor = apperance.barTintColor;
+        }
+    }
+    BOOL isDark = [navBarTintColor quickweb_isdarkcolor];
+    return isDark ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 @end

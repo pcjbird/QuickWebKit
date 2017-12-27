@@ -9,7 +9,7 @@
 #import "QuickWebProviderPlugin.h"
 #import "QuickWebProvider.h"
 #import "UIScrollView+QuickWebProviderPlugin.h"
-#import "UIColor+QuickWebProviderPlugin.h"
+#import "UIColor+QuickWeb.h"
 #import "UIView+QuickWeb.h"
 #import "QuickWebKitDefines.h"
 
@@ -35,7 +35,7 @@
     QuickWebProvider *provider = [QuickWebProvider new];
     provider.backgroundColor = [UIColor clearColor];
     provider.font = [UIFont systemFontOfSize:12.0f];
-    provider.textColor = [[scrollBackColor quickwebprovider_inversecolor] colorWithAlphaComponent:0.70f];
+    provider.textColor = [[scrollBackColor quickweb_inversecolor] colorWithAlphaComponent:0.70f];
     webViewController.webView.scrollView.quickweb_provider = provider;
 }
 

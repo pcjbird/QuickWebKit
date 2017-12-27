@@ -10,6 +10,9 @@ target 'QuickWebKit' do
 
   # Pods for QuickWebKit
   pod 'SmartJSWebView'
+  pod 'YYImage/WebP'
+  pod 'YYWebImage'
+  pod 'FTPopOverMenu'
   # Pods for QuickWebToastPlugin
   pod 'Toast'
   # Pods for QuickWebJSBridgeImagePlayProxy

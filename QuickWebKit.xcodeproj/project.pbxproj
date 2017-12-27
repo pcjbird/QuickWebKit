@@ -50,10 +50,7 @@
 		890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */; };
 		890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */; };
 		890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */; };
-		890BF7571FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */; };
-		890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */; };
 		890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7721FEF8FDE003E8E7C /* Localizable.strings */; };
-		890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7701FEF8FD6003E8E7C /* Info.plist */; };
 		890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */; };
 		890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */; };
 		890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */; };
@@ -62,9 +59,15 @@
 		890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */; };
 		890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */; };
 		890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */; };
-		890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7A11FEFDBC8003E8E7C /* Localizable.strings */; };
 		890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */; };
 		890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */; };
+		890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7AA1FF3CAAA003E8E7C /* UIColor+QuickWeb.h */; };
+		890BF7AD1FF3CAAA003E8E7C /* UIColor+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7AB1FF3CAAA003E8E7C /* UIColor+QuickWeb.m */; };
+		890BF7B21FF3DBD8003E8E7C /* navbar_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7AE1FF3DBCE003E8E7C /* navbar_more@2x.png */; };
+		890BF7B31FF3DBD8003E8E7C /* navbar_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7AF1FF3DBCF003E8E7C /* navbar_more@3x.png */; };
+		890BF7B41FF3DBE3003E8E7C /* light_btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B21FF3742F000D07CB /* light_btn_close@2x.png */; };
+		890BF7B51FF3DBE3003E8E7C /* light_btn_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B11FF3742F000D07CB /* light_btn_close@3x.png */; };
+		890BF7B61FF3DC02003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7A11FEFDBC8003E8E7C /* Localizable.strings */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
 		89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */; };
@@ -81,8 +84,6 @@
 		89B310AB1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310A91FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m */; };
 		89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */; };
 		89B310B01FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310AE1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m */; };
-		89B310B31FF3742F000D07CB /* light_btn_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B11FF3742F000D07CB /* light_btn_close@3x.png */; };
-		89B310B41FF3742F000D07CB /* light_btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B21FF3742F000D07CB /* light_btn_close@2x.png */; };
 		89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */; };
 		89B310B81FF374B6000D07CB /* NSString+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */; };
 		89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */; };
@@ -126,8 +127,6 @@
 		890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+QuickWebProviderPlugin.m"; sourceTree = "<group>"; };
 		890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebProvider.h; sourceTree = "<group>"; };
 		890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebProvider.m; sourceTree = "<group>"; };
-		890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QuickWebProviderPlugin.h"; sourceTree = "<group>"; };
-		890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QuickWebProviderPlugin.m"; sourceTree = "<group>"; };
 		890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebProviderPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		890BF7701FEF8FD6003E8E7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890BF7731FEF8FDE003E8E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,6 +150,10 @@
 		890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSInvokeCommand.m; sourceTree = "<group>"; };
 		890BF7A81FF13B2B003E8E7C /* QuickWebJSInvokeProviderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeProviderProtocol.h; sourceTree = "<group>"; };
 		890BF7A91FF29064003E8E7C /* QuickWebJSInvokeResultHandlerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeResultHandlerProtocol.h; sourceTree = "<group>"; };
+		890BF7AA1FF3CAAA003E8E7C /* UIColor+QuickWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QuickWeb.h"; sourceTree = "<group>"; };
+		890BF7AB1FF3CAAA003E8E7C /* UIColor+QuickWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QuickWeb.m"; sourceTree = "<group>"; };
+		890BF7AE1FF3DBCE003E8E7C /* navbar_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_more@2x.png"; sourceTree = "<group>"; };
+		890BF7AF1FF3DBCF003E8E7C /* navbar_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_more@3x.png"; sourceTree = "<group>"; };
 		898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickWebKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
 		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				890BF6C21FED3868003E8E7C /* navbar_return@3x.png */,
 				890BF6CE1FED429F003E8E7C /* navbar_close@2x.png */,
 				890BF6CD1FED429F003E8E7C /* navbar_close@3x.png */,
+				890BF7AE1FF3DBCE003E8E7C /* navbar_more@2x.png */,
+				890BF7AF1FF3DBCF003E8E7C /* navbar_more@3x.png */,
 				89B310B21FF3742F000D07CB /* light_btn_close@2x.png */,
 				89B310B11FF3742F000D07CB /* light_btn_close@3x.png */,
 				890BF6C91FED3FCB003E8E7C /* Localizable.strings */,
@@ -324,6 +329,8 @@
 				890BF7401FEE8FEA003E8E7C /* UIView+QuickWeb.m */,
 				89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */,
 				89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */,
+				890BF7AA1FF3CAAA003E8E7C /* UIColor+QuickWeb.h */,
+				890BF7AB1FF3CAAA003E8E7C /* UIColor+QuickWeb.m */,
 			);
 			path = QuickWebUtil;
 			sourceTree = "<group>";
@@ -362,8 +369,6 @@
 				890BF74A1FEEB090003E8E7C /* QuickWebProviderPlugin.m */,
 				890BF74D1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h */,
 				890BF74E1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m */,
-				890BF7551FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h */,
-				890BF7561FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m */,
 				890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */,
 				890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */,
 			);
@@ -495,10 +500,10 @@
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
 				890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */,
 				89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */,
+				890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */,
 				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
 				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
 				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
-				890BF7571FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.h in Headers */,
 				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF72C1FEE47B4003E8E7C /* UIImage+QuickWeb.h in Headers */,
 				89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */,
@@ -640,10 +645,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				890BF6CF1FED429F003E8E7C /* navbar_close@3x.png in Resources */,
+				890BF7B31FF3DBD8003E8E7C /* navbar_more@3x.png in Resources */,
 				890BF6C31FED3868003E8E7C /* navbar_return@2x.png in Resources */,
+				890BF7B41FF3DBE3003E8E7C /* light_btn_close@2x.png in Resources */,
 				890BF6C71FED3FCB003E8E7C /* Localizable.strings in Resources */,
 				890BF6D01FED429F003E8E7C /* navbar_close@2x.png in Resources */,
 				890BF6C41FED3868003E8E7C /* navbar_return@3x.png in Resources */,
+				890BF7B51FF3DBE3003E8E7C /* light_btn_close@3x.png in Resources */,
+				890BF7B21FF3DBD8003E8E7C /* navbar_more@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +660,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				890BF7761FEF8FF1003E8E7C /* Info.plist in Resources */,
 				890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,6 +668,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890BF7B61FF3DC02003E8E7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,9 +676,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B310B31FF3742F000D07CB /* light_btn_close@3x.png in Resources */,
-				89B310B41FF3742F000D07CB /* light_btn_close@2x.png in Resources */,
-				890BF79F1FEFDBC8003E8E7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,12 +798,12 @@
 				89B310B81FF374B6000D07CB /* NSString+QuickWeb.m in Sources */,
 				890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */,
 				890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */,
-				890BF7581FEF7965003E8E7C /* UIColor+QuickWebProviderPlugin.m in Sources */,
 				890BF7881FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m in Sources */,
 				89B310A71FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m in Sources */,
 				89B310971FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m in Sources */,
 				890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */,
 				890BF7501FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.m in Sources */,
+				890BF7AD1FF3CAAA003E8E7C /* UIColor+QuickWeb.m in Sources */,
 				89B3109B1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m in Sources */,
 				89B310AB1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m in Sources */,
 				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
