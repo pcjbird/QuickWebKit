@@ -22,6 +22,7 @@
 // navigationBar相关frame
 #define NavigationBarHeight (44)
 
+#pragma mark - QuickWebPauseResumeEventObject
 /*
  * @brief 页面"离开/重新进入"事件定义
  */
@@ -30,7 +31,6 @@ typedef enum
     QuickWebPauseResumeEvent_Pause = 0,  //离开
     QuickWebPauseResumeEvent_Resume = 1, //重新进入
 }QuickWebPauseResumeEvent;
-
 
 /*
  * @brief 页面"离开/重新进入"事件
@@ -54,6 +54,53 @@ typedef enum
 
 @end
 
+#pragma mark - QuickWebJSButtonActionObject
+/*
+ * @brief JS按钮行为对象
+ */
+@interface QuickWebJSButtonActionObject: NSObject
+
+@property(nonatomic, strong)NSString* callbackId;
+@property(nonatomic, strong)NSString* action;
+@property(nonatomic, strong)NSString* title;
+@property(nonatomic, strong)NSString* icon;
+
++(QuickWebJSButtonActionObject*) itemWithCallbackId:(NSString*)callbackId action:(NSString*)action title:(NSString*)title icon:(NSString*)icon;
+
+-(QuickWebJSInvokeResult*) toResultWithSecretId:(NSString*)secretId;
+
+@end
+
+@implementation QuickWebJSButtonActionObject
+
+-(id) initWithCallbackId:(NSString*)callbackId action:(NSString*)action title:(NSString*)title icon:(NSString*)icon
+{
+    if(self = [super init])
+    {
+        _callbackId = callbackId;
+        _action = action;
+        _title = title;
+        _icon = icon;
+    }
+    return self;
+}
+
+-(QuickWebJSInvokeResult*) toResultWithSecretId:(NSString*)secretId
+{
+    return [QuickWebJSInvokeResult resultWithStatus:YES secretId:secretId callbackId:_callbackId resultWithString:[NSString stringWithFormat:@"%@", _action]];
+}
+
++(QuickWebJSButtonActionObject*) itemWithCallbackId:(NSString*)callbackId action:(NSString*)action title:(NSString*)title icon:(NSString*)icon
+{
+    return [[QuickWebJSButtonActionObject alloc] initWithCallbackId:callbackId action:action title:title icon:icon];
+}
+
+@end
+
+#pragma mark - QuickWebViewController
+/*
+ * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
+ */
 @interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, QuickWebJSInvokeProviderProtocol>
 {
     NSString * _initUrl;
