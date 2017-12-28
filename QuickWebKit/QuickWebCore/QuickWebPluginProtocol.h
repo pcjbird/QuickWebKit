@@ -9,6 +9,9 @@
 #ifndef QuickWebPluginProtocol_h
 #define QuickWebPluginProtocol_h
 
+//插件请求更新UI通知 notification.object 为WebView的secretId
+#define QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION @"QuickWebPluginRequestUpdateUINotification"
+
 @class UIBarButtonItem;
 @class QuickWebViewController;
 /*

@@ -22,6 +22,7 @@ FOUNDATION_EXPORT double QuickWebKitVersionNumber;
 //! Project version string for QuickWebKit.
 FOUNDATION_EXPORT const unsigned char QuickWebKitVersionString[];
 
+//QuickWeb通知APP 请求Url处理  notification.object 为url地址
 #define QUICKWEBREQUESTURLHANDLERNOTIFICATION @"QuickWebRequestUrlHandlerNotification"
 
 #if __has_include("QuickWebViewController.h")

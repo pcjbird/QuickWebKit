@@ -224,6 +224,7 @@ typedef enum
 
 -(void) registerNotificationObserver
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnPluginRequestUpdateUINotification:) name:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnJSInvokeNotification:) name:QUICKWEBJSINVOKENOTIFICATION object:nil];
     weak(weakSelf);
     [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -255,6 +256,17 @@ typedef enum
 -(void)dealloc
 {
     [self removeNotificationObserver];
+}
+
+#pragma mark - 插件请求更新UI
+-(void) OnPluginRequestUpdateUINotification:(NSNotification *)notification
+{
+    weak(weakSelf);
+    NSString* secretId = notification.object;
+    if([QuickWebStringUtil isStringBlank:secretId] || ![QuickWebStringUtil isString:secretId EqualTo:_contentWebView.secretId]) return;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf updateRightBarButtonItems];
+    });
 }
 
 #pragma mark - 处理JS调用
@@ -640,13 +652,30 @@ typedef enum
     NSMutableArray *rightBtns = [NSMutableArray array];
     if([self.primaryButton isKindOfClass:[QuickWebJSButtonActionObject class]])
     {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button yy_setImageWithURL:[NSURL URLWithString:self.primaryButton.icon] forState:UIControlStateNormal placeholder:nil];
-        CGSize size = [button.imageView sizeThatFits:CGSizeMake(HUGE, 40)];
-        button.frame = CGRectMake(0, 0, size.width, size.height);
-        [button addTarget:self action:@selector(OnPrimaryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
-        [rightBtns addObject:primaryBtn];
+        if(![QuickWebStringUtil isStringBlank:self.primaryButton.icon])
+        {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            if(![QuickWebStringUtil isStringBlank:self.primaryButton.title])
+            {
+                [button setTitle:self.primaryButton.title forState:UIControlStateNormal];
+                [button.titleLabel setFont:[self resolvedBtnFont]];
+                button.tintColor = [self resolvedBtnTintColor];
+            }
+            [button.imageView yy_setImageWithURL:[NSURL URLWithString:self.primaryButton.icon] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+                CGSize size = [button sizeThatFits:CGSizeMake(HUGE, 40)];
+                button.frame = CGRectMake(0, 0, size.width, size.height);
+            }];
+            
+            [button addTarget:self action:@selector(OnPrimaryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+            [rightBtns addObject:primaryBtn];
+        }
+        else
+        {
+            UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithTitle:self.primaryButton.title style:UIBarButtonItemStylePlain target:self action:@selector(OnPrimaryBtnClick:)];
+            [rightBtns addObject:primaryBtn];
+        }
+        
     }
     if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
     {
