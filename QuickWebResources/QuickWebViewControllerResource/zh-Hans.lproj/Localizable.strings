@@ -18,3 +18,8 @@
 "Continue Play" = "继续观看";
 
 "Network Not Available" = "当前似乎没有连接到网络哟！";
+
+"OpenLink" = "打开链接";
+"SaveImage" = "保存图片";
+"DecodeQRCode" = "识别二维码";
+"OpenInSafari" ="在Safari中打开";

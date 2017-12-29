@@ -18,3 +18,8 @@
 "Continue Play" = "仍然觀看";
 
 "Network Not Available" = "當前似乎沒有網路可用唷！";
+
+"OpenLink" = "打開鏈接";
+"SaveImage" = "保存圖片";
+"DecodeQRCode" = "識別二維碼";
+"OpenInSafari" ="在Safari中打開";

@@ -58,6 +58,14 @@ Pod::Spec.new do |s|
         ss.dependency 'GTMNSStringHTMLAdditions'
     end
 
+    s.subspec 'QuickWebQRCodePlugin' do |ss|
+        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebQRCodePlugin'
+        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebQRCodePlugin/QuickWebQRCodePlugin.h'
+        ss.dependency 'QuickWebKit/QuickWebViewController'
+        ss.dependency 'ZXingObjC'
+        ss.dependency 'Toast'
+    end
+
     s.subspec 'QuickWebJSBridgePlugin' do |ss|
         ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin'
         ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin/*.{h}'

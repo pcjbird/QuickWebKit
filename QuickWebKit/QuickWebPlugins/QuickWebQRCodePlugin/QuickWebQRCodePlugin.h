@@ -10,6 +10,11 @@
 #import "QuickWebPluginProtocol.h"
 #import "QuickWebViewController.h"
 
+/*
+ * @brief 二维码识别插件
+ * @remark 不可在不同QuickWebViewController之间共享该插件
+ */
 @interface QuickWebQRCodePlugin : NSObject<QuickWebPluginProtocol>
 
+-(UIColor *) alertTintColor;
 @end

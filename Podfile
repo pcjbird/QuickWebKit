@@ -18,6 +18,8 @@ target 'QuickWebKit' do
   # Pods for QuickWebSharePlugin
   pod 'EasyShareKit'
   pod 'GTMNSStringHTMLAdditions'
+  # Pods for QuickWebQRCodePlugin
+  pod 'ZXingObjC'
   # Pods for QuickWebJSBridgeImagePlayProxy
   pod 'IDMPhotoBrowser'
   # Pods for QuickWebJSBridgeVideoPlayProxy

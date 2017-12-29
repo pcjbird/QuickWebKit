@@ -18,3 +18,8 @@
 "Continue Play" = "Play";
 
 "Network Not Available" = "Network is not available now.";
+
+"OpenLink" = "Open Link";
+"SaveImage" = "Save Image";
+"DecodeQRCode" = "Decode QRCode";
+"OpenInSafari" ="Open in Safari";
