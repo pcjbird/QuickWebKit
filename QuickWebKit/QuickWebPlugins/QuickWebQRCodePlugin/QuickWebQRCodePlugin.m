@@ -168,7 +168,7 @@
                     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     
-                    UIImageWriteToSavedPhotosAlbum(result, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+                    UIImageWriteToSavedPhotosAlbum(result, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
                     _resultQRCode = nil;
                     _touchedImageUrl = nil;
                     _touchedLinkUrl = nil;
@@ -202,10 +202,9 @@
                         
                         // The barcode format, such as a QR code or UPC-A
                         ZXBarcodeFormat format = qrresult.barcodeFormat;
-                        NSString *formatString = [self barcodeFormatToString:format];
-                        NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, contents];
-                        
-                        
+                        NSString *formatString = [weakSelf barcodeFormatToString:format];
+                        NSString *display = [NSString stringWithFormat:@"二维码成功，格式: %@ 内容:\n%@", formatString, contents];
+                        SDK_LOG(@"%@",display);
                         _resultQRCode = qrresult.text;
                         
                         //识别二维码
@@ -239,8 +238,8 @@
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
             [alertController addAction:cancelAction];
             
-            alertController.view.tintColor =  [self alertTintColor];
-            [self.targetWebController presentViewController:alertController animated:YES completion:nil];
+            alertController.view.tintColor =  [weakSelf alertTintColor];
+            [weakSelf.targetWebController presentViewController:alertController animated:YES completion:nil];
             
         }
     }];
