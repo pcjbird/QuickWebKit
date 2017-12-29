@@ -50,6 +50,14 @@ Pod::Spec.new do |s|
         }
     end
 
+    s.subspec 'QuickWebSharePlugin' do |ss|
+        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebSharePlugin'
+        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebSharePlugin/QuickWebSharePlugin.h'
+        ss.dependency 'QuickWebKit/QuickWebViewController'
+        ss.dependency 'EasyShareKit'
+        ss.dependency 'GTMNSStringHTMLAdditions'
+    end
+
     s.subspec 'QuickWebJSBridgePlugin' do |ss|
         ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin'
         ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin/*.{h}'

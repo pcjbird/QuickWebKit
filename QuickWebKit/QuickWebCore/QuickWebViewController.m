@@ -679,12 +679,7 @@ typedef enum
     }
     if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
     {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-        CGSize size = [button.imageView sizeThatFits:CGSizeMake(HUGE, 40)];
-        button.frame = CGRectMake(0, 0, size.width, size.height);
-        [button addTarget:self action:@selector(popView:event:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(popView:event:)];
         [rightBtns addObject:moreBtn];
     }
     else

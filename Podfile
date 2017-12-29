@@ -15,6 +15,9 @@ target 'QuickWebKit' do
   pod 'FTPopOverMenu'
   # Pods for QuickWebToastPlugin
   pod 'Toast'
+  # Pods for QuickWebSharePlugin
+  pod 'EasyShareKit'
+  pod 'GTMNSStringHTMLAdditions'
   # Pods for QuickWebJSBridgeImagePlayProxy
   pod 'IDMPhotoBrowser'
   # Pods for QuickWebJSBridgeVideoPlayProxy

@@ -64,7 +64,7 @@
     {
         return NSStringFromBOOL(FALSE);
     }
-    __block QuickWebJSInvokeCommand *jsCommand = [QuickWebJSInvokeCommand commandWithSecretId:command.secretId callbackId:command.callbackId provider:@"MasterProvider" actionId:@"" param:command.arguments resultHandler:self.resultHandler];
+    __block QuickWebJSInvokeCommand *jsCommand = [QuickWebJSInvokeCommand commandWithSecretId:command.secretId callbackId:command.callbackId provider:@"ShareProvider" actionId:@"100" param:command.arguments resultHandler:self.resultHandler];
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBJSINVOKENOTIFICATION object:jsCommand];
     });
@@ -82,7 +82,7 @@
     {
         return NSStringFromBOOL(FALSE);
     }
-    __block QuickWebJSInvokeCommand *jsCommand = [QuickWebJSInvokeCommand commandWithSecretId:command.secretId callbackId:command.callbackId provider:@"MasterProvider" actionId:@"" param:command.arguments resultHandler:self.resultHandler];
+    __block QuickWebJSInvokeCommand *jsCommand = [QuickWebJSInvokeCommand commandWithSecretId:command.secretId callbackId:command.callbackId provider:@"ShareProvider" actionId:@"101" param:command.arguments resultHandler:self.resultHandler];
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBJSINVOKENOTIFICATION object:jsCommand];
     });

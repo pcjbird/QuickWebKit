@@ -7,6 +7,20 @@
 //
 
 #import "QuickWebSharePlugin.h"
+#import "QuickWebStringUtil.h"
+#import "QuickWebDataParseUtil.h"
+#import "QuickWebKitDefines.h"
+#import <EasyShareKit/EasyShareKit.h>
+#import <GTMNSStringHTMLAdditions/GTMNSString+HTML.h>
+#define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebSharePlugin class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
+@implementation QuickWebShareInfo
+@end
+
+@interface QuickWebSharePlugin()
+
+@property(nonatomic, strong) NSString*       providerHost;
+@property(nonatomic, strong) EasyShareInfo*  autoDetectedShareInfo;
+@end
 
 @implementation QuickWebSharePlugin
 
@@ -20,4 +34,212 @@
     
 }
 
+
+-(BOOL) shouldAlwaysShowShareBarButton
+{
+    return FALSE;
+}
+
+-(NSArray<NSString*>*)customMetaTags
+{
+    return nil;
+}
+
+#pragma mark - QuickWebPluginProtocol
+
+-(void)webViewControllerDidStartLoad:(QuickWebViewController *)webViewController
+{
+    weak(weakSelf);
+    self.autoDetectedShareInfo = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.providerHost = webViewController.webView.url.host;
+        [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+    });
+}
+
+-(void)webViewControllerDidFinishLoad:(QuickWebViewController *)webViewController
+{
+    weak(weakSelf);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.providerHost = webViewController.webView.url.host;
+        NSString* url = [webViewController.webView.url absoluteString];
+        [webViewController.webView evaluateJavaScript:@"document.documentElement.innerHTML" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+            if([error isKindOfClass:[NSError class]]) return;
+            NSString * htmlText = result;
+            if(![QuickWebStringUtil isStringBlank:htmlText])
+            {
+                EasyShareKit * shareKit = [[EasyShareKit alloc] initWithHtml:htmlText];
+                NSArray<NSString *>* metaTags = [self customMetaTags];
+                if([metaTags isKindOfClass:[NSArray<NSString*> class]])
+                {
+                    [shareKit setCustomMetaTags:metaTags];
+                }
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                    [shareKit getWebShareInfo:^(EasyShareInfo *shareInfo, long cost,NSError *error) {
+                        if([error isKindOfClass:[NSError class]])
+                        {
+                            SDK_LOG(@"获取页面分享信息失败：%@.(%@)", error.localizedDescription, url);
+                            return;
+                        }
+                        if(![shareInfo isKindOfClass:[EasyShareInfo class]])
+                        {
+                            SDK_LOG(@"未能正确页面获取分享信息.(%@)", url);
+                            return;
+                        }
+                        SDK_LOG(@"获取页面分享信息成功，耗时：%ldms.(%@)", cost, url);
+                        
+                        weakSelf.autoDetectedShareInfo = shareInfo;
+                        if([QuickWebStringUtil isStringBlank:shareInfo.url])
+                        {
+                            weakSelf.autoDetectedShareInfo.url = url;
+                        }
+                        if([QuickWebStringUtil isStringBlank:shareInfo.desc])
+                        {
+                            dispatch_sync(dispatch_get_main_queue(), ^{
+                                [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+                                    if([error isKindOfClass:[NSError class]]) return;
+                                    if(![QuickWebStringUtil isStringBlank:result])
+                                    {
+                                        weakSelf.autoDetectedShareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                        if([weakSelf.autoDetectedShareInfo.desc length] > 255)
+                                        {
+                                            weakSelf.autoDetectedShareInfo.desc = [weakSelf.autoDetectedShareInfo.desc substringToIndex:254];
+                                        }
+                                    }
+                                }];
+                            });
+                        }
+                        if([QuickWebStringUtil isStringBlank:weakSelf.autoDetectedShareInfo.image])
+                        {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [webViewController.webView evaluateJavaScript:@"SmartJSGetFirstImage();" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+                                    if(![error isKindOfClass:[NSError class]])
+                                    {
+                                        weakSelf.autoDetectedShareInfo.image = result;
+                                    }
+                                    [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+                                }];
+                            });
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+                            });
+                        }
+                    }];
+                });
+            }
+        }];
+    });
+}
+
+-(NSArray<UIBarButtonItem *> *)webViewControllerRequestRightBarButtonItems:(QuickWebViewController *)webViewController
+{
+    if([self shouldAlwaysShowShareBarButton] || [self.autoDetectedShareInfo isKindOfClass:[EasyShareInfo class]])
+    {
+        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(OnShareBtnClick:)];
+        return [NSArray<UIBarButtonItem*> arrayWithObject:moreBtn];
+    }
+    return nil;
+}
+
+-(void) OnShareBtnClick:(id)sender
+{
+    weak(weakSelf);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        QuickWebShareInfo *shareinfo = nil;
+        if([weakSelf.autoDetectedShareInfo isKindOfClass:[EasyShareInfo class]])
+        {
+            shareinfo = [QuickWebShareInfo new];
+            shareinfo.title = weakSelf.autoDetectedShareInfo.title;
+            shareinfo.summary = weakSelf.autoDetectedShareInfo.desc;
+            shareinfo.linkUrl = weakSelf.autoDetectedShareInfo.url;
+            shareinfo.imageUrl = weakSelf.autoDetectedShareInfo.image;
+        }
+        [weakSelf showSharePanel:shareinfo providerHost:weakSelf.providerHost];
+    });
+}
+
+#pragma mark - QuickWebJSInvokeProviderProtocol
+
+-(NSString *)jsProviderName
+{
+    return @"ShareProvider";
+}
+
+-(void)setJsProviderName:(NSString *)jsProviderName
+{
+    
+}
+
+-(void)callAction:(NSString *)actionId command:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+    if([actionId isEqualToString:@"100"])
+    {
+        [self showShare:command callback:callback];
+    }
+    else if([actionId isEqualToString:@"101"])
+    {
+        [self directShare:command callback:callback];
+    }
+}
+
+-(void)showShare:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+    NSDictionary*params = command.param;
+    if([params isKindOfClass:[NSDictionary class]])
+    {
+        NSString* title = [params objectForKey:@"title"];
+        NSString* summary = [params objectForKey:@"content"];
+        NSString* linkUrl = [params objectForKey:@"url"];
+        NSString* imageUrl = [params objectForKey:@"iconUrl"];
+        weak(weakSelf);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            QuickWebShareInfo *shareinfo = [QuickWebShareInfo new];
+            shareinfo.title = title;
+            shareinfo.summary = summary;
+            shareinfo.linkUrl = linkUrl;
+            shareinfo.imageUrl = imageUrl;
+            [weakSelf showSharePanel:shareinfo providerHost:weakSelf.providerHost];
+        });
+    }
+}
+
+-(void)directShare:(QuickWebJSInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+    NSDictionary*params = command.param;
+    if([params isKindOfClass:[NSDictionary class]])
+    {
+        int sharePlatform = [QuickWebDataParseUtil getDataAsInt:[params objectForKey:@"platform"]];
+        NSString* title = [params objectForKey:@"title"];
+        NSString* summary = [params objectForKey:@"content"];
+        NSString* linkUrl = [params objectForKey:@"url"];
+        NSString* imageUrl = [params objectForKey:@"iconUrl"];
+        weak(weakSelf);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            QuickWebShareInfo *shareinfo = [QuickWebShareInfo new];
+            shareinfo.title = title;
+            shareinfo.summary = summary;
+            shareinfo.linkUrl = linkUrl;
+            shareinfo.imageUrl = imageUrl;
+            [weakSelf directShare:[weakSelf resolveJSShareAction:sharePlatform] info:shareinfo param:nil providerHost:weakSelf.providerHost];
+        });
+    }
+}
+
+-(QuickWebShareAction) resolveJSShareAction:(int) platform
+{
+    return QuickWebShareActionNone;
+}
+
+-(void)showSharePanel:(QuickWebShareInfo *)shareinfo providerHost:(NSString *)host
+{
+    
+}
+
+-(void)directShare:(QuickWebShareAction)action info:(QuickWebShareInfo *)shareinfo param:(NSDictionary *)param providerHost:(NSString *)host
+{
+    
+}
 @end
