@@ -33,6 +33,10 @@ typedef enum {
 
 @end
 
+/*
+ * @brief 分享插件
+ * @remark 不可在不同QuickWebViewController之间共享该插件
+ */
 @interface QuickWebSharePlugin : NSObject<QuickWebPluginProtocol, QuickWebJSInvokeProviderProtocol>
 
 
@@ -40,7 +44,7 @@ typedef enum {
 -(NSArray<NSString*>*)customMetaTags;
 -(QuickWebShareAction) resolveJSShareAction:(int) platform;
 
--(void) showSharePanel:(QuickWebShareInfo *)shareinfo providerHost:(NSString *)host;
--(void) directShare:(QuickWebShareAction)action info:(QuickWebShareInfo *)shareinfo param:(NSDictionary *)param providerHost:(NSString *)host;
+-(void) showSharePanel:(QuickWebShareInfo *)shareinfo fromWebController:(QuickWebViewController *)webController;
+-(void) directShare:(QuickWebShareAction)action info:(QuickWebShareInfo *)shareinfo param:(NSDictionary *)param fromWebController:(QuickWebViewController *)webController;
 
 @end

@@ -18,7 +18,7 @@
 
 @interface QuickWebSharePlugin()
 
-@property(nonatomic, strong) NSString*       providerHost;
+@property(nonatomic, weak) QuickWebViewController*  toShareWebController;
 @property(nonatomic, strong) EasyShareInfo*  autoDetectedShareInfo;
 @end
 
@@ -49,19 +49,19 @@
 
 -(void)webViewControllerDidStartLoad:(QuickWebViewController *)webViewController
 {
-    weak(weakSelf);
+    self.toShareWebController = webViewController;
     self.autoDetectedShareInfo = nil;
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.providerHost = webViewController.webView.url.host;
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
     });
 }
 
 -(void)webViewControllerDidFinishLoad:(QuickWebViewController *)webViewController
 {
+    self.toShareWebController = webViewController;
     weak(weakSelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.providerHost = webViewController.webView.url.host;
         NSString* url = [webViewController.webView.url absoluteString];
         [webViewController.webView evaluateJavaScript:@"document.documentElement.innerHTML" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
             if([error isKindOfClass:[NSError class]]) return;
@@ -157,7 +157,7 @@
             shareinfo.linkUrl = weakSelf.autoDetectedShareInfo.url;
             shareinfo.imageUrl = weakSelf.autoDetectedShareInfo.image;
         }
-        [weakSelf showSharePanel:shareinfo providerHost:weakSelf.providerHost];
+        [weakSelf showSharePanel:shareinfo fromWebController:weakSelf.toShareWebController];
     });
 }
 
@@ -201,7 +201,7 @@
             shareinfo.summary = summary;
             shareinfo.linkUrl = linkUrl;
             shareinfo.imageUrl = imageUrl;
-            [weakSelf showSharePanel:shareinfo providerHost:weakSelf.providerHost];
+            [weakSelf showSharePanel:shareinfo fromWebController:weakSelf.toShareWebController];
         });
     }
 }
@@ -223,7 +223,7 @@
             shareinfo.summary = summary;
             shareinfo.linkUrl = linkUrl;
             shareinfo.imageUrl = imageUrl;
-            [weakSelf directShare:[weakSelf resolveJSShareAction:sharePlatform] info:shareinfo param:nil providerHost:weakSelf.providerHost];
+            [weakSelf directShare:[weakSelf resolveJSShareAction:sharePlatform] info:shareinfo param:nil fromWebController:weakSelf.toShareWebController];
         });
     }
 }
@@ -233,12 +233,12 @@
     return QuickWebShareActionNone;
 }
 
--(void)showSharePanel:(QuickWebShareInfo *)shareinfo providerHost:(NSString *)host
+-(void)showSharePanel:(QuickWebShareInfo *)shareinfo fromWebController:(QuickWebViewController *)webController
 {
     
 }
 
--(void)directShare:(QuickWebShareAction)action info:(QuickWebShareInfo *)shareinfo param:(NSDictionary *)param providerHost:(NSString *)host
+-(void)directShare:(QuickWebShareAction)action info:(QuickWebShareInfo *)shareinfo param:(NSDictionary *)param fromWebController:(QuickWebViewController *)webController
 {
     
 }

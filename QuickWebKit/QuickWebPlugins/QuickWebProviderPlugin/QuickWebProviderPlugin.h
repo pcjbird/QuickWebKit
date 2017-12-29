@@ -10,6 +10,9 @@
 #import "QuickWebPluginProtocol.h"
 #import "QuickWebViewController.h"
 
+/*
+ * @brief 网页提供者插件
+ */
 @interface QuickWebProviderPlugin : NSObject<QuickWebPluginProtocol>
 
 @end
