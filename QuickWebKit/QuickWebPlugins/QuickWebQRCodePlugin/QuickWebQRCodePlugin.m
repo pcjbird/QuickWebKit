@@ -239,7 +239,7 @@
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
             [alertController addAction:cancelAction];
             
-            alertController.view.tintColor =  [self.alertTintColor];
+            alertController.view.tintColor =  [self alertTintColor];
             [self.targetWebController presentViewController:alertController animated:YES completion:nil];
             
         }
