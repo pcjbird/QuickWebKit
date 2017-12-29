@@ -203,7 +203,7 @@
                         // The barcode format, such as a QR code or UPC-A
                         ZXBarcodeFormat format = qrresult.barcodeFormat;
                         NSString *formatString = [weakSelf barcodeFormatToString:format];
-                        NSString *display = [NSString stringWithFormat:@"二维码成功，格式: %@ 内容:\n%@", formatString, contents];
+                        NSString *display = [NSString stringWithFormat:@"识别到二维码，格式: %@ 内容:\n%@", formatString, contents];
                         SDK_LOG(@"%@",display);
                         _resultQRCode = qrresult.text;
                         
