@@ -51,15 +51,15 @@
 		890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7511FEEB31F003E8E7C /* QuickWebProvider.h */; };
 		890BF7541FEEB31F003E8E7C /* QuickWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7521FEEB31F003E8E7C /* QuickWebProvider.m */; };
 		890BF7751FEF8FEB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7721FEF8FDE003E8E7C /* Localizable.strings */; };
-		890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */; };
+		890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7811FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7841FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7821FEFCABA003E8E7C /* QuickWebJSBridgePlugin.m */; };
-		890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */; };
+		890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7851FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7881FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7861FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.m */; };
 		890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7891FEFCE9E003E8E7C /* QuickWebDataParseUtil.h */; };
 		890BF78C1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF78A1FEFCE9E003E8E7C /* QuickWebDataParseUtil.m */; };
-		890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */; };
+		890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7921FEFD05B003E8E7C /* QuickWebJSInvokeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */; };
-		890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */; };
+		890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7A41FF13506003E8E7C /* QuickWebJSInvokeCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7A71FF13506003E8E7C /* QuickWebJSInvokeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7A51FF13506003E8E7C /* QuickWebJSInvokeCommand.m */; };
 		890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7AA1FF3CAAA003E8E7C /* UIColor+QuickWeb.h */; };
 		890BF7AD1FF3CAAA003E8E7C /* UIColor+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7AB1FF3CAAA003E8E7C /* UIColor+QuickWeb.m */; };
@@ -68,31 +68,31 @@
 		890BF7B41FF3DBE3003E8E7C /* light_btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B21FF3742F000D07CB /* light_btn_close@2x.png */; };
 		890BF7B51FF3DBE3003E8E7C /* light_btn_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B310B11FF3742F000D07CB /* light_btn_close@3x.png */; };
 		890BF7B61FF3DC02003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF7A11FEFDBC8003E8E7C /* Localizable.strings */; };
-		890BF7BB1FF3EAA9003E8E7C /* QuickWebSharePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7B91FF3EAA9003E8E7C /* QuickWebSharePlugin.h */; };
+		890BF7BB1FF3EAA9003E8E7C /* QuickWebSharePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7B91FF3EAA9003E8E7C /* QuickWebSharePlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7BC1FF3EAA9003E8E7C /* QuickWebSharePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7BA1FF3EAA9003E8E7C /* QuickWebSharePlugin.m */; };
-		890BF7C01FF3EB47003E8E7C /* QuickWebQRCodePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7BE1FF3EB47003E8E7C /* QuickWebQRCodePlugin.h */; };
+		890BF7C01FF3EB47003E8E7C /* QuickWebQRCodePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890BF7BE1FF3EB47003E8E7C /* QuickWebQRCodePlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890BF7C11FF3EB47003E8E7C /* QuickWebQRCodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7BF1FF3EB47003E8E7C /* QuickWebQRCodePlugin.m */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
-		89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */; };
+		89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310971FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310951FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.m */; };
-		89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310981FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h */; };
+		89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310981FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B3109B1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310991FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.m */; };
-		89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B3109C1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h */; };
+		89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B3109C1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B3109F1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3109D1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m */; };
 		89B310A11FF3629B000D07CB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B310A01FF3629B000D07CB /* AddressBook.framework */; };
 		89B310A31FF362A1000D07CB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B310A21FF362A1000D07CB /* AddressBookUI.framework */; };
-		89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A41FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h */; };
+		89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A41FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310A71FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310A51FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.m */; };
-		89B310AA1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A81FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h */; };
+		89B310AA1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310A81FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310AB1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310A91FF369A7000D07CB /* QuickWebJSBridgeShareProxy.m */; };
-		89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */; };
+		89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310AD1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310B01FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310AE1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m */; };
 		89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B51FF374B6000D07CB /* NSString+QuickWeb.h */; };
 		89B310B81FF374B6000D07CB /* NSString+QuickWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310B61FF374B6000D07CB /* NSString+QuickWeb.m */; };
-		89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */; };
+		89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310B91FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310BC1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310BA1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m */; };
-		89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */; };
+		89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B310C01FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B310BE1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m */; };
 /* End PBXBuildFile section */
 
@@ -511,34 +511,34 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */,
+				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
 				89B310AA1FF369A7000D07CB /* QuickWebJSBridgeShareProxy.h in Headers */,
 				890BF7871FEFCE1E003E8E7C /* QuickWebJSBridgeInvokeCommand.h in Headers */,
 				89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */,
-				890BF78B1FEFCE9E003E8E7C /* QuickWebDataParseUtil.h in Headers */,
 				89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */,
-				890BF7411FEE8FEA003E8E7C /* UIView+QuickWeb.h in Headers */,
+				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
 				890BF7BB1FF3EAA9003E8E7C /* QuickWebSharePlugin.h in Headers */,
 				89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */,
-				890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */,
-				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
-				890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */,
 				890BF7C01FF3EB47003E8E7C /* QuickWebQRCodePlugin.h in Headers */,
-				890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */,
+				890BF7831FEFCABA003E8E7C /* QuickWebJSBridgePlugin.h in Headers */,
+				890BF7461FEEA1F3003E8E7C /* QuickWebToastPlugin.h in Headers */,
 				890BF7A61FF13506003E8E7C /* QuickWebJSInvokeCommand.h in Headers */,
+				890BF74B1FEEB090003E8E7C /* QuickWebProviderPlugin.h in Headers */,
+				890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */,
+				89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */,
+				89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */,
+				89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */,
+				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
-				890BF7911FEFD05B003E8E7C /* QuickWebJSInvokeResult.h in Headers */,
 				89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */,
 				890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */,
 				890BF7301FEE484E003E8E7C /* QuickWebNavigationButton.h in Headers */,
 				890BF73C1FEE8814003E8E7C /* QuickWebPluginProtocol.h in Headers */,
 				890BF7241FEE3F85003E8E7C /* QuickWebStringUtil.h in Headers */,
-				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF72C1FEE47B4003E8E7C /* UIImage+QuickWeb.h in Headers */,
-				89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */,
-				89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */,
-				89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
