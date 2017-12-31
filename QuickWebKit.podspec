@@ -5,11 +5,11 @@ Pod::Spec.new do |s|
     s.description      = <<-DESC
     A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
     DESC
-    s.homepage         = "http://www.lessney.com"
+    s.homepage         = "https://github.com/pcjbird/QuickWebViewController"
     s.license          = 'MIT'
     s.author           = {"pcjbird" => "pcjbird@hotmail.com"}
     s.source           = {:git => "https://github.com/pcjbird/QuickWebViewController.git", :tag => s.version.to_s}
-    s.social_media_url = 'https://github.com/pcjbird/QuickWebViewController'
+    s.social_media_url = 'http://www.lessney.com'
     s.requires_arc     = true
 #s.documentation_url = ''
 #s.screenshot       = ''
