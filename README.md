@@ -1,6 +1,6 @@
 ![logo](logo.png)
 [![Build Status](http://img.shields.io/travis/pcjbird/QuickWebViewController/master.svg?style=flat)](https://travis-ci.org/pcjbird/QuickWebViewController)
-[![Pod Version](http://img.shields.io/cocoapods/v/QuickWebKit.svg?style=flat)]
+[![Pod Version](http://img.shields.io/cocoapods/v/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
 [![Pod License](http://img.shields.io/cocoapods/l/QuickWebKit.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
