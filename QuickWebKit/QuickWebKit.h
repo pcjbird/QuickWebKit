@@ -9,7 +9,7 @@
 //  框架功能:A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
 //  修改记录:
 //     pcjbird    2018-01-02  Version:1.0.1 Build:201801020001
-//                            1.修复delloac中使用了weak导致的crash问题
+//                            1.修复dealloc中使用了weak导致的crash问题
 //     pcjbird    2017-12-24  Version:1.0.0 Build:201712240001
 //                            1.首次发布SDK版本
 
