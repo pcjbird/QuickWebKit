@@ -26,9 +26,9 @@
 /* Begin PBXBuildFile section */
 		1107382E4CB600AF1A785817 /* Pods_QuickWebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8636CA81E4185C2F693E56E /* Pods_QuickWebKit.framework */; };
 		1A174AA7861BDD374EC7AE3F /* Pods_QuickWebViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */; };
-		8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890479691FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h */; };
+		8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890479691FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8904796C1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8904796A1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m */; };
-		890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 8904796E1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h */; };
+		890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 8904796E1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		890479711FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8904796F1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m */; };
 		890BF6C31FED3868003E8E7C /* navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C11FED3867003E8E7C /* navbar_return@2x.png */; };
 		890BF6C41FED3868003E8E7C /* navbar_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C21FED3868003E8E7C /* navbar_return@3x.png */; };
@@ -546,7 +546,6 @@
 				89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */,
 				89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */,
 				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
-				890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */,
 				890BF7BB1FF3EAA9003E8E7C /* QuickWebSharePlugin.h in Headers */,
 				89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */,
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
@@ -559,9 +558,10 @@
 				89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */,
 				89B310BB1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.h in Headers */,
 				89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */,
+				8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */,
+				890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */,
 				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
-				8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
 				89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */,
 				890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */,
