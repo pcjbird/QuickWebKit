@@ -241,13 +241,12 @@ typedef enum
 -(void)removeNotificationObserver
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    weak(weakSelf);
-    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-        if([obj respondsToSelector:@selector(webViewControllerDidRemoveNotificationObserver:)])
+    for (id<QuickWebPluginProtocol> plugin in _pluginMap.allValues) {
+        if([plugin respondsToSelector:@selector(webViewControllerDidRemoveNotificationObserver:)])
         {
-            [obj webViewControllerDidRemoveNotificationObserver:weakSelf];
+            [plugin webViewControllerDidRemoveNotificationObserver:self];
         }
-    }];
+    }
     [self didRemoveNotificationObserver];
 }
 
