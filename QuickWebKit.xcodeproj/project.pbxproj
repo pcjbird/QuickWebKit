@@ -26,6 +26,10 @@
 /* Begin PBXBuildFile section */
 		1107382E4CB600AF1A785817 /* Pods_QuickWebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8636CA81E4185C2F693E56E /* Pods_QuickWebKit.framework */; };
 		1A174AA7861BDD374EC7AE3F /* Pods_QuickWebViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4251A66AE38086AB23DC4AA /* Pods_QuickWebViewController.framework */; };
+		8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 890479691FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h */; };
+		8904796C1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8904796A1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m */; };
+		890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 8904796E1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h */; };
+		890479711FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8904796F1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m */; };
 		890BF6C31FED3868003E8E7C /* navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C11FED3867003E8E7C /* navbar_return@2x.png */; };
 		890BF6C41FED3868003E8E7C /* navbar_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C21FED3868003E8E7C /* navbar_return@3x.png */; };
 		890BF6C71FED3FCB003E8E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 890BF6C91FED3FCB003E8E7C /* Localizable.strings */; };
@@ -99,6 +103,10 @@
 /* Begin PBXFileReference section */
 		48113C2509BFE74D6AD279EA /* Pods-QuickWebViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebViewController/Pods-QuickWebViewController.release.xcconfig"; sourceTree = "<group>"; };
 		5BC210AE85F08549ACBCB815 /* Pods-QuickWebViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebViewController/Pods-QuickWebViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		890479691FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebLNRefreshPlugin.h; sourceTree = "<group>"; };
+		8904796A1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebLNRefreshPlugin.m; sourceTree = "<group>"; };
+		8904796E1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebMJRefreshPlugin.h; sourceTree = "<group>"; };
+		8904796F1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebMJRefreshPlugin.m; sourceTree = "<group>"; };
 		890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		890BF6BD1FED31A1003E8E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890BF6C11FED3867003E8E7C /* navbar_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_return@2x.png"; sourceTree = "<group>"; };
@@ -245,6 +253,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		890479681FFBBB7800B0DA41 /* QuickWebLNRefreshPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				890479691FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h */,
+				8904796A1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m */,
+			);
+			path = QuickWebLNRefreshPlugin;
+			sourceTree = "<group>";
+		};
+		8904796D1FFBBFB300B0DA41 /* QuickWebMJRefreshPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				8904796E1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h */,
+				8904796F1FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m */,
+			);
+			path = QuickWebMJRefreshPlugin;
+			sourceTree = "<group>";
+		};
 		890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +385,8 @@
 				890BF7B81FF3EA72003E8E7C /* QuickWebSharePlugin */,
 				890BF7BD1FF3EB28003E8E7C /* QuickWebQRCodePlugin */,
 				890BF7801FEFCA87003E8E7C /* QuickWebJSBridgePlugin */,
+				890479681FFBBB7800B0DA41 /* QuickWebLNRefreshPlugin */,
+				8904796D1FFBBFB300B0DA41 /* QuickWebMJRefreshPlugin */,
 			);
 			path = QuickWebPlugins;
 			sourceTree = "<group>";
@@ -518,6 +546,7 @@
 				89B310BF1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h in Headers */,
 				89B3109A1FF35EF3000D07CB /* QuickWebJSBridgeAccountProxy.h in Headers */,
 				890BF7201FEE3D2B003E8E7C /* QuickWebKit.h in Headers */,
+				890479701FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.h in Headers */,
 				890BF7BB1FF3EAA9003E8E7C /* QuickWebSharePlugin.h in Headers */,
 				89B310AF1FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.h in Headers */,
 				898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */,
@@ -532,6 +561,7 @@
 				89B3109E1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.h in Headers */,
 				89B310A61FF36825000D07CB /* QuickWebJSBridgeNavBarProxy.h in Headers */,
 				890BF7531FEEB31F003E8E7C /* QuickWebProvider.h in Headers */,
+				8904796B1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.h in Headers */,
 				890BF74F1FEEB262003E8E7C /* UIScrollView+QuickWebProviderPlugin.h in Headers */,
 				89B310B71FF374B6000D07CB /* NSString+QuickWeb.h in Headers */,
 				890BF7AC1FF3CAAA003E8E7C /* UIColor+QuickWeb.h in Headers */,
@@ -841,6 +871,7 @@
 				890BF7311FEE484E003E8E7C /* QuickWebNavigationButton.m in Sources */,
 				890BF74C1FEEB090003E8E7C /* QuickWebProviderPlugin.m in Sources */,
 				890BF7421FEE8FEA003E8E7C /* UIView+QuickWeb.m in Sources */,
+				890479711FFBC10F00B0DA41 /* QuickWebMJRefreshPlugin.m in Sources */,
 				898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */,
 				89B310B01FF36B0B000D07CB /* QuickWebJSBridgeImagePlayProxy.m in Sources */,
 				89B3109F1FF3621D000D07CB /* QuickWebJSBridgeContactProxy.m in Sources */,
@@ -851,6 +882,7 @@
 				89B310C01FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m in Sources */,
 				89B310BC1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m in Sources */,
 				890BF72D1FEE47B4003E8E7C /* UIImage+QuickWeb.m in Sources */,
+				8904796C1FFBBBA700B0DA41 /* QuickWebLNRefreshPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

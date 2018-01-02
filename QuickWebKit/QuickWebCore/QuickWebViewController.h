@@ -36,9 +36,22 @@
 
 /*
  * @brief 初始化
+ * @param preferWKWebView 是否使用WKWebView
+ */
+-(instancetype)initWithPreferWKWebView:(BOOL)preferWKWebView;
+
+/*
+ * @brief 初始化
  * @param url 页面地址
  */
 -(instancetype)initWithUrlString:(NSString *)url;
+
+/*
+ * @brief 初始化
+ * @param url 页面地址
+ * @param preferWKWebView 是否使用WKWebView
+ */
+-(instancetype)initWithUrlString:(NSString *)url preferWKWebView:(BOOL)preferWKWebView;
 
 /*
  * @brief 加载页面

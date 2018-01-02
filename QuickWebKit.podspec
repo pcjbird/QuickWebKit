@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "QuickWebKit"
-    s.version          = "1.0.2"
+    s.version          = "1.0.3"
     s.summary          = "A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。"
     s.description      = <<-DESC
     A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
@@ -64,6 +64,20 @@ Pod::Spec.new do |s|
         ss.dependency 'QuickWebKit/QuickWebViewController'
         ss.dependency 'ZXingObjC'
         ss.dependency 'Toast'
+    end
+
+    s.subspec 'QuickWebLNRefreshPlugin' do |ss|
+        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin'
+        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin/QuickWebLNRefreshPlugin.h'
+        ss.dependency 'QuickWebKit/QuickWebViewController'
+        ss.dependency 'LNRefresh'
+    end
+
+    s.subspec 'QuickWebMJRefreshPlugin' do |ss|
+        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebMJRefreshPlugin'
+        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebMJRefreshPlugin/QuickWebMJRefreshPlugin.h'
+        ss.dependency 'QuickWebKit/QuickWebViewController'
+        ss.dependency 'MJRefresh'
     end
 
     s.subspec 'QuickWebJSBridgePlugin' do |ss|

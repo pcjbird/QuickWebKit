@@ -106,6 +106,7 @@ typedef enum
  */
 @interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, QuickWebJSInvokeProviderProtocol>
 {
+    BOOL       _preferWKWebView;
     NSString * _initUrl;
     SmartJSWebView*   _contentWebView;
     SmartJSWebProgressView* _progressView;
@@ -135,8 +136,17 @@ typedef enum
 {
     if(self = [super init])
     {
-        _initUrl = nil;
         [self initVariables];
+    }
+    return self;
+}
+
+-(instancetype)initWithPreferWKWebView:(BOOL)preferWKWebView
+{
+    if(self = [super init])
+    {
+        [self initVariables];
+        _preferWKWebView = preferWKWebView;
     }
     return self;
 }
@@ -149,14 +159,27 @@ typedef enum
 {
     if(self = [super init])
     {
-        _initUrl = url;
         [self initVariables];
+        _initUrl = url;
+    }
+    return self;
+}
+
+-(instancetype)initWithUrlString:(NSString *)url preferWKWebView:(BOOL)preferWKWebView
+{
+    if(self = [super init])
+    {
+        [self initVariables];
+        _initUrl = url;
+        _preferWKWebView = preferWKWebView;
     }
     return self;
 }
 
 -(void) initVariables
 {
+    _initUrl = nil;
+    _preferWKWebView = NO;
     _progressHidden = NO;
     _navbarTransparent = NO;
     _pluginMap = [NSMutableDictionary dictionary];
@@ -371,6 +394,7 @@ typedef enum
     if ([_contentWebView isKindOfClass:[UIView class]]) [_contentWebView removeFromSuperview];
     CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     _contentWebView = [[SmartJSWebView alloc] initWithFrame:frame];
+    if(_preferWKWebView)_contentWebView.preferWKWebView = YES;
     _contentWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_contentWebView setBackgroundColor:[self backgroundColor]];
     _contentWebView.opaque = NO;

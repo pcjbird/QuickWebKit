@@ -24,4 +24,8 @@ target 'QuickWebKit' do
   pod 'IDMPhotoBrowser'
   # Pods for QuickWebJSBridgeVideoPlayProxy
   pod 'ZFPlayer'
+  # Pods for QuickWebLNRefreshPlugin
+  pod 'LNRefresh'
+  # Pods for QuickWebMJRefreshPlugin
+  pod 'MJRefresh'
 end
