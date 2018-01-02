@@ -35,7 +35,7 @@
     QuickWebProvider *provider = [QuickWebProvider new];
     provider.backgroundColor = [UIColor clearColor];
     provider.font = [UIFont systemFontOfSize:11.0f];
-    provider.textColor = [[scrollBackColor quickweb_inversecolor] colorWithAlphaComponent:0.70f];
+    provider.textColor = [scrollBackColor isKindOfClass:[UIColor class]] ? [[scrollBackColor quickweb_inversecolor] colorWithAlphaComponent:0.7f] : [UIColor colorWithRed:99/255.0 green:98/255.0 blue:98/255.0 alpha:0.7f];
     webViewController.webView.scrollView.quickweb_provider = provider;
 }
 

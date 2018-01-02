@@ -150,7 +150,7 @@ typedef enum
     if(self = [super init])
     {
         _initUrl = url;
-        
+        [self initVariables];
     }
     return self;
 }
