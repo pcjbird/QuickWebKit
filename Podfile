@@ -15,7 +15,7 @@ target 'QuickWebKit' do
   pod 'FTPopOverMenu'
   # Pods for QuickWebToastPlugin
   pod 'Toast'
-  # Pods for QuickWebSharePlugin
+  # Pods for QuickWebSharePlugin,QuickWebSpotlightPlugin
   pod 'EasyShareKit'
   pod 'GTMNSStringHTMLAdditions'
   # Pods for QuickWebQRCodePlugin
@@ -28,4 +28,6 @@ target 'QuickWebKit' do
   pod 'LNRefresh'
   # Pods for QuickWebMJRefreshPlugin
   pod 'MJRefresh'
+  # Pods for QuickWebSpotlightPlugin
+  pod 'YYCategories'
 end

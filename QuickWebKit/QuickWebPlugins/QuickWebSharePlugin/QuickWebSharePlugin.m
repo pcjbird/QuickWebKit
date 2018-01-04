@@ -83,7 +83,7 @@
                         }
                         if(![shareInfo isKindOfClass:[EasyShareInfo class]])
                         {
-                            SDK_LOG(@"未能正确页面获取分享信息.(%@)", url);
+                            SDK_LOG(@"未能正确获取页面分享信息.(%@)", url);
                             return;
                         }
                         SDK_LOG(@"获取页面分享信息成功，耗时：%ldms.(%@)", cost, url);

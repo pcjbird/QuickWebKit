@@ -9,6 +9,10 @@
 #ifndef QuickWebKitDefines_h
 #define QuickWebKitDefines_h
 
+#define QUICKWEB_APP_NAME ([[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"] ? [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"]:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"])
+#define QUICKWEB_APP_BUNDLEID ([[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleIdentifier"])
+#define QUICKWEB_APP_VERSION ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
+
 #ifdef DEBUG
 #   define SDK_LOG(fmt, ...) NSLog((@"[🦉QuickWebKit] %s (line %d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else

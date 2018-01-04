@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "QuickWebKit"
-    s.version          = "1.0.3"
+    s.version          = "1.0.4"
     s.summary          = "A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。"
     s.description      = <<-DESC
     A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 #s.screenshot       = ''
 
     s.platform         = :ios, '8.0'
-    s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore'
+    s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore', 'MobileCoreServices', 'CoreSpotlight'
 #s.preserve_paths   = ''
     s.source_files     = 'QuickWebKit/QuickWebKit.h'
 
@@ -78,6 +78,15 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebMJRefreshPlugin/QuickWebMJRefreshPlugin.h'
         ss.dependency 'QuickWebKit/QuickWebViewController'
         ss.dependency 'MJRefresh'
+    end
+
+    s.subspec 'QuickWebSpotlightPlugin' do |ss|
+        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebSpotlightPlugin'
+        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebSpotlightPlugin/QuickWebSpotlightPlugin.h'
+        ss.dependency 'QuickWebKit/QuickWebViewController'
+        ss.dependency 'EasyShareKit'
+        ss.dependency 'GTMNSStringHTMLAdditions'
+        ss.dependency 'YYCategories'
     end
 
     s.subspec 'QuickWebJSBridgePlugin' do |ss|
