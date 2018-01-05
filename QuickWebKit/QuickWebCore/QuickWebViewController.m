@@ -439,7 +439,7 @@ typedef enum
     top += [_contentWebView.scrollView quickweb_safeAreaInsets].top;
     if (!IsiOS11Later)
     {
-        if(!_navbarTransparent)
+        if(!_navbarTransparent&&self.navigationController.navigationBar.translucent)
         {
             top += StatusBarHeight;
             top += NavigationBarHeight;

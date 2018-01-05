@@ -45,7 +45,7 @@
     top += [webViewController.webView.scrollView quickweb_safeAreaInsets].top;
     if (!IsiOS11Later)
     {
-        if(!webViewController.navbarTransparent)
+        if(!webViewController.navbarTransparent && webViewController.navigationController.navigationBar.translucent)
         {
             top += [[UIApplication sharedApplication] statusBarFrame].size.height;
             top += 44.0f;
