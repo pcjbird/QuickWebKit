@@ -95,29 +95,17 @@
                         }
                         if([QuickWebStringUtil isStringBlank:shareInfo.desc])
                         {
-                            void(^resolveShareDesc)(void) = ^{
-                                [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
-                                    if([error isKindOfClass:[NSError class]]) return;
-                                    if(![QuickWebStringUtil isStringBlank:result])
+                            [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+                                if([error isKindOfClass:[NSError class]]) return;
+                                if(![QuickWebStringUtil isStringBlank:result])
+                                {
+                                    shareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                    if([shareInfo.desc length] > 255)
                                     {
-                                        shareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
-                                        if([shareInfo.desc length] > 255)
-                                        {
-                                            shareInfo.desc = [shareInfo.desc substringToIndex:254];
-                                        }
+                                        shareInfo.desc = [shareInfo.desc substringToIndex:254];
                                     }
-                                }];
-                            };
-                            if([NSThread isMainThread])
-                            {
-                                resolveShareDesc();
-                            }
-                            else
-                            {
-                                dispatch_sync(dispatch_get_main_queue(), ^{
-                                    resolveShareDesc();
-                                });
-                            }
+                                }
+                            }];
                         }
                         if([QuickWebStringUtil isStringBlank:weakSelf.autoDetectedShareInfo.image])
                         {
