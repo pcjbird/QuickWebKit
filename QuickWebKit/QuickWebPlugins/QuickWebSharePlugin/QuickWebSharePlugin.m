@@ -95,19 +95,29 @@
                         }
                         if([QuickWebStringUtil isStringBlank:shareInfo.desc])
                         {
-                            dispatch_sync(dispatch_get_main_queue(), ^{
+                            void(^resolveShareDesc)(void) = ^{
                                 [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
                                     if([error isKindOfClass:[NSError class]]) return;
                                     if(![QuickWebStringUtil isStringBlank:result])
                                     {
-                                        weakSelf.autoDetectedShareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
-                                        if([weakSelf.autoDetectedShareInfo.desc length] > 255)
+                                        shareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                        if([shareInfo.desc length] > 255)
                                         {
-                                            weakSelf.autoDetectedShareInfo.desc = [weakSelf.autoDetectedShareInfo.desc substringToIndex:254];
+                                            shareInfo.desc = [shareInfo.desc substringToIndex:254];
                                         }
                                     }
                                 }];
-                            });
+                            };
+                            if([NSThread isMainThread])
+                            {
+                                resolveShareDesc();
+                            }
+                            else
+                            {
+                                dispatch_sync(dispatch_get_main_queue(), ^{
+                                    resolveShareDesc();
+                                });
+                            }
                         }
                         if([QuickWebStringUtil isStringBlank:weakSelf.autoDetectedShareInfo.image])
                         {

@@ -87,7 +87,7 @@
                         }
                         if([QuickWebStringUtil isStringBlank:shareInfo.desc])
                         {
-                            dispatch_sync(dispatch_get_main_queue(), ^{
+                            void(^resolveShareDesc)(void) = ^{
                                 [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
                                     if([error isKindOfClass:[NSError class]]) return;
                                     if(![QuickWebStringUtil isStringBlank:result])
@@ -99,7 +99,17 @@
                                         }
                                     }
                                 }];
-                            });
+                            };
+                            if([NSThread isMainThread])
+                            {
+                                resolveShareDesc();
+                            }
+                            else
+                            {
+                                dispatch_sync(dispatch_get_main_queue(), ^{
+                                    resolveShareDesc();
+                                });
+                            }
                         }
                         if([QuickWebStringUtil isStringBlank:shareInfo.image])
                         {
