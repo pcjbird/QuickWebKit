@@ -190,6 +190,10 @@ typedef enum
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:_navbarTransparent animated:animated];
+    if([self.navigationController.viewControllers firstObject] != self)
+    {
+        self.hidesBottomBarWhenPushed = YES;
+    }
     if([self.pauseResumeEventListenObject isKindOfClass:[QuickWebPauseResumeEventObject class]] && self.pauseResumeEventListenObject.resultHandler)
     {
         [self.pauseResumeEventListenObject.resultHandler handleQuickWebJSInvokeResult:[self.pauseResumeEventListenObject toResultWithSecretId:_contentWebView.secretId event:QuickWebPauseResumeEvent_Resume]];
@@ -230,7 +234,6 @@ typedef enum
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.hidesBottomBarWhenPushed = YES;
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.extendedLayoutIncludesOpaqueBars = NO;
     if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 && [[[UIDevice currentDevice] systemVersion] floatValue] < 11.0)
@@ -376,6 +379,10 @@ typedef enum
     if([_contentWebView isKindOfClass:[SmartJSWebView class]] && [_contentWebView canGoBack])
     {
         [_contentWebView goBack];
+        weak(weakSelf);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf updateLeftBarButtonItems];
+        });
     }
     else
     {
@@ -648,9 +655,20 @@ typedef enum
 #pragma mark - 更新导航左侧按钮
 -(void) updateLeftBarButtonItems
 {
-    if(_contentWebView && [_contentWebView canGoBack])
+    if(![_contentWebView isKindOfClass:[SmartJSWebView class]]) return;
+    if([_contentWebView canGoBack])
     {
-        self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
+        UINavigationController *naviContoller = self.navigationController;
+        if([naviContoller isKindOfClass:[UINavigationController class]])
+        {
+            UIViewController * rootViewController = [naviContoller.viewControllers firstObject];
+            if(rootViewController != self)
+            {
+                self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
+                return;
+            }
+        }
+        self.navigationItem.leftBarButtonItems = @[self.backItem];
     }
     else
     {
@@ -1024,16 +1042,39 @@ typedef enum
 -(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
 {
     ShowNetworkActivityIndicator();
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewControllerDidStartLoad:)])
+        {
+            [obj webViewControllerDidStartLoad:weakSelf];
+        }
+    }];
 }
 
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
     HideNetworkActivityIndicator();
+    [self updateLeftBarButtonItems];
+    self.navigationItem.title = _contentWebView.title;
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewControllerDidFinishLoad:)])
+        {
+            [obj webViewControllerDidFinishLoad:weakSelf];
+        }
+    }];
 }
 
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
     HideNetworkActivityIndicator();
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewController:didFailLoadWithError:)])
+        {
+            [obj webViewController:weakSelf didFailLoadWithError:error];
+        }
+    }];
 }
 
 #pragma mark - Status Bar
