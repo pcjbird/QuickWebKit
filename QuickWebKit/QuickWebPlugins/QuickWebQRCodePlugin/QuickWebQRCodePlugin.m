@@ -76,6 +76,11 @@
     return YES;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
 -(void)longtap:(UILongPressGestureRecognizer * )longtapGes
 {
     
@@ -235,7 +240,7 @@
             }
             
             //取消
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleCancel handler:nil];
             [alertController addAction:cancelAction];
             
             alertController.view.tintColor =  [weakSelf alertTintColor];
