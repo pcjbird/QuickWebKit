@@ -78,7 +78,21 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    return YES;
+    if(![self.targetWebController isKindOfClass:[QuickWebViewController class]]) return NO;
+    SmartJSWebView *webView = self.targetWebController.webView;
+    if(![webView isKindOfClass:[SmartJSWebView class]])return NO;
+    CGPoint pt = [gestureRecognizer locationInView:self.targetWebController.webView.webView];
+    __block BOOL bResult = NO;
+    [webView evaluateJavaScript:[NSString stringWithFormat:@"SmartJSGetHTMLElementsAtPoint(%li,%li);",(long)pt.x,(long)pt.y] completionHandler:^(id result, NSError *error) {
+        NSString *tags = result;
+        if ([tags rangeOfString:@",A,"].location != NSNotFound || [tags rangeOfString:@",IMG,"].location != NSNotFound)
+        {
+            bResult = YES;
+            return;
+        }
+        bResult = NO;
+    }];
+    return bResult;
 }
 
 -(void)longtap:(UILongPressGestureRecognizer * )longtapGes
