@@ -145,7 +145,7 @@
             
             if ([tags rangeOfString:@",A,"].location != NSNotFound)
             {
-                NSString *str = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).src", pt.x, pt.y];
+                NSString *str = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).href", pt.x, pt.y];
                 [webView evaluateJavaScript:str completionHandler:^(id result, NSError *error) {
                     _touchedLinkUrl = result;
                     
