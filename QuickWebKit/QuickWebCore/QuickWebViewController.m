@@ -246,6 +246,8 @@ typedef enum
     if(![QuickWebStringUtil isStringBlank:_initUrl])[self loadPage:_initUrl];
     
     [self updateLeftBarButtonItems];
+    
+    [self registerNotificationObserver];
 }
 
 -(void) registerNotificationObserver

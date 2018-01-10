@@ -53,7 +53,7 @@
     self.autoDetectedShareInfo = nil;
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:webViewController.webView.secretId];
     });
 }
 
@@ -115,14 +115,14 @@
                                     {
                                         weakSelf.autoDetectedShareInfo.image = result;
                                     }
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+                                    [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:webViewController.webView.secretId];
                                 }];
                             });
                         }
                         else
                         {
                             dispatch_async(dispatch_get_main_queue(), ^{
-                                [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
+                                [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:webViewController.webView.secretId];
                             });
                         }
                     }];
