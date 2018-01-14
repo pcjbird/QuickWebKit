@@ -169,9 +169,9 @@
 
 +(BOOL) handleContinueUserActivity:(NSUserActivity *)userActivity
 {
-    if([[userActivity.userInfo valueForKey:@"kCSSearchableItemActivityIdentifier"] rangeOfString:[NSString stringWithFormat:@"%@.webview", QUICKWEB_APP_BUNDLEID]].length > 0)
+    if([[userActivity.userInfo valueForKey:@"kCSSearchableItemActivityIdentifier"] rangeOfString:[NSString stringWithFormat:@"%@.webview.", QUICKWEB_APP_BUNDLEID]].length > 0)
     {
-        NSString *webUrl = [[userActivity.userInfo valueForKey:@"kCSSearchableItemActivityIdentifier"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@.webview", QUICKWEB_APP_BUNDLEID] withString:@""];
+        NSString *webUrl = [[userActivity.userInfo valueForKey:@"kCSSearchableItemActivityIdentifier"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@.webview.", QUICKWEB_APP_BUNDLEID] withString:@""];
         [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:[webUrl stringByURLDecode]];
         return YES;
     }
