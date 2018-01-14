@@ -1192,6 +1192,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1230,6 +1234,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
