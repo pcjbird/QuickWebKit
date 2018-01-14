@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
         ss.source_files = 'QuickWebKit/QuickWebKit.h', 'QuickWebKit/QuickWebKitDefines', 'QuickWebKit/QuickWebUtil', 'QuickWebKit/QuickWebCore'
         ss.public_header_files = 'QuickWebKit/QuickWebKit.h', 'QuickWebKit/QuickWebCore/*.{h}'
         ss.resource_bundles = {
-            'QuickWebKit' => ['QuickWebResources/QuickWebViewControllerResource/*.*'],
+            'QuickWebKit' => ['QuickWebBundles/QuickWebKitBundle/*.*'],
         }
     end
 
@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebProviderPlugin/QuickWebProviderPlugin.h'
         ss.dependency 'QuickWebKit/QuickWebViewController'
         ss.resource_bundles = {
-        'QuickWebProviderPlugin' => ['QuickWebResources/QuickWebProviderPluginResource/*.*'],
+        'QuickWebProviderPlugin' => ['QuickWebBundles/QuickWebProviderPluginBundle/*.*'],
         }
     end
 
@@ -95,7 +95,7 @@ Pod::Spec.new do |s|
         ss.dependency 'QuickWebKit/QuickWebViewController'
         ss.dependency 'Toast'
         ss.resource_bundles = {
-            'QuickWebJSBridgePlugin' => ['QuickWebResources/QuickWebJSBridgePluginResource/*.*'],
+            'QuickWebJSBridgePlugin' => ['QuickWebBundles/QuickWebJSBridgePluginBundle/*.*'],
         }
 
         ss.subspec 'QuickWebJSBridgeSystemProxy' do |sss|

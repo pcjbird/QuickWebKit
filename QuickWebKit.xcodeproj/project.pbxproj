@@ -14,6 +14,7 @@
 				890BF77E1FEF95BF003E8E7C /* ShellScript */,
 				890BF77B1FEF93F5003E8E7C /* ShellScript */,
 				890BF77D1FEF9569003E8E7C /* ShellScript */,
+				89E57965200B8B96004925DB /* ShellScript */,
 				890BF77F1FEF9675003E8E7C /* ShellScript */,
 			);
 			dependencies = (
@@ -155,7 +156,7 @@
 		890BF78E1FEFCFF6003E8E7C /* QuickWebJSBridgeProxyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeProxyProtocol.h; sourceTree = "<group>"; };
 		890BF78F1FEFD05B003E8E7C /* QuickWebJSInvokeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSInvokeResult.h; sourceTree = "<group>"; };
 		890BF7901FEFD05B003E8E7C /* QuickWebJSInvokeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSInvokeResult.m; sourceTree = "<group>"; };
-		890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebJSBridgePluginResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickWebJSBridgePluginBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		890BF7991FEFDB46003E8E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890BF7A01FEFDBC8003E8E7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		890BF7A21FEFDBCA003E8E7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -275,7 +276,7 @@
 			path = QuickWebMJRefreshPlugin;
 			sourceTree = "<group>";
 		};
-		890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */ = {
+		890BF6BC1FED31A1003E8E7C /* QuickWebKitBundle */ = {
 			isa = PBXGroup;
 			children = (
 				890BF6C11FED3867003E8E7C /* navbar_return@2x.png */,
@@ -289,7 +290,7 @@
 				890BF6C91FED3FCB003E8E7C /* Localizable.strings */,
 				890BF6BD1FED31A1003E8E7C /* Info.plist */,
 			);
-			path = QuickWebViewControllerResource;
+			path = QuickWebKitBundle;
 			sourceTree = "<group>";
 		};
 		890BF7071FEE305F003E8E7C /* Metadata */ = {
@@ -302,14 +303,14 @@
 			name = Metadata;
 			sourceTree = "<group>";
 		};
-		890BF70E1FEE34DD003E8E7C /* QuickWebResources */ = {
+		890BF70E1FEE34DD003E8E7C /* QuickWebBundles */ = {
 			isa = PBXGroup;
 			children = (
-				890BF6BC1FED31A1003E8E7C /* QuickWebViewControllerResource */,
-				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */,
-				890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */,
+				890BF6BC1FED31A1003E8E7C /* QuickWebKitBundle */,
+				890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginBundle */,
+				890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle */,
 			);
-			path = QuickWebResources;
+			path = QuickWebBundles;
 			sourceTree = "<group>";
 		};
 		890BF71C1FEE3B33003E8E7C /* QuickWebKit */ = {
@@ -418,13 +419,13 @@
 			path = QuickWebProviderPlugin;
 			sourceTree = "<group>";
 		};
-		890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginResource */ = {
+		890BF7591FEF8E5E003E8E7C /* QuickWebProviderPluginBundle */ = {
 			isa = PBXGroup;
 			children = (
 				890BF7721FEF8FDE003E8E7C /* Localizable.strings */,
 				890BF7701FEF8FD6003E8E7C /* Info.plist */,
 			);
-			path = QuickWebProviderPluginResource;
+			path = QuickWebProviderPluginBundle;
 			sourceTree = "<group>";
 		};
 		890BF7801FEFCA87003E8E7C /* QuickWebJSBridgePlugin */ = {
@@ -437,13 +438,13 @@
 			path = QuickWebJSBridgePlugin;
 			sourceTree = "<group>";
 		};
-		890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */ = {
+		890BF7981FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle */ = {
 			isa = PBXGroup;
 			children = (
 				890BF7A11FEFDBC8003E8E7C /* Localizable.strings */,
 				890BF7991FEFDB46003E8E7C /* Info.plist */,
 			);
-			path = QuickWebJSBridgePluginResource;
+			path = QuickWebJSBridgePluginBundle;
 			sourceTree = "<group>";
 		};
 		890BF7B81FF3EA72003E8E7C /* QuickWebSharePlugin */ = {
@@ -469,7 +470,7 @@
 			children = (
 				890BF7071FEE305F003E8E7C /* Metadata */,
 				890BF71C1FEE3B33003E8E7C /* QuickWebKit */,
-				890BF70E1FEE34DD003E8E7C /* QuickWebResources */,
+				890BF70E1FEE34DD003E8E7C /* QuickWebBundles */,
 				898A50C01FE7FDE7002DDFA7 /* Products */,
 				BFE7BF4B698FFD4D49E6C860 /* Pods */,
 				04DCC5772402FEB190EC0A34 /* Frameworks */,
@@ -482,7 +483,7 @@
 				898A50BF1FE7FDE7002DDFA7 /* QuickWebKit.framework */,
 				890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */,
 				890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */,
-				890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */,
+				890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -590,9 +591,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		890BF6BA1FED31A1003E8E7C /* QuickWebKitResource */ = {
+		890BF6BA1FED31A1003E8E7C /* QuickWebKitBundle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitResource" */;
+			buildConfigurationList = 890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitBundle" */;
 			buildPhases = (
 				890BF6B71FED31A1003E8E7C /* Sources */,
 				890BF6B81FED31A1003E8E7C /* Frameworks */,
@@ -602,14 +603,14 @@
 			);
 			dependencies = (
 			);
-			name = QuickWebKitResource;
+			name = QuickWebKitBundle;
 			productName = QuickWebViewControllerResource;
 			productReference = 890BF6BB1FED31A1003E8E7C /* QuickWebKit.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginResource */ = {
+		890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginBundle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginResource" */;
+			buildConfigurationList = 890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginBundle" */;
 			buildPhases = (
 				890BF75B1FEF8E95003E8E7C /* Sources */,
 				890BF75C1FEF8E95003E8E7C /* Frameworks */,
@@ -619,14 +620,14 @@
 			);
 			dependencies = (
 			);
-			name = QuickWebProviderPluginResource;
+			name = QuickWebProviderPluginBundle;
 			productName = QuickWebViewControllerResource;
 			productReference = 890BF7661FEF8E95003E8E7C /* QuickWebProviderPlugin.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */ = {
+		890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginResource" */;
+			buildConfigurationList = 890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginBundle" */;
 			buildPhases = (
 				890BF7931FEFDB46003E8E7C /* Sources */,
 				890BF7941FEFDB46003E8E7C /* Frameworks */,
@@ -636,9 +637,9 @@
 			);
 			dependencies = (
 			);
-			name = QuickWebJSBridgePluginResource;
+			name = QuickWebJSBridgePluginBundle;
 			productName = QuickWebJSBridgePluginResource;
-			productReference = 890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginResource.bundle */;
+			productReference = 890BF7971FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		898A50BE1FE7FDE7002DDFA7 /* QuickWebKit */ = {
@@ -706,10 +707,10 @@
 			projectRoot = "";
 			targets = (
 				898A50BE1FE7FDE7002DDFA7 /* QuickWebKit */,
-				890BF6BA1FED31A1003E8E7C /* QuickWebKitResource */,
+				890BF6BA1FED31A1003E8E7C /* QuickWebKitBundle */,
 				890BF6D11FED4EB6003E8E7C /* QuickWebKit-Universal */,
-				890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginResource */,
-				890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginResource */,
+				890BF75A1FEF8E95003E8E7C /* QuickWebProviderPluginBundle */,
+				890BF7961FEFDB46003E8E7C /* QuickWebJSBridgePluginBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -783,7 +784,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FMK_NAME=${PRODUCT_NAME}\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Resource\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
+			shellScript = "FMK_NAME=${PRODUCT_NAME}\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Bundle\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
 		};
 		890BF77D1FEF9569003E8E7C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -796,7 +797,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FMK_NAME=\"QuickWebProviderPlugin\"\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Resource\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
+			shellScript = "FMK_NAME=\"QuickWebProviderPlugin\"\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Bundle\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
 		};
 		890BF77E1FEF95BF003E8E7C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -823,6 +824,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "WRK_DIR=build\nINSTALL_DIR=${SRCROOT}/products\n\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"";
+		};
+		89E57965200B8B96004925DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FMK_NAME=\"QuickWebJSBridgePlugin\"\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\n#Resource bundle\nBUNDLE_TARGET_NAME=${FMK_NAME}Bundle\nBUNDLEDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.bundle\nINSTALL_BUNDLE_DIR=${SRCROOT}/products/${FMK_NAME}.bundle\n\n#build resource\nxcodebuild -configuration \"Release\" -target \"${BUNDLE_TARGET_NAME}\" -sdk iphoneos clean build\n\nditto \"${BUNDLEDEVICE_DIR}\" \"${INSTALL_BUNDLE_DIR}\"\n\n#rm -f \"${INSTALL_BUNDLE_DIR}\"/info.plist\nrm -f \"${INSTALL_BUNDLE_DIR}/${FMK_NAME}\"";
 		};
 		938AEC3F0E9B87F7E021FCD6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1253,7 +1267,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitResource" */ = {
+		890BF6C01FED31A1003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebKitBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				890BF6BE1FED31A1003E8E7C /* Debug */,
@@ -1271,7 +1285,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginResource" */ = {
+		890BF7631FEF8E95003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebProviderPluginBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				890BF7641FEF8E95003E8E7C /* Debug */,
@@ -1280,7 +1294,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginResource" */ = {
+		890BF79A1FEFDB46003E8E7C /* Build configuration list for PBXNativeTarget "QuickWebJSBridgePluginBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				890BF79B1FEFDB46003E8E7C /* Debug */,
