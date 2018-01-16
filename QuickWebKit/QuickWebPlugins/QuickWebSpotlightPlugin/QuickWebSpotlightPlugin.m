@@ -148,7 +148,7 @@
             {
                 [keywords addObjectsFromArray:webKeywords];
             }
-            [keywords addObject:set.title];
+            if(![QuickWebStringUtil isStringBlank:set.title])[keywords addObject:set.title];
             set.keywords = keywords;
             if(![QuickWebStringUtil isStringBlank:shareInfo.image])
             {
