@@ -27,7 +27,7 @@
     {
         if(error.code!= NSURLErrorCancelled)
         {
-            [webViewController.view makeToast:error.localizedDescription];
+            [webViewController.view makeToast:error.localizedDescription duration:[CSToastManager defaultDuration] position:[CSToastManager defaultPosition] style:[CSToastManager sharedStyle]];
         }
     }
 }

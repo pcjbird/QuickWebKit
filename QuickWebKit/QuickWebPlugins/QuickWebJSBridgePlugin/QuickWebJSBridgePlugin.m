@@ -106,7 +106,7 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
             SmartJSWebView *webView = [weakSelf getSmartJSWebViewBySecretId:secretId];
             if([webView isKindOfClass:[SmartJSWebView class]])
             {
-                [webView makeToast:QuickWebJSBridgeProxyNotFound(service) duration:3.0f position:CSToastPositionTop];
+                [webView makeToast:QuickWebJSBridgeProxyNotFound(service) duration:3.0f position:CSToastPositionTop style:[CSToastManager sharedStyle]];
             }
         });
         return NSStringFromBOOL(FALSE);

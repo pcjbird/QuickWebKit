@@ -330,7 +330,7 @@
         NSString *errorMsg = error.localizedDescription;
         if (![QuickWebStringUtil isStringBlank:errorMsg])
         {
-            [self.targetWebController.view makeToast:errorMsg];
+            [self.targetWebController.view makeToast:errorMsg duration:[CSToastManager defaultDuration] position:[CSToastManager defaultPosition] style:[CSToastManager sharedStyle]];
         }
         return;
     }
