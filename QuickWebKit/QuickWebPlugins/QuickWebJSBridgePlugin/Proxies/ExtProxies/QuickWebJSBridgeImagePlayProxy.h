@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuickWEbJSBridgeProxyProtocol.h"
+#import "QuickWebJSBridgeProxyProtocol.h"
 @interface QuickWebJSBridgeImagePlayProxy : NSObject<QuickWebJSBridgeProxyProtocol>
 
 - (BOOL)browseArtwork:(NSString *)photoUrls fromIndex:(NSString *)photoIndex webViewSecretId:(NSString *)secretId;

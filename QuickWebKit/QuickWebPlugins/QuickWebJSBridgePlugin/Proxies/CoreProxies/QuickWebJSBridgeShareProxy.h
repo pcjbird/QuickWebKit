@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuickWEbJSBridgeProxyProtocol.h"
+#import "QuickWebJSBridgeProxyProtocol.h"
 @interface QuickWebJSBridgeShareProxy : NSObject<QuickWebJSBridgeProxyProtocol>
 
 @end
