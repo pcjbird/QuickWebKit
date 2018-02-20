@@ -18,6 +18,7 @@
 
 #define ShowNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+#define IsNetworkActivityIndicatorShown()   [UIApplication sharedApplication].networkActivityIndicatorVisible
 #define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebViewController class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
 #define DEFAULT_TINTCOLOR [UIColor darkGrayColor]
 // 状态栏高度(来电等情况下，状态栏高度会发生变化，所以应该实时计算)
@@ -224,6 +225,10 @@ typedef enum
 -(void)willPopToPrevVC:(BOOL)animated
 {
     self.pauseResumeEventListenObject = nil;
+    if(IsNetworkActivityIndicatorShown())
+    {
+        HideNetworkActivityIndicator();
+    }
 }
 
 -(void)didPushedToNextVC:(BOOL)animated
@@ -247,10 +252,10 @@ typedef enum
     
     [self updateLeftBarButtonItems];
     
-    [self registerNotificationObserver];
+    [self quickweb_registerNotificationObserver];
 }
 
--(void) registerNotificationObserver
+-(void) quickweb_registerNotificationObserver
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnPluginRequestUpdateUINotification:) name:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnJSInvokeNotification:) name:QUICKWEBJSINVOKENOTIFICATION object:nil];
@@ -266,7 +271,7 @@ typedef enum
 
 -(void) didRegisterNotificationObserver{}
 
--(void)removeNotificationObserver
+-(void)quickweb_removeNotificationObserver
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     for (id<QuickWebPluginProtocol> plugin in _pluginMap.allValues) {
@@ -282,7 +287,7 @@ typedef enum
 
 -(void)dealloc
 {
-    [self removeNotificationObserver];
+    [self quickweb_removeNotificationObserver];
 }
 
 #pragma mark - 插件请求更新UI

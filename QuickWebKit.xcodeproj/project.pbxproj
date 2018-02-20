@@ -959,7 +959,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebViewControllerResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebKitBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
@@ -977,7 +977,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebViewControllerResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebKitBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
@@ -1011,7 +1011,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebProviderPluginResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebProviderPluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
@@ -1029,7 +1029,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebProviderPluginResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebProviderPluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
@@ -1047,7 +1047,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebJSBridgePluginResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebJSBridgePluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
@@ -1065,7 +1065,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickWebResources/QuickWebJSBridgePluginResource/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebJSBridgePluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
