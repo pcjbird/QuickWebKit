@@ -15,6 +15,7 @@
 2. 基础 [SmartJSWebView](https://github.com/pcjbird/SmartJSWebView), 支持 H5 页面通过 JavaScript 与 Native App 交互的 WebView，兼容 UIWebView 和 WKWebView。
 3. 支持扩展, 您可以基于该 WebView 视图控制器定制开发您自己的插件。
 4. 强大的基础插件支持，您几乎无需写一行代码即可运行起一个强大的 H5 容器，满足大部分应用场景：
+
    * QuickWebToastPlugin(toast插件) - 当页面出现错误时会以 toast 方式进行提示。
    * QuickWebProviderPlugin(provider插件) - 类似微信中的“此网页由xxx提供”。
    * QuickWebQRCodePlugin(qrcode插件) - 支持长按二维码图片进行二维码识别。
