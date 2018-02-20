@@ -16,14 +16,14 @@
 3. 支持扩展, 您可以基于该 WebView 视图控制器定制开发您自己的插件。
 4. 强大的基础插件支持，您几乎无需写一行代码即可运行起一个强大的 H5 容器，满足大部分应用场景：
 
-   * QuickWebToastPlugin(toast插件) - 当页面出现错误时会以 toast 方式进行提示。
-   * QuickWebProviderPlugin(provider插件) - 类似微信中的“此网页由xxx提供”。
-   * QuickWebQRCodePlugin(qrcode插件) - 支持长按二维码图片进行二维码识别。
-   * QuickWebSharePlugin(share插件) - 支持将页面分享到社交平台的插件。
-   * QuickWebSpotlightPlugin(spotlight插件) - 支持将页面信息自动添加到 spotlight 搜索的插件。
-   * QuickWebLNRefreshPlugin(LNRefresh插件) - 基于 LNRefresh 下拉刷新的插件。
-   * QuickWebMJRefreshPlugin(MJRefresh插件) - 基于 MJRefresh 下拉刷新的插件。
-   * QuickWebJSBridgePlugin(JSBridge插件) - 基于 JS 与 Native 交互的插件, 已实现多个 proxies, 详见 CoreProxies 和 ExtProxies 目录。
+*   QuickWebToastPlugin(toast插件) - 当页面出现错误时会以 toast 方式进行提示。
+*   QuickWebProviderPlugin(provider插件) - 类似微信中的“此网页由xxx提供”。
+*   QuickWebQRCodePlugin(qrcode插件) - 支持长按二维码图片进行二维码识别。
+*   QuickWebSharePlugin(share插件) - 支持将页面分享到社交平台的插件。
+*   QuickWebSpotlightPlugin(spotlight插件) - 支持将页面信息自动添加到 spotlight 搜索的插件。
+*   QuickWebLNRefreshPlugin(LNRefresh插件) - 基于 LNRefresh 下拉刷新的插件。
+*   QuickWebMJRefreshPlugin(MJRefresh插件) - 基于 MJRefresh 下拉刷新的插件。
+*   QuickWebJSBridgePlugin(JSBridge插件) - 基于 JS 与 Native 交互的插件, 已实现多个 proxies, 详见 CoreProxies 和 ExtProxies 目录。
    
    将持续更新......
 
