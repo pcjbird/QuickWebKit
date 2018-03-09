@@ -12,7 +12,7 @@
 /*
  * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
  */
-@interface QuickWebViewController : UIViewController
+@interface QuickWebViewController : UIViewController<SmartJSWebSecurityProxy>
 
 /*
  * @brief webview
@@ -52,6 +52,12 @@
  * @param preferWKWebView 是否使用WKWebView
  */
 -(instancetype)initWithUrlString:(NSString *)url preferWKWebView:(BOOL)preferWKWebView;
+
+/*
+ * @brief 设置白名单
+ * @param hostlist 白名单列表
+ */
+-(void)setWhitelist:(NSArray<NSString*>*)hostlist;
 
 /*
  * @brief 加载页面

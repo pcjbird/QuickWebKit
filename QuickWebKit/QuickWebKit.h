@@ -8,6 +8,9 @@
 //  框架名称:QuickWebKit
 //  框架功能:A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
 //  修改记录:
+//     pcjbird    2018-03-10  Version:1.1.7 Build:201803100001
+//                            1.新增白名单功能。
+//
 //     pcjbird    2018-02-20  Version:1.1.6 Build:201802200001
 //                            1.修复当网页加载到一半返回，仍然显示NetworkActivityIndicator的问题。
 //                            2.修改注册和移除通知观察者函数名，防止被继承类复写，导致BUG排查困难的问题。

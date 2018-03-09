@@ -358,6 +358,17 @@ typedef enum
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - SmartJSWebSecurityProxy
+-(BOOL)shouldSmartJSWebViewUseSecurityWhitelist:(SmartJSWebView *)webView
+{
+    return NO;
+}
+
+-(NSArray<NSString *> *)securityWhitelistForWebView:(SmartJSWebView *)webView
+{
+    return nil;
+}
+
 #pragma mark - 加载页面
 -(void)loadPage:(NSString *)url
 {
@@ -409,6 +420,7 @@ typedef enum
     CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     _contentWebView = [[SmartJSWebView alloc] initWithFrame:frame];
     if(_preferWKWebView)_contentWebView.preferWKWebView = YES;
+    _contentWebView.securityProxy = self;
     _contentWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_contentWebView setBackgroundColor:[self backgroundColor]];
     _contentWebView.opaque = NO;
