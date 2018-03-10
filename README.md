@@ -80,7 +80,7 @@ pod 'QuickWebKit'
 
 ####   2018-03-10 V1.1.8
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803100002
-> 1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调Ready的javscript函数。
+> 1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调结果Ready回调通知的javscript函数。
 
 ####   2018-03-10 V1.1.7
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803100001
