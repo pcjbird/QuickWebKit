@@ -11,8 +11,7 @@
 
 ## 版本 / Releases
 
-> pcjbird    2018-03-10  Version:1.1.8 Build:201803100002
-
+* 1.1.8 Build:201803100002  pcjbird  2018-03-10  
 > 1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调Ready的javscript函数。
 
 pcjbird    
