@@ -54,12 +54,6 @@
 -(instancetype)initWithUrlString:(NSString *)url preferWKWebView:(BOOL)preferWKWebView;
 
 /*
- * @brief 设置白名单
- * @param hostlist 白名单列表
- */
--(void)setWhitelist:(NSArray<NSString*>*)hostlist;
-
-/*
  * @brief 加载页面
  * @param url 页面地址
  */

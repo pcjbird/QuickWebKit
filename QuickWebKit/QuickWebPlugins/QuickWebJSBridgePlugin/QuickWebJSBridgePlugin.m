@@ -29,7 +29,7 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     dispatch_block_t block = ^{
         if(!_sharedPlugin)
         {
-            _sharedPlugin = [QuickWebJSBridgePlugin new];
+            _sharedPlugin = [[self class] new];
         }
     };
     if ([NSThread isMainThread])
@@ -71,7 +71,12 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
 -(void)webViewControllerDidWebViewCreated:(QuickWebViewController *)webViewController
 {
     weak(weakSelf);
-    [webViewController.webView addJavascriptInterfaces:weakSelf WithName:@"_quickWebMobileNative"];
+    NSString * name = [self javascriptInterfaceName];
+    if([QuickWebStringUtil isStringBlank:name])
+    {
+        name = @"_quickWebMobileNative";
+    }
+    [webViewController.webView addJavascriptInterfaces:weakSelf WithName:name];
 }
 
 #pragma mark - SmartJSBridgeProtocol
@@ -130,7 +135,12 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
         if([webView isKindOfClass:[SmartJSWebView class]])
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [webView evaluateJavaScript:@"_onQuickWebMobileNative();" completionHandler:nil];
+                NSString * script = [weakSelf javascriptMethodCallbackReady];
+                if([QuickWebStringUtil isStringBlank:script])
+                {
+                    script = @"_onQuickWebMobileNative();";
+                }
+                [webView evaluateJavaScript:script completionHandler:nil];
             });
         }
     }];
@@ -150,6 +160,17 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     
     return @"";
 }
+
+- (NSString*) javascriptInterfaceName
+{
+    return @"_quickWebMobileNative";
+}
+
+- (NSString*) javascriptMethodCallbackReady
+{
+    return @"_onQuickWebMobileNative();";
+}
+
 #pragma mark - QuickWebJSInvokeResultHandlerProtocol
 -(void)handleQuickWebJSInvokeResult:(QuickWebJSInvokeResult *)result
 {
@@ -166,8 +187,14 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
     
     if([webView isKindOfClass:[SmartJSWebView class]])
     {
+        weak(weakSelf);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [webView evaluateJavaScript:@"_onQuickWebMobileNative();" completionHandler:nil];
+            NSString * script = [weakSelf javascriptMethodCallbackReady];
+            if([QuickWebStringUtil isStringBlank:script])
+            {
+                script = @"_onQuickWebMobileNative();";
+            }
+            [webView evaluateJavaScript:script completionHandler:nil];
         });
     }
     
