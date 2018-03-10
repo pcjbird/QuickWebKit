@@ -22,7 +22,7 @@
 ####   2018-02-20 V1.1.6
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201802200001
 > 1.修复当网页加载到一半返回，仍然显示NetworkActivityIndicator的问题。    
-2.修改注册和移除通知观察者函数名，防止被继承类复写，导致BUG排查困难的问题。
+> 2.修改注册和移除通知观察者函数名，防止被继承类复写，导致BUG排查困难的问题。
 
 ####   2018-02-02 V1.1.5
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201802020001
@@ -54,7 +54,7 @@
 
 ####   2018-01-09 V1.0.8 
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201801090002
-> 1.优化QuickWebQRCodePlugin插件手势。
+> 1.优化QuickWebQRCodePlugin插件手势。    
 > 2.修复QuickWebQRCodePlugin本地化错误。
 
 ####   2018-01-09 V1.0.7 
@@ -75,7 +75,7 @@
 
 ####   2018-01-02 V1.0.3
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201801020003
-> 1.新增LNRefresh和MJRefresh插件
+> 1.新增LNRefresh和MJRefresh插件    
 > 2.新增是否优先使用WKWebView初始化函数
 
 ####   2018-01-02 V1.0.2
