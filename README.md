@@ -10,9 +10,9 @@
 ### A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
 
 ## 版本 / Releases
-
-pcjbird    2018-03-10  Version:1.1.8 Build:201803100002
-1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调Ready的javscript函数。
+```
+>pcjbird    2018-03-10  Version:1.1.8 Build:201803100002
+>1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调Ready的javscript函数。
 
 pcjbird    2018-03-10  Version:1.1.7 Build:201803100001
 1.新增白名单功能。
@@ -70,6 +70,7 @@ pcjbird    2018-01-02  Version:1.0.1 Build:201801020001
 
 pcjbird    2017-12-24  Version:1.0.0 Build:201712240001
 1.首次发布SDK版本
+```
 
 ## 特性 / Features
 
