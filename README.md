@@ -22,6 +22,7 @@
 ####   2018-02-20 V1.1.6
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201802200001
 > 1.修复当网页加载到一半返回，仍然显示NetworkActivityIndicator的问题。
+
 > 2.修改注册和移除通知观察者函数名，防止被继承类复写，导致BUG排查困难的问题。
 
 ####   2018-02-02 V1.1.5
