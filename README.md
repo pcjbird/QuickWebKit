@@ -12,6 +12,7 @@
 ## 版本 / Releases
 
 *   2018-03-10 (1.1.8)
+![](https://avatars3.githubusercontent.com/u/6175452?s=40&v=4) pcjbird
 > 1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调Ready的javscript函数。
 
 pcjbird    
