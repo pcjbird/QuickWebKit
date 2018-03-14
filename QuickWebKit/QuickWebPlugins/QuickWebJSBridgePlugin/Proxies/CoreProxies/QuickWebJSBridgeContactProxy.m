@@ -430,13 +430,21 @@
     [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
         NSString * firstName =  contact.givenName;
         NSString * lastName =  contact.familyName;
-        NSString * phone = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
         NSString *name = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
         if([QuickWebStringUtil isStringHasChineseCharacter:firstName])
         {
             name = [NSString stringWithFormat:@"%@%@", lastName, firstName];
         }
-        [contacts addObject:@[name, phone]];
+        NSArray * phones = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
+        for (NSString *phone in phones) {
+            NSString * phoneNO = phone;
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"(" withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@")" withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
+            [contacts addObject:@[name, phoneNO]];
+        }
     }];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self[1] contains [cd] %@", number];
@@ -499,7 +507,10 @@
                 phoneNO = [phoneNO substringFromIndex:3];
             }
             phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"-" withString:@""];
-            
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"(" withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@")" withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
+            phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
             
             if (phone && [phoneNO isKindOfClass:[NSString class]] && [phoneNO length] > 0) {
                 
