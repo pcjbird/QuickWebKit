@@ -194,7 +194,7 @@
 
 -(NSString*)webViewClose:(QuickWebJSBridgeInvokeCommand*)command callback:(QuickWebJSCallBack)callback
 {
-    if(![command isKindOfClass:[QuickWebJSInvokeCommand class]])
+    if(![command isKindOfClass:[QuickWebJSBridgeInvokeCommand class]])
     {
         return NSStringFromBOOL(FALSE);
     }
@@ -207,7 +207,7 @@
 
 -(NSString*)listenWebViewPauseResumeEvent:(QuickWebJSBridgeInvokeCommand*)command callback:(QuickWebJSCallBack)callback
 {
-    if(![command isKindOfClass:[QuickWebJSInvokeCommand class]])
+    if(![command isKindOfClass:[QuickWebJSBridgeInvokeCommand class]])
     {
         return NSStringFromBOOL(FALSE);
     }
@@ -220,7 +220,7 @@
 
 -(NSString*)openInSafari:(QuickWebJSBridgeInvokeCommand*)command callback:(QuickWebJSCallBack)callback
 {
-    if(![command isKindOfClass:[QuickWebJSInvokeCommand class]])
+    if(![command isKindOfClass:[QuickWebJSBridgeInvokeCommand class]])
     {
         return NSStringFromBOOL(FALSE);
     }
