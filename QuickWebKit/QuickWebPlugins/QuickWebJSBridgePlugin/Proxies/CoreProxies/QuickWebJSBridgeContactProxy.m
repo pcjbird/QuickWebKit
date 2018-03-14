@@ -61,7 +61,14 @@
     {
         return [self queryContact:command callback:callback];
     }
-    
+    else
+    {
+        if([command.webView isKindOfClass:[SmartJSWebView class]])
+        {
+            NSString *warning = [NSString stringWithFormat:@"无效的JS调用(service=\"%@\", action=\"%@\")。", [self name], actionId];
+            [command.webView tracewarning:warning];
+        }
+    }
     return NSStringFromBOOL(FALSE);
 }
 
@@ -132,7 +139,11 @@
     }
     if(!self.queryContactCommand)self.queryContactCommand = command;
     if(!self.queryContactCallback)self.queryContactCallback = callback;
-    
+    if([command.webView isKindOfClass:[SmartJSWebView class]])
+    {
+        NSString *log = [NSString stringWithFormat:@"调用模糊查询联系人(service=\"%@\", action=\"%@\", query=\"%@\")。", [self name], @"101", text];
+        [command.webView tracewarning:log];
+    }
     [self queryContactByNumber:text];
     return NSStringFromBOOL(TRUE);
 }
@@ -257,7 +268,8 @@
 }
 
 //iOS 9
-- (void)contactPickerDidCancel:(CNContactPickerViewController *)picker {
+- (void)contactPickerDidCancel:(CNContactPickerViewController *)picker NS_AVAILABLE_IOS(9_0)
+{
     [picker dismissViewControllerAnimated:YES completion:nil];
     if (self.contactCommand && self.contactCallback)
     {
@@ -269,7 +281,8 @@
 }
 
 
-- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact {
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact NS_AVAILABLE_IOS(9_0)
+{
     //获取联系人姓名
     NSString *lastName = contact.familyName;
     NSString *firstName = contact.givenName;
@@ -305,7 +318,8 @@
     }
 }
 
-- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty {
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty NS_AVAILABLE_IOS(9_0)
+{
     //获取联系人信息
     NSString *lastName = contactProperty.contact.familyName;  //姓
     NSString *firstName = contactProperty.contact.givenName;    //名
@@ -404,8 +418,16 @@
             self.queryContactCallback = nil;
         }
     }
+    else
+    {
+        if(self.queryContactCommand && [self.queryContactCommand.webView isKindOfClass:[SmartJSWebView class]])
+        {
+            NSString *errorString = [NSString stringWithFormat:@"模糊查询联系人失败，通讯录权限受限。(service=\"%@\", action=\"%@\")。", [self name], @"101"];
+            [self.queryContactCommand.webView traceerror:errorString];
+        }
+        [self queryContactFailure];
+    }
     
-    [self queryContactFailure];
     
 }
 
@@ -421,7 +443,7 @@
 }
 
 
--(NSString*) copyContact:(CNContactStore*) addressBook queryNumber:(NSString*)number
+-(NSString*) copyContact:(CNContactStore*) addressBook queryNumber:(NSString*)number NS_AVAILABLE_IOS(9_0)
 {
     NSError* contactError;
     NSMutableArray *contacts = [NSMutableArray new];

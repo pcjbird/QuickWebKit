@@ -12,7 +12,7 @@
 "Cancel" = "Cancel";
 
 "QuickWebJSFunctionOnlySupportVersionFormat" = "JS function:%s only support after V%@！";
-"QuickWebJSBridgeProxyNotFoundFormat" = "JS proxy '%@' not support now！";
+"QuickWebJSBridgeProxyNotFoundFormat" = "Invaid JS proxy invoke(service=\"%@\")."
 
 "CellularNetworksVideoPlayTip" = "The current use of non wifi network to watch video, it would consume the carrier cellular data!";
 "Continue Play" = "Play";

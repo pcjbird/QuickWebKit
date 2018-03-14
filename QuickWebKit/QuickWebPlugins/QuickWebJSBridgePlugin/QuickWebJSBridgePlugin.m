@@ -112,12 +112,14 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
             if([webView isKindOfClass:[SmartJSWebView class]])
             {
                 [webView makeToast:QuickWebJSBridgeProxyNotFound(service) duration:3.0f position:CSToastPositionTop style:[CSToastManager sharedStyle]];
+                NSString *warning = [NSString stringWithFormat:@"无效的JS调用(service=\"%@\")。", service];
+                [webView tracewarning:warning];
             }
         });
         return NSStringFromBOOL(FALSE);
     }
     QuickWebJSBridgeInvokeCommand *command = [QuickWebJSBridgeInvokeCommand commandFromSecretId:secretId callbackId:callbackId jsonArgs:args];
-    
+    command.webView = [self getSmartJSWebViewBySecretId:secretId];
     return [proxy callAction:action command:command callback:^(QuickWebJSInvokeResult *result) {
         
         if(![result isKindOfClass:[QuickWebJSInvokeResult class]]) return;

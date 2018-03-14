@@ -83,6 +83,14 @@
     {
         return [self alert:command callback:callback];
     }
+    else
+    {
+        if([command.webView isKindOfClass:[SmartJSWebView class]])
+        {
+            NSString *warning = [NSString stringWithFormat:@"无效的JS调用(service=\"%@\", action=\"%@\")。", [self name], actionId];
+            [command.webView tracewarning:warning];
+        }
+    }
     return NSStringFromBOOL(FALSE);
 }
 

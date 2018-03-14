@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SmartJSWebView;
 @interface QuickWebJSBridgeInvokeCommand : NSObject
 {
     NSString* _secretId;
@@ -18,6 +18,7 @@
 @property (nonatomic, readonly) NSString* secretId;
 @property (nonatomic, readonly) NSString* callbackId;
 @property (nonatomic, readonly) NSDictionary* arguments;
+@property (nonatomic, weak) SmartJSWebView* webView;
 
 + (QuickWebJSBridgeInvokeCommand*)commandFromSecretId:(NSString *)secretId callbackId:(NSString*)callbackId jsonArgs:(NSString*)argString;
 
