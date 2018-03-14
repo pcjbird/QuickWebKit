@@ -78,6 +78,14 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-03-14 V1.2.0
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803140002
+> 1.修复JS插件system proxy部分接口无法调用的问题。
+
+####   2018-03-14 V1.1.9
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803140001
+> 1.修复模糊查找联系人的BUG。
+
 ####   2018-03-10 V1.1.8
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803100002
 > 1.新增支持自定义QuickWebJSBridgePlugin JavascriptInterface 名称以及异步回调结果Ready回调通知的javscript函数。
