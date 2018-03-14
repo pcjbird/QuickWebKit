@@ -14,6 +14,7 @@
 
 /*
  * @brief Javascript Bridge 插件
+ * @remark 如果项目需要继承该类，请务必在子类中实现exec和retrieve方法,其实现直接调用父类的exec和retrieve方法,如果子类没有实现这两个方法，将无法暴露给H5调用。
  */
 @interface QuickWebJSBridgePlugin : NSObject<QuickWebPluginProtocol,QuickWebJSInvokeResultHandlerProtocol, SmartJSBridgeProtocol>
 
@@ -28,11 +29,13 @@
 
 /*
  * @brief JavascriptInterface 名称, 默认为 "_quickWebMobileNative", 若项目需要自定义, 继承该插件并实现该方法
+ * @remark 如果项目需要继承该类，请务必在子类中实现exec和retrieve方法,其实现直接调用父类的exec和retrieve方法,如果子类没有实现这两个方法，将无法暴露给H5调用。
  * @return JavascriptInterface 名称, 不能为空。
  */
 - (NSString*) javascriptInterfaceName;
 /*
  * @brief JavascriptInterface 异步调用结果Ready回调函数, 默认为 "_onQuickWebMobileNative();", 若项目需要自定义, 继承该插件并实现该方法
+ * @remark 如果项目需要继承该类，请务必在子类中实现exec和retrieve方法,其实现直接调用父类的exec和retrieve方法,如果子类没有实现这两个方法，将无法暴露给H5调用。
  * @return 回调函数字符串, 不能为空。
  */
 - (NSString*) javascriptMethodCallbackReady;
