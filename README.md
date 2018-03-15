@@ -78,6 +78,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-03-15 V1.2.2
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803150001
+> 1.QuickWebJSBridgeContactProxy: 新增一些浏览器控制台调试日志。
+
 ####   2018-03-14 V1.2.1
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803140003
 > 1.新增一些浏览器控制台调试日志。

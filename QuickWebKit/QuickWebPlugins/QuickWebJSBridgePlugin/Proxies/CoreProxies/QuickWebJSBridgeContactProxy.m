@@ -141,7 +141,7 @@
     if(!self.queryContactCallback)self.queryContactCallback = callback;
     if([command.webView isKindOfClass:[SmartJSWebView class]])
     {
-        NSString *log = [NSString stringWithFormat:@"调用模糊查询联系人(service=\"%@\", action=\"%@\", query=\"%@\")。", [self name], @"101", text];
+        NSString *log = [NSString stringWithFormat:@"调用模糊查找联系人(service=\"%@\", action=\"%@\", query=\"%@\")。", [self name], @"101", text];
         [command.webView tracewarning:log];
     }
     [self queryContactByNumber:text];
@@ -422,7 +422,7 @@
     {
         if(self.queryContactCommand && [self.queryContactCommand.webView isKindOfClass:[SmartJSWebView class]])
         {
-            NSString *errorString = [NSString stringWithFormat:@"模糊查询联系人失败，通讯录权限受限。(service=\"%@\", action=\"%@\")。", [self name], @"101"];
+            NSString *errorString = [NSString stringWithFormat:@"模糊查找联系人失败，通讯录权限受限(service=\"%@\", action=\"%@\")。", [self name], @"101"];
             [self.queryContactCommand.webView traceerror:errorString];
         }
         [self queryContactFailure];
@@ -445,6 +445,11 @@
 
 -(NSString*) copyContact:(CNContactStore*) addressBook queryNumber:(NSString*)number NS_AVAILABLE_IOS(9_0)
 {
+    BOOL debug = NO;
+    if(self.queryContactCommand)
+    {
+         debug = [QuickWebDataParseUtil getDataAsBool:[self.queryContactCommand.arguments objectForKey:@"debug"]];
+    }
     NSError* contactError;
     NSMutableArray *contacts = [NSMutableArray new];
     NSArray * keysToFetch =@[CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactFamilyNameKey, CNContactGivenNameKey, CNContactPostalAddressesKey];
@@ -466,6 +471,11 @@
             phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
             phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@" " withString:@""];
             [contacts addObject:@[name, phoneNO]];
+            if(debug && self.queryContactCommand && [self.queryContactCommand.webView isKindOfClass:[SmartJSWebView class]])
+            {
+                NSString *log = [NSString stringWithFormat:@"[模糊查找联系人 调试] 通讯录联系人:(name=\"%@\", mobileno=\"%@\")。", name, phoneNO];
+                [self.queryContactCommand.webView tracelog:log];
+            }
         }
     }];
     
@@ -490,6 +500,11 @@
 
 - (NSString*)copyAddressBook:(ABAddressBookRef)addressBook queryNumber:(NSString *)number
 {
+    BOOL debug = NO;
+    if(self.queryContactCommand)
+    {
+        debug = [QuickWebDataParseUtil getDataAsBool:[self.queryContactCommand.arguments objectForKey:@"debug"]];
+    }
     CFIndex numberOfPeople = ABAddressBookGetPersonCount(addressBook);
     CFArrayRef people = ABAddressBookCopyArrayOfAllPeople(addressBook);
     NSMutableArray *contacts = [NSMutableArray new];
@@ -537,6 +552,11 @@
             if (phone && [phoneNO isKindOfClass:[NSString class]] && [phoneNO length] > 0) {
                 
                 [contacts addObject:@[name, phoneNO]];
+                if(debug && self.queryContactCommand && [self.queryContactCommand.webView isKindOfClass:[SmartJSWebView class]])
+                {
+                    NSString *log = [NSString stringWithFormat:@"[模糊查找联系人 调试] 通讯录联系人:(name=\"%@\", mobileno=\"%@\")。", name, phoneNO];
+                    [self.queryContactCommand.webView tracelog:log];
+                }
             }
         }
     }
