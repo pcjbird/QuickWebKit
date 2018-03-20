@@ -742,10 +742,25 @@ typedef enum
                 [button.titleLabel setFont:[self resolvedBtnFont]];
                 button.tintColor = [self resolvedBtnTintColor];
             }
-            [button.imageView yy_setImageWithURL:[NSURL URLWithString:self.primaryButton.icon] placeholder:nil options:YYWebImageOptionProgressiveBlur completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-                CGSize size = [button sizeThatFits:CGSizeMake(HUGE, 40)];
-                button.frame = CGRectMake(0, 0, size.width, size.height);
-            }];
+            NSURL *iconUrl = [QuickWebStringUtil isStringBlank:self.primaryButton.icon] ? nil : [NSURL URLWithString:self.primaryButton.icon];
+            UIImage *icon = nil;
+            if(iconUrl)
+            {
+                if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
+                {
+                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
+                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                }
+                else
+                {
+                    icon = [UIImage imageNamed:self.primaryButton.icon];
+                    icon = [icon yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
+                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                }
+            }
+            [button setImage:icon forState:UIControlStateNormal];
+            CGSize size = [button sizeThatFits:CGSizeMake(HUGE, 40)];
+            button.frame = CGRectMake(0, 0, size.width, size.height);
             
             [button addTarget:self action:@selector(OnPrimaryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -762,12 +777,11 @@ typedef enum
     self.navigationItem.rightBarButtonItems = rightBtns;
 }
 
--(void) applyNavBar
+-(void) setBarTintColor:(UIColor*)tintColor
 {
-    if([self.navBarBackColor isKindOfClass:[UIColor class]])
+    if([tintColor isKindOfClass:[UIColor class]])
     {
-        [self.navigationController.navigationBar setBarTintColor:self.navBarBackColor];
-        
+        [self.navigationController.navigationBar setBarTintColor:tintColor];
     }
     else
     {
@@ -776,6 +790,18 @@ typedef enum
         {
             [self.navigationController.navigationBar setBarTintColor:apperance.barTintColor];
         }
+    }
+}
+
+-(void) applyNavBar
+{
+    if([self.navBarBackColor isKindOfClass:[UIColor class]])
+    {
+        [self setBarTintColor:self.navBarBackColor];
+    }
+    else
+    {
+        [self setBarTintColor:nil];
     }
     //trigger reload statusbar style
     self.navigationController.navigationBarHidden = NO;
@@ -806,6 +832,7 @@ typedef enum
         [imageView yy_setImageWithURL:[NSURL URLWithString:self.navBarTitleImageUrl] placeholder:nil options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             if([error isKindOfClass:[NSError class]]) return;
             CGSize size = [weakImageView sizeThatFits:CGSizeMake([[UIScreen mainScreen] bounds].size.width, 40)];
+            if(size.height > 40) size = CGSizeMake(size.width *(40.0f/size.height), 40.0f);
             weakImageView.frame = CGRectMake(0, 0, size.width, size.height);
             weakImageView.contentMode = UIViewContentModeScaleAspectFit;
             weakSelf.navigationItem.titleView = weakImageView;
@@ -841,24 +868,27 @@ typedef enum
             {
                 if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
                 {
-                    icon = [UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]];
+                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
+                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
                 else
                 {
                     icon = [UIImage imageNamed:item.icon];
+                    icon = [icon yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
+                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
             }
             PopoverAction *action = [PopoverAction actionWithImage:icon title:item.title handler:^(PopoverAction *action) {
                 if([item.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
                 {
-                    [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:weakContentView ? _contentWebView.secretId : @""]];
+                    [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:weakContentView ? weakContentView.secretId : @""]];
                 }
             }];
             [menuItems addObject:action];
         }
         PopoverView *popoverView = [PopoverView popoverView];
         popoverView.showShade = YES; // 显示阴影背景
-        [popoverView showToView:sender withActions:menuItems];
+        [popoverView showToView:[event.allTouches.anyObject view] withActions:menuItems];
     }
 }
 

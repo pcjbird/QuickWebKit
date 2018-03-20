@@ -19,6 +19,7 @@
         self.provider = provider;
         self.actionId = actionId;
         self.param = dictionary;
+        self.resultHandler = handler;
     }
     return self;
 }

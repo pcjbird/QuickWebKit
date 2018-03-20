@@ -100,4 +100,10 @@
  */
 -(void) didRemoveNotificationObserver;
 
+/*
+ * @brief 设置导航背景色
+ * @param tintColor 导航背景色, nil表示清除
+ */
+-(void) setBarTintColor:(UIColor*)tintColor;
+
 @end

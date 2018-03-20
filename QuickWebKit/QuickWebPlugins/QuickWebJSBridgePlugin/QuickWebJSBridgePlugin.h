@@ -26,7 +26,7 @@
 
 /**
  * @brief 调用本地（Native）方法。
- * @param secret 秘钥，同一个 WebView 拥有相同全球唯一的秘钥。
+ * @param secretId 秘钥，同一个 WebView 拥有相同全球唯一的秘钥。
  * @param service 服务名称（模块）, 用于将调用功能进行分类，可以将不同的功能分类到系统模块、账号模块、分享模块等， 例如"system","account","share"等。
  * @param action 服务模块下的子功能行为编号， 例如系统模块下的“复制到剪贴板”这样一个功能，我们可以将其行为编号定义为100
  * @param callbackId 回调Id （回调id为每次请求生成的串码，位数无要求，主要作为js端回调时使用）, 最终会包含在回调结果中，JS根据这个确定是哪一个调用行为的调用结果
@@ -38,7 +38,7 @@
 
 /**
  * @brief H5取回调用结果。（取回是一个调用结果数组，当前 WebView 的未取回的所有调用结果）
- * @param secret 秘钥，同一个 WebView 拥有相同全球唯一的秘钥。
+ * @param secretId 秘钥，同一个 WebView 拥有相同全球唯一的秘钥。
  * @return 调用结果数组
  *          [{"callbackId":"9028","result":"WIFI","status":"SUCCESS"}, ...]
  *           callbackId 请求时传递的回调id
