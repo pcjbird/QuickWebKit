@@ -888,6 +888,7 @@ typedef enum
         }
         PopoverView *popoverView = [PopoverView popoverView];
         popoverView.showShade = YES; // 显示阴影背景
+        popoverView.tintColor =  (popoverView.style == PopoverViewStyleDefault) ? [UIColor grayColor] : [UIColor whiteColor];
         [popoverView showToView:[event.allTouches.anyObject view] withActions:menuItems];
     }
 }
