@@ -81,7 +81,7 @@
                             SDK_LOG(@"获取页面分享信息失败：%@.(%@)", error.localizedDescription, url);
                             return;
                         }
-                        if(![shareInfo isKindOfClass:[EasyShareInfo class]])
+                        if(![shareInfo isKindOfClass:[EasyShareInfo class]] || !shareInfo.resolvedByMeta)
                         {
                             SDK_LOG(@"未能正确获取页面分享信息.(%@)", url);
                             return;

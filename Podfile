@@ -12,7 +12,7 @@ target 'QuickWebKit' do
   pod 'SmartJSWebView'
   pod 'YYImage/WebP'
   pod 'YYWebImage'
-  pod 'FTPopOverMenu'
+  pod 'Popover.OC'
   # Pods for QuickWebToastPlugin
   pod 'Toast'
   # Pods for QuickWebSharePlugin,QuickWebSpotlightPlugin

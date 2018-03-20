@@ -14,7 +14,7 @@
 #import "QuickWebKitDefines.h"
 #import "QuickWebJSInvokeProviderProtocol.h"
 #import <YYWebImage/YYWebImage.h>
-#import <FTPopOverMenu/FTPopOverMenu.h>
+#import <Popover_OC/PopoverView.h>
 
 #define ShowNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
@@ -710,6 +710,27 @@ typedef enum
 -(void) updateRightBarButtonItems
 {
     NSMutableArray *rightBtns = [NSMutableArray array];
+    
+    if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
+    {
+        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(popView:event:)];
+        [rightBtns addObject:moreBtn];
+    }
+    else
+    {
+        weak(weakSelf);
+        [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+            if([obj respondsToSelector:@selector(webViewControllerRequestRightBarButtonItems:)])
+            {
+                NSArray<UIBarButtonItem *>* buttons = [obj webViewControllerRequestRightBarButtonItems:weakSelf];
+                if([buttons isKindOfClass:[NSArray<UIBarButtonItem *> class]])
+                {
+                    [rightBtns addObjectsFromArray:buttons];
+                }
+            }
+        }];
+    }
+    
     if([self.primaryButton isKindOfClass:[QuickWebJSButtonActionObject class]])
     {
         if(![QuickWebStringUtil isStringBlank:self.primaryButton.icon])
@@ -737,25 +758,7 @@ typedef enum
         }
         
     }
-    if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
-    {
-        UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(popView:event:)];
-        [rightBtns addObject:moreBtn];
-    }
-    else
-    {
-        weak(weakSelf);
-        [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-            if([obj respondsToSelector:@selector(webViewControllerRequestRightBarButtonItems:)])
-            {
-                NSArray<UIBarButtonItem *>* buttons = [obj webViewControllerRequestRightBarButtonItems:weakSelf];
-                if([buttons isKindOfClass:[NSArray<UIBarButtonItem *> class]])
-                {
-                    [rightBtns addObjectsFromArray:buttons];
-                }
-            }
-        }];
-    }
+    
     self.navigationItem.rightBarButtonItems = rightBtns;
 }
 
@@ -827,43 +830,23 @@ typedef enum
 
 -(void)popView:(id)sender event:(UIEvent *)event
 {
-    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
-    configuration.menuRowHeight = 40;
-    configuration.menuWidth = 127;
-    configuration.textColor = [UIColor quickweb_ColorWithHexString:@"#faa208"];
-    configuration.textFont = [UIFont systemFontOfSize:13.0f];
-    configuration.tintColor = [UIColor whiteColor];
-    configuration.borderColor = [UIColor whiteColor];
-    configuration.borderWidth = 0.5;
-    
-    __weak typeof(self) weakSelf = self;
     if (self.popItems && self.popItems.count > 0)
     {
         NSMutableArray *menuItems = [NSMutableArray array];
-        NSMutableArray *iconItems = [NSMutableArray array];
-        BOOL isIconEmpty = YES;
+        __weak typeof(SmartJSWebView*) weakContentView = _contentWebView;
         for (QuickWebJSButtonActionObject*item in self.popItems) {
-            [menuItems addObject:item.title];
-            [iconItems addObject:[QuickWebStringUtil isStringBlank:item.icon] ? @"" : item.icon];
-            if(![QuickWebStringUtil isStringBlank:item.icon])
-            {
-                isIconEmpty = NO;
-            }
-        }
-        [FTPopOverMenu showFromEvent:event withMenuArray:menuItems imageArray:isIconEmpty ? nil : iconItems doneBlock:^(NSInteger selectedIndex) {
-            QuickWebJSButtonActionObject* item = [weakSelf.popItems objectAtIndex:selectedIndex];
-            if([item isKindOfClass:[QuickWebJSButtonActionObject class]])
-            {
+            PopoverAction *action = [PopoverAction actionWithImage:[UIImage imageNamed:[QuickWebStringUtil isStringBlank:item.icon] ? @"" : item.icon] title:item.title handler:^(PopoverAction *action) {
                 if([item.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
                 {
-                    [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:_contentWebView.secretId]];
+                    [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:weakContentView ? _contentWebView.secretId : @""]];
                 }
-            }
-        } dismissBlock:^{
-            
-        }];
+            }];
+            [menuItems addObject:action];
+        }
+        PopoverView *popoverView = [PopoverView popoverView];
+        popoverView.showShade = YES; // 显示阴影背景
+        [popoverView showToView:sender withActions:menuItems];
     }
-    
 }
 
 #pragma mark - 是否在返回或关闭按钮上使用文字  默认YES
@@ -957,17 +940,19 @@ typedef enum
         if([primaryAction isKindOfClass:[NSDictionary class]])
         {
             self.primaryButton = [QuickWebJSButtonActionObject itemWithCallbackId:command.callbackId action:[primaryAction objectForKey:@"action"] title:[primaryAction objectForKey:@"des"] icon:[primaryAction objectForKey:@"iconUrl"]];
+            self.primaryButton.resultHandler = command.resultHandler;
         }
         else
         {
             self.primaryButton = nil;
         }
         NSArray *moreAction = [params objectForKey:@"moreAction"];
+        [self.popItems removeAllObjects];
         if([moreAction isKindOfClass:[NSArray class]] && [moreAction count] > 0)
         {
-            [self.popItems removeAllObjects];
             for (NSDictionary* dict in moreAction) {
                 QuickWebJSButtonActionObject* buttonObject = [QuickWebJSButtonActionObject itemWithCallbackId:command.callbackId action:[dict objectForKey:@"action"] title:[dict objectForKey:@"des"] icon:[dict objectForKey:@"iconUrl"]];
+                buttonObject.resultHandler = command.resultHandler;
                 [self.popItems addObject:buttonObject];
             }
         }
