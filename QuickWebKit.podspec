@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.dependency 'SmartJSWebView'
     s.dependency 'YYImage/WebP'
     s.dependency 'YYWebImage'
-    s.dependency 'FTPopOverMenu'
+    s.dependency 'Popover.OC'
 
     s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 

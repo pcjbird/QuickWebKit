@@ -835,7 +835,20 @@ typedef enum
         NSMutableArray *menuItems = [NSMutableArray array];
         __weak typeof(SmartJSWebView*) weakContentView = _contentWebView;
         for (QuickWebJSButtonActionObject*item in self.popItems) {
-            PopoverAction *action = [PopoverAction actionWithImage:[UIImage imageNamed:[QuickWebStringUtil isStringBlank:item.icon] ? @"" : item.icon] title:item.title handler:^(PopoverAction *action) {
+            NSURL *iconUrl = [QuickWebStringUtil isStringBlank:item.icon] ? nil : [NSURL URLWithString:item.icon];
+            UIImage *icon = nil;
+            if(iconUrl)
+            {
+                if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
+                {
+                    icon = [UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]];
+                }
+                else
+                {
+                    icon = [UIImage imageNamed:item.icon];
+                }
+            }
+            PopoverAction *action = [PopoverAction actionWithImage:icon title:item.title handler:^(PopoverAction *action) {
                 if([item.resultHandler conformsToProtocol:@protocol(QuickWebJSInvokeResultHandlerProtocol)])
                 {
                     [item.resultHandler handleQuickWebJSInvokeResult:[item toResultWithSecretId:weakContentView ? _contentWebView.secretId : @""]];
