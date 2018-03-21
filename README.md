@@ -78,6 +78,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-03-21 V1.2.6
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803210002
+> 1.放弃修改弹出菜单icon图片前景色。
+
 ####   2018-03-21 V1.2.5
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803210001
 > 1.修复导航设置网络图片失真的问题。        

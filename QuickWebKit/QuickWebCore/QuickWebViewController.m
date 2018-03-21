@@ -758,6 +758,7 @@ typedef enum
                 }
             }
             [button setImage:icon forState:UIControlStateNormal];
+            [button setImage:icon forState:UIControlStateHighlighted];
             CGSize size = [button sizeThatFits:CGSizeMake(HUGE, 40)];
             button.frame = CGRectMake(0, 0, size.width, size.height);
             
@@ -889,13 +890,11 @@ typedef enum
                 if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
                 {
                     icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl] scale:scale] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
-                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
                 else
                 {
                     icon = [UIImage imageNamed:item.icon];
                     icon = [icon yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
-                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
             }
             PopoverAction *action = [PopoverAction actionWithImage:icon title:item.title handler:^(PopoverAction *action) {
