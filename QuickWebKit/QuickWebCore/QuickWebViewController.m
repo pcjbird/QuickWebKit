@@ -744,18 +744,17 @@ typedef enum
             }
             NSURL *iconUrl = [QuickWebStringUtil isStringBlank:self.primaryButton.icon] ? nil : [NSURL URLWithString:self.primaryButton.icon];
             UIImage *icon = nil;
+            CGFloat scale = [UIScreen mainScreen].scale;
             if(iconUrl)
             {
                 if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
                 {
-                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
-                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl] scale:scale] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
                 }
                 else
                 {
                     icon = [UIImage imageNamed:self.primaryButton.icon];
                     icon = [icon yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
-                    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
             }
             [button setImage:icon forState:UIControlStateNormal];
@@ -826,17 +825,37 @@ typedef enum
     
     if(![QuickWebStringUtil isStringBlank:self.navBarTitleImageUrl])
     {
-        __weak typeof(self) weakSelf = self;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        __block UIImageView *weakImageView = imageView;
-        [imageView yy_setImageWithURL:[NSURL URLWithString:self.navBarTitleImageUrl] placeholder:nil options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            if([error isKindOfClass:[NSError class]]) return;
-            CGSize size = [weakImageView sizeThatFits:CGSizeMake([[UIScreen mainScreen] bounds].size.width, 40)];
+        
+        NSURL *logoUrl = [QuickWebStringUtil isStringBlank:self.navBarTitleImageUrl] ? nil : [NSURL URLWithString:self.navBarTitleImageUrl];
+        UIImage *logo = nil;
+        CGFloat scale = [UIScreen mainScreen].scale;
+        if(logoUrl)
+        {
+            if([QuickWebStringUtil isString:logoUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:logoUrl.scheme EqualTo:@"https"])
+            {
+                logo = [UIImage imageWithData:[NSData dataWithContentsOfURL:logoUrl] scale:scale];
+                
+            }
+            else
+            {
+                logo = [UIImage imageNamed:self.navBarTitleImageUrl];
+            }
+        }
+        if(logo)
+        {
+            CGSize size = logo.size;
             if(size.height > 40) size = CGSizeMake(size.width *(40.0f/size.height), 40.0f);
-            weakImageView.frame = CGRectMake(0, 0, size.width, size.height);
-            weakImageView.contentMode = UIViewContentModeScaleAspectFit;
-            weakSelf.navigationItem.titleView = weakImageView;
-        }];
+            if(size.width > 120) size = CGSizeMake(120.0f, size.height*(120.0f/size.width));
+            imageView.frame = CGRectMake(0, 0, size.width, size.height);
+            imageView.image = logo;
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
+            self.navigationItem.titleView = imageView;
+        }
+        else
+        {
+            self.navigationItem.titleView = nil;
+        }
     }
     else
     {
@@ -864,11 +883,12 @@ typedef enum
         for (QuickWebJSButtonActionObject*item in self.popItems) {
             NSURL *iconUrl = [QuickWebStringUtil isStringBlank:item.icon] ? nil : [NSURL URLWithString:item.icon];
             UIImage *icon = nil;
+            CGFloat scale = [UIScreen mainScreen].scale;
             if(iconUrl)
             {
                 if([QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"http"] || [QuickWebStringUtil isString:iconUrl.scheme EqualTo:@"https"])
                 {
-                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl]] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
+                    icon = [[UIImage imageWithData:[NSData dataWithContentsOfURL:iconUrl] scale:scale] yy_imageByResizeToSize:CGSizeMake(20.0f, 20.0f) contentMode:UIViewContentModeScaleAspectFit];
                     icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 }
                 else
@@ -1030,8 +1050,8 @@ typedef enum
         }
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf applyNavBar];
             [weakSelf updateRightBarButtonItems];
+            [weakSelf applyNavBar];
         });
     }
 }
