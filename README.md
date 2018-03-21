@@ -80,20 +80,20 @@ pod 'QuickWebKit'
 
 ####   2018-03-21 V1.2.5
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803210001
-> 1.修复导航设置网络图片失真的问题。    
+> 1.修复导航设置网络图片失真的问题。        
 > 2.控制设置导航标题为网络图片的显示大小。
 
 ####   2018-03-20 V1.2.4
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803200002
-> 1.修复设置导航title为网络图片时显示的大小问题。
+> 1.修复设置导航title为网络图片时显示的大小问题。    
 > 2.支持项目通过YPNavigationBarTransition修改导航背景色。
 
 ####   2018-03-20 V1.2.3
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803200001
-> 1.修复点击导航右侧按钮没有回调的问题。
-> 2.修复分享插件总是显示更多按钮的BUG。
-> 3.修改导航弹出菜单样式。
-> 4.修改导航右侧按钮顺序。   
+> 1.修复点击导航右侧按钮没有回调的问题。    
+> 2.修复分享插件总是显示更多按钮的BUG。   
+> 3.修改导航弹出菜单样式。   
+> 4.修改导航右侧按钮顺序。      
 
 ####   2018-03-15 V1.2.2
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803150001
