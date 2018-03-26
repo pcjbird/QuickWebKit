@@ -99,10 +99,10 @@
                                 if([error isKindOfClass:[NSError class]]) return;
                                 if(![QuickWebStringUtil isStringBlank:result])
                                 {
-                                    shareInfo.desc = [[result gtm_stringByUnescapingFromHTML] stringByReplacingOccurrencesOfString:@" " withString:@""];
-                                    if([shareInfo.desc length] > 255)
+                                    shareInfo.desc = [result gtm_stringByUnescapingFromHTML];
+                                    if([shareInfo.desc length] > 1024)
                                     {
-                                        shareInfo.desc = [shareInfo.desc substringToIndex:254];
+                                        shareInfo.desc = [shareInfo.desc substringToIndex:1023];
                                     }
                                 }
                             }];

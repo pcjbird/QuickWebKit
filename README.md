@@ -78,6 +78,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-03-26 V1.2.7
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803260001
+> 1.修改分享内容description长度限制，取消空格替换(因为英文描述会有bug)。
+
 ####   2018-03-21 V1.2.6
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201803210002
 > 1.放弃修改弹出菜单icon图片前景色。
