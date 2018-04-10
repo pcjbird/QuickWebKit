@@ -8,6 +8,7 @@
 
 #ifndef QuickWebPluginProtocol_h
 #define QuickWebPluginProtocol_h
+#import <JavaScriptCore/JavaScriptCore.h>
 
 //插件请求更新UI通知 notification.object 为WebView的secretId
 #define QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION @"QuickWebPluginRequestUpdateUINotification"
@@ -74,6 +75,13 @@
  * @param error 错误信息
  */
 -(void)webViewController:(QuickWebViewController*)webViewController didFailLoadWithError:(NSError *)error;
+
+/*
+ * @brief 创建JSContext
+ * @param webViewController 浏览器控制器
+ * @param jsContext jsContext
+ */
+-(void)webViewController:(QuickWebViewController*)webViewController didCreateJavaScriptContext:(JSContext*) jsContext;
 
 @end
 

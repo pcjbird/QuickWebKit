@@ -105,7 +105,7 @@ typedef enum
 /*
  * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
  */
-@interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, QuickWebJSInvokeProviderProtocol>
+@interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, SmartJSContextDelegate, QuickWebJSInvokeProviderProtocol>
 {
     BOOL       _preferWKWebView;
     NSString * _initUrl;
@@ -356,6 +356,18 @@ typedef enum
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - SmartJSContetDelegate
+- (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*) jsContext
+{
+    weak(weakSelf);
+    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj respondsToSelector:@selector(webViewController:didCreateJavaScriptContext:)])
+        {
+            [obj webViewController:weakSelf didCreateJavaScriptContext:jsContext];
+        }
+    }];
 }
 
 #pragma mark - SmartJSWebSecurityProxy

@@ -79,6 +79,7 @@
 		890BF7C11FF3EB47003E8E7C /* QuickWebQRCodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BF7BF1FF3EB47003E8E7C /* QuickWebQRCodePlugin.m */; };
 		898A50C41FE7FDE7002DDFA7 /* QuickWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898A50CD1FE7FF98002DDFA7 /* QuickWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */; };
+		898DB546207CB91200637345 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898DB545207CB91200637345 /* JavaScriptCore.framework */; };
 		89A79CA31FFE71F2009AF079 /* QuickWebSpotlightPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A79CA11FFE71F2009AF079 /* QuickWebSpotlightPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89A79CA41FFE71F2009AF079 /* QuickWebSpotlightPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A79CA21FFE71F2009AF079 /* QuickWebSpotlightPlugin.m */; };
 		89B310961FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -177,6 +178,7 @@
 		898A50C21FE7FDE7002DDFA7 /* QuickWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebViewController.h; sourceTree = "<group>"; };
 		898A50C31FE7FDE7002DDFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898A50CC1FE7FF98002DDFA7 /* QuickWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebViewController.m; sourceTree = "<group>"; };
+		898DB545207CB91200637345 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		89A79CA11FFE71F2009AF079 /* QuickWebSpotlightPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebSpotlightPlugin.h; sourceTree = "<group>"; };
 		89A79CA21FFE71F2009AF079 /* QuickWebSpotlightPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebSpotlightPlugin.m; sourceTree = "<group>"; };
 		89B310941FF34C13000D07CB /* QuickWebJSBridgeSystemProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgeSystemProxy.h; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898DB546207CB91200637345 /* JavaScriptCore.framework in Frameworks */,
 				89B310A31FF362A1000D07CB /* AddressBookUI.framework in Frameworks */,
 				89B310A11FF3629B000D07CB /* AddressBook.framework in Frameworks */,
 				890BF7331FEE5027003E8E7C /* CoreGraphics.framework in Frameworks */,
@@ -248,6 +251,7 @@
 		04DCC5772402FEB190EC0A34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				898DB545207CB91200637345 /* JavaScriptCore.framework */,
 				89B310A21FF362A1000D07CB /* AddressBookUI.framework */,
 				89B310A01FF3629B000D07CB /* AddressBook.framework */,
 				890BF7321FEE5026003E8E7C /* CoreGraphics.framework */,
@@ -651,7 +655,6 @@
 				898A50BB1FE7FDE7002DDFA7 /* Frameworks */,
 				898A50BC1FE7FDE7002DDFA7 /* Headers */,
 				898A50BD1FE7FDE7002DDFA7 /* Resources */,
-				1114B5BFBB2B963DE8FB0F94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -758,21 +761,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1114B5BFBB2B963DE8FB0F94 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		890BF77B1FEF93F5003E8E7C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
