@@ -7,6 +7,8 @@
 [![CocoaPods](https://img.shields.io/cocoapods/dt/QuickWebKit.svg)](https://github.com/pcjbird/QuickWebViewController)
 [![CocoaPods](https://img.shields.io/cocoapods/dm/QuickWebKit.svg)](https://github.com/pcjbird/QuickWebViewController)
 [![GitHub release](https://img.shields.io/github/release/pcjbird/QuickWebViewController.svg)](https://github.com/pcjbird/QuickWebViewController/releases)
+[![GitHub release](https://img.shields.io/github/release-date/pcjbird/QuickWebViewController.svg)](https://github.com/pcjbird/QuickWebViewController/releases)
+![Website](https://img.shields.io/website-pcjbird.github.io-down-green-red/https/shields.io.svg?label=website)
 
 # QuickWebViewController
 ### A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
