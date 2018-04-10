@@ -358,7 +358,7 @@ typedef enum
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - SmartJSContetDelegate
+#pragma mark - SmartJSContextDelegate
 - (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*) jsContext
 {
     weak(weakSelf);
