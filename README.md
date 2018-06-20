@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-06-20 V1.2.9
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201806200001
+> 1.兼容ZFPlayer最新版本。
+
 ####   2018-04-10 V1.2.8
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201804100001
 > 1.插件新增didCreateJavaScriptContext回调代理。

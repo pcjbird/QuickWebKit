@@ -12,14 +12,17 @@
 #import "NSString+QuickWeb.h"
 #import "UIView+QuickWeb.h"
 #import <ZFPlayer/ZFPlayer.h>
+#import <ZFPlayer/ZFAVPlayerManager.h>
+#import <ZFPlayer/ZFPlayerControlView.h>
 
-@interface QuickWebJSBridgeVideoPlayProxy()<ZFPlayerDelegate>
+@interface QuickWebJSBridgeVideoPlayProxy()
 {
     NSString * _name;
 }
 
 @property(nonatomic, weak) id<QuickWebJSInvokeResultHandlerProtocol, SmartJSBridgeProtocol> resultHandler;
-@property (weak, nonatomic) ZFPlayerView *videoPlayer;
+@property (nonatomic, weak) ZFPlayerController *player;
+@property (nonatomic, weak) ZFPlayerControlView *controlView;
 @end
 
 @implementation QuickWebJSBridgeVideoPlayProxy
@@ -111,11 +114,11 @@
     BOOL bAlert = [self whetherRemindUseDataToPlayVideoUnderCelluarNetworks];
     void(^playBlock)(void) = ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1f),dispatch_get_main_queue(), ^{
-            if(![weakSelf.videoPlayer isKindOfClass:[ZFPlayerView class]])
+            if(![weakSelf.player isKindOfClass:[ZFPlayerController class]])
             {
-                ZFPlayerView *player = [[ZFPlayerView alloc] init];
                 UIView *playerParentView = [[UIApplication sharedApplication] keyWindow].rootViewController.view;
-                if([self.resultHandler conformsToProtocol:@protocol(SmartJSBridgeProtocol)])
+                
+                if([weakSelf.resultHandler conformsToProtocol:@protocol(SmartJSBridgeProtocol)])
                 {
                     UIView * webView = [weakSelf.resultHandler getSmartJSWebViewBySecretId:secretId];
                     if([webView isKindOfClass:[UIView class]])
@@ -123,26 +126,16 @@
                         playerParentView = webView;
                     }
                 }
-                [playerParentView addSubview:player];
-                [playerParentView bringSubviewToFront:player];
-                CGRect frame = [UIScreen mainScreen].bounds;
-                [player mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(playerParentView).offset(frame.origin.y);
-                    make.left.equalTo(playerParentView).offset(frame.origin.x);
-                    make.width.equalTo(@(frame.size.width));
-                    make.height.equalTo(@(frame.size.height));
-                }];
-                ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
-                // model
-                ZFPlayerModel *playerModel = [[ZFPlayerModel alloc]init];
-                playerModel.fatherView = playerParentView;
-                playerModel.videoURL = [NSURL URLWithString:videoUrl];
-                playerModel.title = @"";
-                [player playerControlView:controlView playerModel:playerModel];
-                player.delegate = self;
-                player.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
-                [player autoPlayTheVideo];
-                weakSelf.videoPlayer = player;
+                ZFAVPlayerManager *playerManager = [[ZFAVPlayerManager alloc] init];
+                weakSelf.player = [ZFPlayerController playerWithPlayerManager:playerManager containerView:playerParentView];
+                ZFPlayerControlView* controlView = [ZFPlayerControlView new];
+                weakSelf.player.controlView = controlView;
+                weakSelf.controlView = controlView;
+                [playerParentView bringSubviewToFront:weakSelf.player.currentPlayerManager.view];
+                weakSelf.player.assetURL = [NSURL URLWithString:videoUrl];
+                [weakSelf.player enterLandscapeFullScreen:UIInterfaceOrientationLandscapeRight animated:NO];
+                [weakSelf.controlView.landScapeControlView.backBtn addTarget:weakSelf action:@selector(stop:) forControlEvents:UIControlEventTouchUpInside];
+                
             }
             else
             {
@@ -155,20 +148,11 @@
                         playerParentView = webView;
                     }
                 }
-                [playerParentView addSubview:weakSelf.videoPlayer];
-                [playerParentView bringSubviewToFront:weakSelf.videoPlayer];
-                CGRect frame = [UIScreen mainScreen].bounds;
-                [weakSelf.videoPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(playerParentView).offset(frame.origin.y);
-                    make.left.equalTo(playerParentView).offset(frame.origin.x);
-                    make.width.equalTo(@(frame.size.width));
-                    make.height.equalTo(@(frame.size.height));
-                }];
-                ZFPlayerModel *playerModel = [[ZFPlayerModel alloc]init];
-                playerModel.fatherView = playerParentView;
-                playerModel.videoURL = [NSURL URLWithString:videoUrl];
-                playerModel.title = @"";
-                [weakSelf.videoPlayer resetToPlayNewVideo:playerModel];
+                [playerParentView addSubview:weakSelf.player.currentPlayerManager.view];
+                [playerParentView bringSubviewToFront:weakSelf.player.currentPlayerManager.view];
+                weakSelf.player.assetURL = [NSURL URLWithString:videoUrl];
+                [weakSelf.player enterLandscapeFullScreen:UIInterfaceOrientationLandscapeRight animated:NO];
+                [weakSelf.controlView.landScapeControlView.backBtn addTarget:weakSelf action:@selector(stop:) forControlEvents:UIControlEventTouchUpInside];
             }
             
         });
@@ -196,7 +180,7 @@
         alertBlock(nil, NSLocalizedStringFromTableInBundle(@"Network Not Available", @"Localizable", QUICKWEB_BUNDLE, nil));
         return;
     }
-    if(bAlert && [self isUnderCelluarNetworks] && !(weakSelf.videoPlayer && weakSelf.videoPlayer.state == ZFPlayerStatePlaying))
+    if(bAlert && [self isUnderCelluarNetworks] && !(weakSelf.player && weakSelf.player.currentPlayerManager.isPlaying))
     {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTableInBundle(@"CellularNetworksVideoPlayTip", @"Localizable", QUICKWEB_BUNDLE, nil) preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", QUICKWEB_BUNDLE, nil) style:UIAlertActionStyleCancel handler:nil];
@@ -223,6 +207,14 @@
     else
     {
         playBlock();
+    }
+}
+
+-(void)stop:(id)sender
+{
+    if(self.player)
+    {
+        [self.player stop];
     }
 }
 
