@@ -572,11 +572,43 @@ typedef enum
     return [[UIImage imageNamed:@"navbar_close" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
+/*
+ * @brief 导航按钮前景色偏好
+ * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
+ */
+-(UIColor *)preferNavBtnTintColor
+{
+    return nil;
+}
+
+/*
+ * @brief 导航按钮按下色偏好
+ * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
+ */
+-(UIColor *)preferNavBtnHighlightColor
+{
+    return nil;
+}
+
+/*
+ * @brief 导航按钮前景色(disabled)偏好
+ * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
+ */
+-(UIColor *)preferNavBtnDisabledColor
+{
+    return nil;
+}
+
 #pragma mark - webview导航按钮前景色
 -(UIColor *)resolvedBtnTintColor
 {
+    UIColor * tintColor = [self preferNavBtnTintColor];
+    if([tintColor isKindOfClass:[UIColor class]])
+    {
+        return tintColor;
+    }
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
-    UIColor * tintColor = appearance.tintColor;
+    tintColor = appearance.tintColor;
     if([tintColor isKindOfClass:[UIColor class]])
     {
         return tintColor;
@@ -587,6 +619,11 @@ typedef enum
 #pragma mark - webview导航按钮前景色(highlighted)
 -(UIColor *)resolvedBtnHighlightColor
 {
+    UIColor * tintColor = [self preferNavBtnHighlightColor];
+    if([tintColor isKindOfClass:[UIColor class]])
+    {
+        return tintColor;
+    }
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     NSDictionary<NSString *,id> * highlightTextAttrs = [appearance titleTextAttributesForState:UIControlStateHighlighted];
     if([highlightTextAttrs isKindOfClass:[NSDictionary class]])
@@ -597,7 +634,7 @@ typedef enum
             return color;
         }
     }
-    UIColor * tintColor = appearance.tintColor;
+   tintColor = appearance.tintColor;
     if([tintColor isKindOfClass:[UIColor class]])
     {
         return tintColor;
@@ -608,6 +645,11 @@ typedef enum
 #pragma mark - webview导航按钮前景色(disabled)
 -(UIColor *)resolvedBtnDisabledColor
 {
+    UIColor * tintColor = [self preferNavBtnDisabledColor];
+    if([tintColor isKindOfClass:[UIColor class]])
+    {
+        return tintColor;
+    }
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     NSDictionary<NSString *,id> * disableTextAttrs = [appearance titleTextAttributesForState:UIControlStateDisabled];
     if([disableTextAttrs isKindOfClass:[NSDictionary class]])
@@ -618,7 +660,7 @@ typedef enum
             return color;
         }
     }
-    UIColor * tintColor = appearance.tintColor;
+    tintColor = appearance.tintColor;
     if([tintColor isKindOfClass:[UIColor class]])
     {
         return tintColor;

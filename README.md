@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-08-17 V1.3.0
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201808170001
+> 1.新增导航栏按钮颜色偏好设置。
+
 ####   2018-06-20 V1.2.9
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201806200001
 > 1.兼容ZFPlayer最新版本。
