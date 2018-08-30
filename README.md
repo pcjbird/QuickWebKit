@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-08-30 V1.3.1
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201808300001
+> 1.remove some build warnings。
+
 ####   2018-08-17 V1.3.0
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201808170001
 > 1.新增导航栏按钮颜色偏好设置。
