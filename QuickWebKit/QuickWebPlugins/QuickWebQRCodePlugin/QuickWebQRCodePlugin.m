@@ -16,10 +16,12 @@
 #define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebQRCodePlugin class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
 @interface QuickWebQRCodePlugin()<UIGestureRecognizerDelegate,UIActionSheetDelegate>
 {
-    NSString*        _touchedImageUrl;
-    NSString*        _resultQRCode;
-    NSString*        _touchedLinkUrl;
+
 }
+
+@property(nonatomic, strong)NSString*        touchedImageUrl;
+@property(nonatomic, strong)NSString*        resultQRCode;
+@property(nonatomic, strong)NSString*        touchedLinkUrl;
 
 @property(nonatomic, weak) QuickWebViewController*  targetWebController;
 @end
@@ -147,22 +149,22 @@
             {
                 NSString *str = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).href", pt.x, pt.y];
                 [webView evaluateJavaScript:str completionHandler:^(id result, NSError *error) {
-                    _touchedLinkUrl = result;
+                    weakSelf.touchedLinkUrl = result;
                     
                     //打开链接
                     UIAlertAction *openLinkAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OpenLink", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:_touchedLinkUrl];
-                        _resultQRCode = nil;
-                        _touchedImageUrl = nil;
-                        _touchedLinkUrl = nil;
+                        [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:weakSelf.touchedLinkUrl];
+                        weakSelf.resultQRCode = nil;
+                        weakSelf.touchedImageUrl = nil;
+                        weakSelf.touchedLinkUrl = nil;
                     }];
                     [alertController addAction:openLinkAction];
                     //在Safari中打开
                     UIAlertAction *openInSafariAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OpenInSafari", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[_touchedImageUrl ? _touchedImageUrl : _touchedLinkUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-                        _resultQRCode = nil;
-                        _touchedImageUrl = nil;
-                        _touchedLinkUrl = nil;
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[weakSelf.touchedImageUrl ? weakSelf.touchedImageUrl : weakSelf.touchedLinkUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+                        weakSelf.resultQRCode = nil;
+                        weakSelf.touchedImageUrl = nil;
+                        weakSelf.touchedLinkUrl = nil;
                     }];
                     [alertController addAction:openInSafariAction];
                     
@@ -172,7 +174,7 @@
             {
                 //保存图片
                 UIAlertAction *saveImageAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"SaveImage", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_touchedImageUrl]]];
+                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weakSelf.touchedImageUrl]]];
                     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
                     imageView.backgroundColor = [UIColor whiteColor];
                     [imageView setContentMode:UIViewContentModeScaleToFill];
@@ -188,16 +190,16 @@
                     UIGraphicsEndImageContext();
                     
                     UIImageWriteToSavedPhotosAlbum(result, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-                    _resultQRCode = nil;
-                    _touchedImageUrl = nil;
-                    _touchedLinkUrl = nil;
+                    weakSelf.resultQRCode = nil;
+                    weakSelf.touchedImageUrl = nil;
+                    weakSelf.touchedLinkUrl = nil;
                 }];
                 [alertController addAction:saveImageAction];
                 
                 
                 NSString *str = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).src", pt.x, pt.y];
                 [webView evaluateJavaScript:str completionHandler:^(id result, NSError *error) {
-                    _touchedImageUrl = result;
+                    weakSelf.touchedImageUrl = result;
                     NSString* imgStr = result;
                     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgStr]]];
                     CGImageRef imageToDecode = image.CGImage;  // Given a CGImage in which we are looking for barcodes
@@ -224,14 +226,14 @@
                         NSString *formatString = [weakSelf barcodeFormatToString:format];
                         NSString *display = [NSString stringWithFormat:@"识别到二维码，格式: %@ 内容:\n%@", formatString, contents];
                         SDK_LOG(@"%@",display);
-                        _resultQRCode = qrresult.text;
+                        weakSelf.resultQRCode = qrresult.text;
                         
                         //识别二维码
                         UIAlertAction *decodeQRCodeAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"DecodeQRCode", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                            [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:_resultQRCode];
-                            _resultQRCode = nil;
-                            _touchedImageUrl = nil;
-                            _touchedLinkUrl = nil;
+                            [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:weakSelf.resultQRCode];
+                            weakSelf.resultQRCode = nil;
+                            weakSelf.touchedImageUrl = nil;
+                            weakSelf.touchedLinkUrl = nil;
                         }];
                         [alertController addAction:decodeQRCodeAction];
                     }
@@ -243,10 +245,10 @@
                     }
                     //在Safari中打开
                     UIAlertAction *openInSafariAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OpenInSafari", @"Localizable", SDK_BUNDLE, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[_touchedImageUrl ? _touchedImageUrl : _touchedLinkUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-                        _resultQRCode = nil;
-                        _touchedImageUrl = nil;
-                        _touchedLinkUrl = nil;
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[weakSelf.touchedImageUrl ? weakSelf.touchedImageUrl : weakSelf.touchedLinkUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+                        weakSelf.resultQRCode = nil;
+                        weakSelf.touchedImageUrl = nil;
+                        weakSelf.touchedLinkUrl = nil;
                     }];
                     [alertController addAction:openInSafariAction];
                 }];

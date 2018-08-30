@@ -13,10 +13,11 @@
 
 @interface QuickWebJSBridgePlugin()
 {
-    NSMutableDictionary *_webViewMap;
-    NSMutableDictionary *_proxyMap;
-    NSMutableDictionary *_resultMap;
+    
 }
+@property(nonatomic, strong)NSMutableDictionary *webViewMap;
+@property(nonatomic, strong)NSMutableDictionary *proxyMap;
+@property(nonatomic, strong)NSMutableDictionary *resultMap;
 @end
 
 @implementation QuickWebJSBridgePlugin
@@ -126,13 +127,13 @@ static QuickWebJSBridgePlugin *_sharedPlugin = nil;
         
         SmartJSWebView *webView = [weakSelf getSmartJSWebViewBySecretId:result.secretId];
         
-        NSMutableArray *cacheResults = [_resultMap objectForKey:result.secretId];
+        NSMutableArray *cacheResults = [weakSelf.resultMap objectForKey:result.secretId];
         if(![cacheResults isKindOfClass:[NSArray class]])
         {
             cacheResults= [NSMutableArray array];
         }
         [cacheResults addObject:result.results];
-        [_resultMap setObject:cacheResults forKey:result.secretId];
+        [weakSelf.resultMap setObject:cacheResults forKey:result.secretId];
         
         if([webView isKindOfClass:[SmartJSWebView class]])
         {

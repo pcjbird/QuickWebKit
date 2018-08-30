@@ -221,7 +221,8 @@
     personViewController.displayedPerson = person;
     [peoplePicker pushViewController:personViewController animated:YES];
 }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
     return YES;
 }
@@ -266,7 +267,7 @@
     }
     return YES;
 }
-
+#pragma clang diagnostic pop
 //iOS 9
 - (void)contactPickerDidCancel:(CNContactPickerViewController *)picker NS_AVAILABLE_IOS(9_0)
 {
