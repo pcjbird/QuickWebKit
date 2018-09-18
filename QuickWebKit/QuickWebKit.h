@@ -182,7 +182,7 @@ FOUNDATION_EXPORT const unsigned char QuickWebKitVersionString[];
 #endif
 
 #if __has_include("QuickWebLNRefreshPlugin.h")
-#import "QuickWebLNRefreshPlugin.h"
+//#import "QuickWebLNRefreshPlugin.h"
 #endif
 
 #if __has_include("QuickWebMJRefreshPlugin.h")
