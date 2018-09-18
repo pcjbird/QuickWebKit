@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-09-18 V1.3.2
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201809180001
+> 1.XCode 10 support。
+
 ####   2018-08-30 V1.3.1
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201808300001
 > 1.remove some build warnings。
