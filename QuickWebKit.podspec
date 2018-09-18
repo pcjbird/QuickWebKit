@@ -66,12 +66,12 @@ Pod::Spec.new do |s|
         ss.dependency 'Toast'
     end
 
-    s.subspec 'QuickWebLNRefreshPlugin' do |ss|
-        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin'
-        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin/QuickWebLNRefreshPlugin.h'
-        ss.dependency 'QuickWebKit/QuickWebViewController'
-        ss.dependency 'LNRefresh'
-    end
+#   s.subspec 'QuickWebLNRefreshPlugin' do |ss|
+#        ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin'
+#        ss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebLNRefreshPlugin/QuickWebLNRefreshPlugin.h'
+#        ss.dependency 'QuickWebKit/QuickWebViewController'
+#        ss.dependency 'LNRefresh'
+#    end
 
     s.subspec 'QuickWebMJRefreshPlugin' do |ss|
         ss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebMJRefreshPlugin'
