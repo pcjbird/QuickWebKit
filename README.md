@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2018-09-29 V1.3.3
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201809290001
+> 1.恢复 QuickWebLNRefreshPlugin。
+
 ####   2018-09-18 V1.3.2
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201809180001
 > 1.XCode 10 support。
