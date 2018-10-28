@@ -140,8 +140,8 @@ Pod::Spec.new do |s|
             sss.source_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin/Proxies/ExtProxies/QuickWebJSBridgeVideoPlayProxy.{h,m}'
             sss.public_header_files = 'QuickWebKit/QuickWebPlugins/QuickWebJSBridgePlugin/Proxies/ExtProxies/QuickWebJSBridgeVideoPlayProxy.{h}'
             sss.dependency 'QuickWebKit/QuickWebViewController'
-            sss.dependency 'ZFPlayer/AVPlayer'
-            sss.dependency 'ZFPlayer/ControlView'
+            sss.dependency 'ZFPlayer/AVPlayer', '~> 3.1.8'
+            sss.dependency 'ZFPlayer/ControlView', '~> 3.1.8'
         end
 
         ss.subspec 'QuickWebJSBridgePushMessageProxy' do |sss|
