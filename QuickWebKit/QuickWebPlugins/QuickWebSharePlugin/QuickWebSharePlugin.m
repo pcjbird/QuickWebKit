@@ -61,9 +61,10 @@
 {
     self.toShareWebController = webViewController;
     weak(weakSelf);
+    __weak typeof(QuickWebViewController *) weakWebVC = webViewController;
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString* url = [webViewController.webView.url absoluteString];
-        [webViewController.webView evaluateJavaScript:@"document.documentElement.innerHTML" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+        NSString* url = [weakWebVC.webView.url absoluteString];
+        [weakWebVC.webView evaluateJavaScript:@"document.documentElement.innerHTML" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
             if([error isKindOfClass:[NSError class]]) return;
             NSString * htmlText = result;
             if(![QuickWebStringUtil isStringBlank:htmlText])
@@ -95,7 +96,7 @@
                         }
                         if([QuickWebStringUtil isStringBlank:shareInfo.desc])
                         {
-                            [webViewController.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+                            [weakWebVC.webView evaluateJavaScript:@"document.body" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
                                 if([error isKindOfClass:[NSError class]]) return;
                                 if(![QuickWebStringUtil isStringBlank:result])
                                 {
@@ -110,19 +111,19 @@
                         if([QuickWebStringUtil isStringBlank:weakSelf.autoDetectedShareInfo.image])
                         {
                             dispatch_async(dispatch_get_main_queue(), ^{
-                                [webViewController.webView evaluateJavaScript:@"SmartJSGetFirstImage();" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
+                                [weakWebVC.webView evaluateJavaScript:@"SmartJSGetFirstImage();" completionHandler:^(id  _Nullable result, NSError * _Nullable error) {
                                     if(![error isKindOfClass:[NSError class]])
                                     {
                                         weakSelf.autoDetectedShareInfo.image = result;
                                     }
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:webViewController.webView.secretId];
+                                    [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:weakWebVC.webView.secretId];
                                 }];
                             });
                         }
                         else
                         {
                             dispatch_async(dispatch_get_main_queue(), ^{
-                                [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:webViewController.webView.secretId];
+                                [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBPLUGINREQUESTUPDATEUINOTIFICATION object:weakWebVC.webView.secretId];
                             });
                         }
                     }];
