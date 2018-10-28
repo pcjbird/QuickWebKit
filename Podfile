@@ -23,8 +23,8 @@ target 'QuickWebKit' do
   # Pods for QuickWebJSBridgeImagePlayProxy
   pod 'IDMPhotoBrowser'
   # Pods for QuickWebJSBridgeVideoPlayProxy
-  pod 'ZFPlayer/AVPlayer'
-  pod 'ZFPlayer/ControlView'
+  pod 'ZFPlayer/AVPlayer', '~> 3.1.8'
+  pod 'ZFPlayer/ControlView', '~> 3.1.8'
   # Pods for QuickWebLNRefreshPlugin
   pod 'LNRefresh'
   # Pods for QuickWebMJRefreshPlugin
