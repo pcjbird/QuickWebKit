@@ -9,7 +9,11 @@
 #import "QuickWebJSBridgePlugin.h"
 #import "QuickWebStringUtil.h"
 #import "QuickWebKitDefines.h"
+#if __has_include(<Toast/Toast.h>)
 #import <Toast/Toast.h>
+#else
+#import "Toast.h"
+#endif
 
 @interface QuickWebJSBridgePlugin()
 {

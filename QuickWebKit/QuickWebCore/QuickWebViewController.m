@@ -13,8 +13,20 @@
 #import "UIColor+QuickWeb.h"
 #import "QuickWebKitDefines.h"
 #import "QuickWebJSInvokeProviderProtocol.h"
+
+#if __has_include(<YYWebImage/YYWebImage.h>)
 #import <YYWebImage/YYWebImage.h>
+#else
+#import "YYWebImage.h"
+#endif
+
+#if __has_include(<Popover_OC/PopoverView.h>)
 #import <Popover_OC/PopoverView.h>
+#elif __has_include(<Popover.OC/PopoverView.h>)
+#import <Popover.OC/PopoverView.h>
+#else
+#import "PopoverView.h"
+#endif
 
 #define ShowNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO

@@ -11,7 +11,11 @@
 #import "QuickWebJSInvokeResult.h"
 #import "QuickWebJSBridgeInvokeCommand.h"
 #import "QuickWebJSInvokeResultHandlerProtocol.h"
+#if __has_include(<SmartJSWebView/SmartJSWebView.h>)
 #import <SmartJSWebView/SmartJSWebView.h>
+#else
+#import "SmartJSWebView.h"
+#endif
 
 #define QuickWebMainAppVersion ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
 #define QUICKWEB_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebJSBridgeInvokeCommand class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]

@@ -10,8 +10,18 @@
 #import "QuickWebStringUtil.h"
 #import "QuickWebDataParseUtil.h"
 #import "QuickWebKitDefines.h"
+#if __has_include(<EasyShareKit/EasyShareKit.h>)
 #import <EasyShareKit/EasyShareKit.h>
+#else
+#import "EasyShareKit.h"
+#endif
+
+#if __has_include(<GTMNSStringHTMLAdditions/GTMNSString+HTML.h>)
 #import <GTMNSStringHTMLAdditions/GTMNSString+HTML.h>
+#else
+#import "GTMNSString+HTML.h"
+#endif
+
 #define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebSharePlugin class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
 @implementation QuickWebShareInfo
 @end

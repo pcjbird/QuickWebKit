@@ -10,7 +10,13 @@
 #import "QuickWebStringUtil.h"
 #import "QuickWebDataParseUtil.h"
 #import "QuickWebKit.h"
+
+#if __has_include(<IDMPhotoBrowser/IDMPhotoBrowser.h>)
 #import <IDMPhotoBrowser/IDMPhotoBrowser.h>
+#else
+#import "IDMPhotoBrowser.h"
+#endif
+
 #import "NSString+QuickWeb.h"
 #import "UIView+QuickWeb.h"
 

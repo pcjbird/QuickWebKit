@@ -10,8 +10,18 @@
 #import "QuickWebKitDefines.h"
 #import "QuickWebStringUtil.h"
 #import "QuickWebKit.h"
+
+#if __has_include(<Toast/Toast.h>)
 #import <Toast/Toast.h>
+#else
+#import "Toast.h"
+#endif
+
+#if __has_include(<ZXingObjC/ZXingObjC.h>)
 #import <ZXingObjC/ZXingObjC.h>
+#else
+#import "ZXingObjC.h"
+#endif
 
 #define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebQRCodePlugin class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
 @interface QuickWebQRCodePlugin()<UIGestureRecognizerDelegate,UIActionSheetDelegate>

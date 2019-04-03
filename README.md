@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2019-04-03 V1.3.5
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201904030001
+> 1.build as static library bug fixed。
+
 ####   2018-10-27 V1.3.4
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201810270001
 > 1.try fix some crash bugs。

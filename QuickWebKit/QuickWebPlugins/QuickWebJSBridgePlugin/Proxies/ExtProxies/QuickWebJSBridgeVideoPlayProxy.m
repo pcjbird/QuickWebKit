@@ -11,9 +11,32 @@
 #import "QuickWebDataParseUtil.h"
 #import "NSString+QuickWeb.h"
 #import "UIView+QuickWeb.h"
+
+#if __has_include(<SmartJSWebView/SmartJSWebView.h>)
+#import <SmartJSWebView/SmartJSWebView.h>
+#else
+#import "SmartJSWebView.h"
+#endif
+
+#if __has_include("ZFPlayer.h")
+#import "ZFPlayer.h"
+#else
 #import <ZFPlayer/ZFPlayer.h>
+#endif
+
+#if __has_include("ZFAVPlayerManager.h")
+#import "ZFAVPlayerManager.h"
+#else
 #import <ZFPlayer/ZFAVPlayerManager.h>
+#endif
+
+#if __has_include("ZFPlayerControlView.h")
+#import "ZFPlayerControlView.h"
+#else
 #import <ZFPlayer/ZFPlayerControlView.h>
+#endif
+
+
 
 @interface QuickWebJSBridgeVideoPlayProxy()
 {
