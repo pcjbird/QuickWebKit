@@ -1,4 +1,4 @@
-![logo](logo.png)
+![logo](https://github.com/pcjbird/QuickWebViewController/raw/master/logo.png)
 [![Build Status](http://img.shields.io/travis/pcjbird/QuickWebViewController/master.svg?style=flat)](https://travis-ci.org/pcjbird/QuickWebViewController)
 [![Pod Version](http://img.shields.io/cocoapods/v/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
@@ -32,7 +32,7 @@
 
 ## 演示 / Demo
 
-<p align="center"><img src="demo.png" title="demo"></p>
+<p align="center"><img src="https://github.com/pcjbird/QuickWebViewController/raw/master/demo.png" title="demo"></p>
 
 ##  安装 / Installation
 

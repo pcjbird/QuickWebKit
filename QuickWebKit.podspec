@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.social_media_url = 'http://www.lessney.com'
     s.requires_arc     = true
     s.documentation_url = 'https://github.com/pcjbird/QuickWebViewController/blob/master/README.md'
-    s.screenshot       = 'https://github.com/pcjbird/QuickWebViewController/blob/master/logo.png'
+    s.screenshot       = 'https://github.com/pcjbird/QuickWebViewController/raw/master/logo.png'
 
     s.platform         = :ios, '8.0'
     s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore', 'MobileCoreServices', 'CoreSpotlight'
