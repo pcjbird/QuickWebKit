@@ -117,9 +117,8 @@ typedef enum
 /*
  * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
  */
-@interface QuickWebViewController ()<UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, SmartJSContextDelegate, QuickWebJSInvokeProviderProtocol>
+@interface QuickWebViewController ()<WKNavigationDelegate, WKUIDelegate, SmartJSContextDelegate, QuickWebJSInvokeProviderProtocol>
 {
-    BOOL       _preferWKWebView;
     NSString * _initUrl;
     SmartJSWebView*   _contentWebView;
     SmartJSWebProgressView* _progressView;
@@ -154,16 +153,6 @@ typedef enum
     return self;
 }
 
--(instancetype)initWithPreferWKWebView:(BOOL)preferWKWebView
-{
-    if(self = [super init])
-    {
-        [self initVariables];
-        _preferWKWebView = preferWKWebView;
-    }
-    return self;
-}
-
 /*
  * @brief 初始化
  * @param url 页面地址
@@ -178,21 +167,9 @@ typedef enum
     return self;
 }
 
--(instancetype)initWithUrlString:(NSString *)url preferWKWebView:(BOOL)preferWKWebView
-{
-    if(self = [super init])
-    {
-        [self initVariables];
-        _initUrl = url;
-        _preferWKWebView = preferWKWebView;
-    }
-    return self;
-}
-
 -(void) initVariables
 {
     _initUrl = nil;
-    _preferWKWebView = NO;
     _progressHidden = NO;
     _navbarTransparent = NO;
     _pluginMap = [NSMutableDictionary dictionary];
@@ -370,17 +347,6 @@ typedef enum
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - SmartJSContextDelegate
-- (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*) jsContext
-{
-    weak(weakSelf);
-    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-        if([obj respondsToSelector:@selector(webViewController:didCreateJavaScriptContext:)])
-        {
-            [obj webViewController:weakSelf didCreateJavaScriptContext:jsContext];
-        }
-    }];
-}
 
 #pragma mark - SmartJSWebSecurityProxy
 -(BOOL)shouldSmartJSWebViewUseSecurityWhitelist:(SmartJSWebView *)webView
@@ -443,7 +409,6 @@ typedef enum
     if ([_contentWebView isKindOfClass:[UIView class]]) [_contentWebView removeFromSuperview];
     CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     _contentWebView = [[SmartJSWebView alloc] initWithFrame:frame];
-    if(_preferWKWebView)_contentWebView.preferWKWebView = YES;
     _contentWebView.securityProxy = self;
     _contentWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_contentWebView setBackgroundColor:[self backgroundColor]];
@@ -1120,55 +1085,6 @@ typedef enum
         });
     }
 }
-
-
-
-
-#pragma mark - UIWebViewDelegate
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    ShowNetworkActivityIndicator();
-    weak(weakSelf);
-    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-       if([obj respondsToSelector:@selector(webViewControllerDidStartLoad:)])
-       {
-           [obj webViewControllerDidStartLoad:weakSelf];
-       }
-    }];
-}
-
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    HideNetworkActivityIndicator();
-    [self updateLeftBarButtonItems];
-    self.navigationItem.title = _contentWebView.title;
-    weak(weakSelf);
-    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-        if([obj respondsToSelector:@selector(webViewControllerDidFinishLoad:)])
-        {
-            [obj webViewControllerDidFinishLoad:weakSelf];
-        }
-    }];
-}
-
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    HideNetworkActivityIndicator();
-    weak(weakSelf);
-    [_pluginMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<QuickWebPluginProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
-        if([obj respondsToSelector:@selector(webViewController:didFailLoadWithError:)])
-        {
-            [obj webViewController:weakSelf didFailLoadWithError:error];
-        }
-    }];
-}
-
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    return TRUE;
-}
-
 
 #pragma mark - WKNavigationDelegate, WKUIDelegate
 

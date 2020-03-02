@@ -15,7 +15,7 @@
 ## 特性 / Features
 
 1. 基于插件的 WebView 视图控制器, 像积木一样自由组装插件, 为 iOS 应用提供一个强大的 H5 容器。
-2. 基础 [SmartJSWebView](https://github.com/pcjbird/SmartJSWebView), 支持 H5 页面通过 JavaScript 与 Native App 交互的 WebView，兼容 UIWebView 和 WKWebView。
+2. 基础 [SmartJSWebView](https://github.com/pcjbird/SmartJSWebView), 支持 H5 页面通过 JavaScript 与 Native App 交互的 WebView。
 3. 支持扩展, 您可以基于该 WebView 视图控制器定制开发您自己的插件。
 4. 强大的基础插件支持，您几乎无需写一行代码即可运行起一个强大的 H5 容器，满足大部分应用场景：
 
