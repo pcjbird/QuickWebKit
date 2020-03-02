@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2020-03-02 V2.0.0
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202003020001
+> 1.remove UIWebView。
+
 ####   2019-04-03 V1.3.5
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build201904030001
 > 1.build as static library bug fixed。
