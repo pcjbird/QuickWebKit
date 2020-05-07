@@ -81,6 +81,11 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2020-05-07 V2.0.2
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202005070002
+> 1.调整回调日志的内容。
+
+
 ####   2020-05-07 V2.0.1
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202005070001
 > 1.新增浏览器控制台打印JS方法。
