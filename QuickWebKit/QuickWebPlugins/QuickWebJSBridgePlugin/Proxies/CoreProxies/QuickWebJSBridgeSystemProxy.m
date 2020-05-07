@@ -396,13 +396,14 @@
     
     if(![QuickWebStringUtil isStringBlank:content])
     {
-        content = [WEB_LOG_STRING(@"%@", content) stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
+        content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
+        NSString* resolvedContent = WEB_LOG_STRING(@"%@", content);
         NSDate* now = [NSDate date];
         NSString* time = [_datetimeFormatter stringFromDate:now];
-        content = [NSString stringWithFormat:@"%@ %@", time, content];
+        resolvedContent = [NSString stringWithFormat:@"%@ %@", time, content];
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *string = [NSString stringWithFormat:@"console.log('%%c %@','%@');", content, logcolor];
+            NSString *string = [NSString stringWithFormat:@"console.log('%%c %@','%@');", resolvedContent, logcolor];
             BOOL bSucceed = NO;
             if(command.webView)
             {
