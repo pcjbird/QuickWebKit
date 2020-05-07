@@ -400,6 +400,7 @@
         NSDate* now = [NSDate date];
         NSString* time = [_datetimeFormatter stringFromDate:now];
         content = [NSString stringWithFormat:@"%@ %@", time, content];
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *string = [NSString stringWithFormat:@"console.log('%%c %@','%@');", content, logcolor];
             BOOL bSucceed = NO;
@@ -408,7 +409,8 @@
                 [command.webView evaluateJavaScript:string completionHandler:nil];
                 bSucceed = YES;
             }
-            [self onConsoleLog:content level:l result:bSucceed];
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf)[strongSelf onConsoleLog:content level:l result:bSucceed];
         });
     }
     else
