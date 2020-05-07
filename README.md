@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2020-05-07 V2.0.1
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202005070001
+> 1.新增浏览器控制台打印JS方法。
+
 ####   2020-03-02 V2.0.0
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202003020001
 > 1.remove UIWebView。

@@ -12,9 +12,13 @@
 #import "QuickWebJSInvokeCommand.h"
 #import "QuickWebKit.h"
 
+#define APP_NAME ([[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"] ? [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"]:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"])
+#define WEB_LOG_STRING(format, ...) [NSString stringWithFormat:@"[🦉%@] %s (line %d) " format, APP_NAME, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__]
+
 @interface QuickWebJSBridgeSystemProxy()
 {
     NSString * _name;
+    NSDateFormatter* _datetimeFormatter;
 }
 
 @property(nonatomic, weak) id<QuickWebJSInvokeResultHandlerProtocol, SmartJSBridgeProtocol> resultHandler;
@@ -37,6 +41,10 @@
     if(self = [super init])
     {
         _resultHandler = handler;
+        _datetimeFormatter = [[NSDateFormatter alloc] init];
+        _datetimeFormatter.timeZone = [NSTimeZone systemTimeZone];
+        _datetimeFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
+        _datetimeFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     }
     return self;
 }
@@ -82,6 +90,10 @@
     else if([actionId isEqualToString:@"109"])
     {
         return [self alert:command callback:callback];
+    }
+    else if([actionId isEqualToString:@"110"])
+    {
+        return [self log:command callback:callback];
     }
     else
     {
@@ -320,6 +332,83 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:QUICKWEBREQUESTURLHANDLERNOTIFICATION object:alert_url];
+        });
+    }
+    else
+    {
+        return NSStringFromBOOL(FALSE);
+    }
+    return NSStringFromBOOL(TRUE);
+}
+
+-(void) onConsoleLog:(NSString*)log level:(QUICKWEBKITCONSOLELOGLEVEL)level result:(BOOL)invokeSucceed
+{
+    
+}
+
+- (NSString*)log:(QuickWebJSBridgeInvokeCommand *)command callback:(QuickWebJSCallBack)callback
+{
+    if(![command isKindOfClass:[QuickWebJSBridgeInvokeCommand class]])
+    {
+        return NSStringFromBOOL(FALSE);
+    }
+    NSDictionary* args = command.arguments;
+    if(![args isKindOfClass:[NSDictionary class]])
+    {
+        return NSStringFromBOOL(FALSE);
+    }
+    
+    NSString* level = [QuickWebDataParseUtil getDataAsString:[args objectForKey:@"level"]];
+    NSString* content = [QuickWebDataParseUtil getDataAsString:[args objectForKey:@"content"]];
+    
+    QUICKWEBKITCONSOLELOGLEVEL l = QUICKWEBKITCONSOLELOGLEVEL_INFO;
+    NSString* logcolor = @"color:#008000";
+    if([QuickWebStringUtil isString:level EqualTo:@"trace"])
+    {
+        logcolor = @"color:#000000";
+        l = QUICKWEBKITCONSOLELOGLEVEL_TRACE;
+    }
+    else if([QuickWebStringUtil isString:level EqualTo:@"debug"])
+    {
+        logcolor = @"color:#46C2F2";
+        l = QUICKWEBKITCONSOLELOGLEVEL_DEBUG;
+    }
+    else if([QuickWebStringUtil isString:level EqualTo:@"info"])
+    {
+        logcolor = @"color:#008000";
+        l = QUICKWEBKITCONSOLELOGLEVEL_INFO;
+    }
+    else if([QuickWebStringUtil isString:level EqualTo:@"warning"])
+    {
+        logcolor = @"color:#FFC645";
+        l = QUICKWEBKITCONSOLELOGLEVEL_WARNING;
+    }
+    else if([QuickWebStringUtil isString:level EqualTo:@"error"])
+    {
+        logcolor = @"color:#FF0000";
+        l = QUICKWEBKITCONSOLELOGLEVEL_ERROR;
+    }
+    else if([QuickWebStringUtil isString:level EqualTo:@"critical"])
+    {
+        logcolor = @"color:#FF4500";
+        l = QUICKWEBKITCONSOLELOGLEVEL_CRITICAL;
+    }
+    
+    if(![QuickWebStringUtil isStringBlank:content])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            content = [WEB_LOG_STRING(@"%@", log) stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
+            NSDate* now = [NSDate date];
+            NSString* time = [_datetimeFormatter stringFromDate:now];
+            content = [NSString stringWithFormat:@"%@ %@", time, content];
+            NSString *string = [NSString stringWithFormat:@"console.log('%%c %@','%@');", content, logcolor];
+            BOOL bSucceed = NO;
+            if(command.webView)
+            {
+                [command.webView evaluateJavaScript:string completionHandler:nil];
+                bSucceed = YES;
+            }
+            [self onConsoleLog:content level:l result:bSucceed];
         });
     }
     else
