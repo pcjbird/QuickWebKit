@@ -12,7 +12,7 @@
 "Cancel" = "取消";
 
 "QuickWebJSFunctionOnlySupportVersionFormat" = "JS 函數:%s 僅V%@及以後的版本才支持！";
-"QuickWebJSBridgeProxyNotFoundFormat" = "無效的JS調用(service=\"%@\")。"
+"QuickWebJSBridgeProxyNotFoundFormat" = "無效的JS調用(service=\"%@\")。";
 
 "CellularNetworksVideoPlayTip" = "當前使用非wifi網路觀看視頻，將消耗運營商流量！";
 "Continue Play" = "仍然觀看";

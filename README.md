@@ -81,6 +81,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2020-06-10 V2.0.3
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202006100001
+> 1.修正Bundle中其他语言翻译的问题。
+
 ####   2020-05-07 V2.0.2
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202005070002
 > 1.调整回调日志的内容。
