@@ -32,6 +32,13 @@
 -(void)webViewControllerDidWebViewCreated:(QuickWebViewController *)webViewController
 {
     UIColor *scrollBackColor = webViewController.webView.scrollView.backgroundColor;
+    if([scrollBackColor isKindOfClass:[UIColor class]])
+    {
+        if(scrollBackColor.quickweb_alpha == 0)
+        {
+            scrollBackColor = [UIColor colorWithRed:0.25f green:0.25f blue:0.25f alpha:1.0f];
+        }
+    }
     QuickWebProvider *provider = [QuickWebProvider new];
     provider.backgroundColor = [UIColor clearColor];
     provider.font = [UIFont systemFontOfSize:11.0f];

@@ -202,6 +202,9 @@
 		89B310BA1FF37563000D07CB /* QuickWebJSBridgeVideoPlayProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgeVideoPlayProxy.m; sourceTree = "<group>"; };
 		89B310BD1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickWebJSBridgePushMessageProxy.h; sourceTree = "<group>"; };
 		89B310BE1FF39328000D07CB /* QuickWebJSBridgePushMessageProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickWebJSBridgePushMessageProxy.m; sourceTree = "<group>"; };
+		89E6D3F0249286050026F65D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89E6D3F1249286050026F65D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89E6D3F2249286050026F65D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		99C0EEF3A45B7A9A91EE25DC /* Pods-QuickWebKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A990D00AD447FD00808963BC /* Pods_SuperWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46120495E04462EBBDDC716 /* Pods-QuickWebKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickWebKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickWebKit/Pods-QuickWebKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -699,6 +702,7 @@
 				"zh-Hans",
 				"zh-Hant",
 				en,
+				ja,
 			);
 			mainGroup = 898A50B51FE7FDE7002DDFA7;
 			productRefGroup = 898A50C01FE7FDE7002DDFA7 /* Products */;
@@ -909,6 +913,7 @@
 				890BF6CA1FED3FE1003E8E7C /* zh-Hans */,
 				890BF6CB1FED3FEB003E8E7C /* zh-Hant */,
 				890BF6CC1FED413C003E8E7C /* en */,
+				89E6D3F0249286050026F65D /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -919,6 +924,7 @@
 				890BF7731FEF8FDE003E8E7C /* en */,
 				890BF7771FEF8FF7003E8E7C /* zh-Hant */,
 				890BF7781FEF8FF9003E8E7C /* zh-Hans */,
+				89E6D3F1249286050026F65D /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -929,6 +935,7 @@
 				890BF7A01FEFDBC8003E8E7C /* zh-Hans */,
 				890BF7A21FEFDBCA003E8E7C /* zh-Hant */,
 				890BF7A31FEFDBCB003E8E7C /* en */,
+				89E6D3F2249286050026F65D /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -942,12 +949,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebKitBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
 				PRODUCT_NAME = QuickWebKit;
 				SDKROOT = iphoneos;
@@ -962,12 +969,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebKitBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebKitResource;
 				PRODUCT_NAME = QuickWebKit;
 				SDKROOT = iphoneos;
@@ -998,12 +1005,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebProviderPluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
 				PRODUCT_NAME = QuickWebProviderPlugin;
 				SDKROOT = iphoneos;
@@ -1018,12 +1025,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebProviderPluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebProviderPluginResource;
 				PRODUCT_NAME = QuickWebProviderPlugin;
 				SDKROOT = iphoneos;
@@ -1038,12 +1045,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebJSBridgePluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1058,12 +1065,12 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = NO;
-				CURRENT_PROJECT_VERSION = 202003020001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickWebBundles/QuickWebJSBridgePluginBundle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lessney.QuickWebJSBridgePluginResource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1194,7 +1201,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202006100001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1203,7 +1210,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.0.4;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
@@ -1234,7 +1241,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202006100001;
+				CURRENT_PROJECT_VERSION = 202006110001;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1243,7 +1250,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.0.4;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
