@@ -3,8 +3,6 @@
 [![Pod Version](http://img.shields.io/cocoapods/v/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/QuickWebKit.svg?style=flat)](http://cocoadocs.org/docsets/QuickWebKit/)
 [![Pod License](http://img.shields.io/cocoapods/l/QuickWebKit.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![CocoaPods](https://img.shields.io/cocoapods/at/QuickWebKit.svg)](https://github.com/pcjbird/QuickWebViewController)
-[![CocoaPods](https://img.shields.io/cocoapods/dt/QuickWebKit.svg)](https://github.com/pcjbird/QuickWebViewController)
 [![GitHub release](https://img.shields.io/github/release/pcjbird/QuickWebViewController.svg)](https://github.com/pcjbird/QuickWebViewController/releases)
 [![GitHub release](https://img.shields.io/github/release-date/pcjbird/QuickWebViewController.svg)](https://github.com/pcjbird/QuickWebViewController/releases)
 [![Website](https://img.shields.io/website-pcjbird-down-green-red/https/shields.io.svg?label=author)](https://pcjbird.github.io)
