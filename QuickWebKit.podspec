@@ -5,14 +5,14 @@ Pod::Spec.new do |s|
     s.description      = <<-DESC
     A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。如果您仅想使用其中部分(而非全部插件)，您可以根据需要仅安装您需要的功能与插件， 该项目支持 Cocoapods 的 subspec。
     DESC
-    s.homepage         = "https://github.com/pcjbird/QuickWebViewController"
+    s.homepage         = "https://github.com/pcjbird/QuickWebKit"
     s.license          = 'MIT'
     s.author           = {"pcjbird" => "pcjbird@hotmail.com"}
-    s.source           = {:git => "https://github.com/pcjbird/QuickWebViewController.git", :tag => s.version.to_s}
-    s.social_media_url = 'http://www.lessney.com'
+    s.source           = {:git => "https://github.com/pcjbird/QuickWebKit.git", :tag => s.version.to_s}
+    s.social_media_url = 'https://www.lessney.com'
     s.requires_arc     = true
-    s.documentation_url = 'https://github.com/pcjbird/QuickWebViewController/blob/master/README.md'
-    s.screenshot       = 'https://github.com/pcjbird/QuickWebViewController/raw/master/logo.png'
+    s.documentation_url = 'https://github.com/pcjbird/QuickWebKit/blob/master/README.md'
+    s.screenshot       = 'https://github.com/pcjbird/QuickWebKit/raw/master/logo.png'
 
     s.platform         = :ios, '8.0'
     s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore', 'MobileCoreServices', 'CoreSpotlight'
