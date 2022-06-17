@@ -117,7 +117,7 @@ typedef enum
 /*
  * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
  */
-@interface QuickWebViewController ()<WKNavigationDelegate, WKUIDelegate, SmartJSContextDelegate, QuickWebJSInvokeProviderProtocol>
+@interface QuickWebViewController ()<WKNavigationDelegate, WKUIDelegate, SmartJSContextDelegate, QuickWebJSInvokeProviderProtocol,SmartJSWebViewDelegate>
 {
     NSString * _initUrl;
     SmartJSWebView*   _contentWebView;
@@ -1125,6 +1125,13 @@ typedef enum
         }
     }];
 }
+
+#pragma mark QuickSmartJSWebView
+-(void)didTitleChanged:(NSString *)title
+{
+    self.navigationItem.title = title;
+}
+
 
 #pragma mark - Status Bar
 
