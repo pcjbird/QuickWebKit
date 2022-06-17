@@ -23,9 +23,8 @@ Pod::Spec.new do |s|
     s.dependency 'YYImage/WebP'
     s.dependency 'YYWebImage'
     s.dependency 'Popover.OC'
-    
-    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'OTHER_LDFLAGS' => '-lObjC' }
-    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'OTHER_LDFLAGS' => '-lObjC' }
+
+    s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
     s.subspec 'QuickWebViewController' do |ss|
         ss.source_files = 'QuickWebKit/QuickWebKit.h', 'QuickWebKit/QuickWebKitDefines', 'QuickWebKit/QuickWebUtil', 'QuickWebKit/QuickWebCore'
