@@ -79,6 +79,11 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+
+####   2022-06-17 V2.0.5
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202206170001
+> 1.修正webview标题在某些情况下加载不了的问题。
+> 
 ####   2020-06-11 V2.0.4
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202006110001
 > 1.新增日语翻译。
