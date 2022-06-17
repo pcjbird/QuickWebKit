@@ -25,6 +25,10 @@ Pod::Spec.new do |s|
     s.dependency 'Popover.OC'
 
     s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+    
+    s.xcconfig = {
+        'VALID_ARCHS' =>  'armv7 armv7s x86_64 arm64',
+    }
 
     s.subspec 'QuickWebViewController' do |ss|
         ss.source_files = 'QuickWebKit/QuickWebKit.h', 'QuickWebKit/QuickWebKitDefines', 'QuickWebKit/QuickWebUtil', 'QuickWebKit/QuickWebCore'
