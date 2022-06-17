@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.documentation_url = 'https://github.com/pcjbird/QuickWebKit/blob/master/README.md'
     s.screenshot       = 'https://github.com/pcjbird/QuickWebKit/raw/master/logo.png'
 
-    s.platform         = :ios, '9.0'
+    s.platform         = :ios, '8.0'
     s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore', 'MobileCoreServices', 'CoreSpotlight'
 #s.preserve_paths   = ''
     s.source_files     = 'QuickWebKit/QuickWebKit.h'
