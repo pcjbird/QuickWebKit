@@ -3,112 +3,86 @@
 //  QuickWebViewController
 //
 //  Created by pcjbird on 2017/12/18.
-//  Copyright © 2017年 Zero Status. All rights reserved.
+//  Copyright © 2017 年 Zero Status. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <SmartJSWebView/SmartJSWebView.h>
 #import "QuickWebPluginProtocol.h"
-/*
- * @brief QuickWebViewController 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
- */
+/// QuickWebViewController 是一款基于插件的 WebView 视图控制器。
+/// 您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
 @interface QuickWebViewController : UIViewController<SmartJSWebSecurityProxy>
 
-/*
- * @brief webview
- */
+/// Web 视图实例
 @property(nonatomic, weak, readonly)SmartJSWebView* webView;
 
-/*
- * @brief 所有插件
- */
+/// 已注册的插件数组
 @property(nonatomic, weak, readonly)NSArray<id<QuickWebPluginProtocol>>* plugins;
 
-/*
- * @brief 导航栏是否透明
- */
+/// 导航栏是否透明，默认 NO
 @property(nonatomic, assign) BOOL navbarTransparent;
 
-/*
- * @brief 是否显示进度条
- */
+/// 是否隐藏进度条，默认 NO
 @property(nonatomic, assign) BOOL progressHidden;
 
-/*
- * @brief 初始化
- * @param url 页面地址
- */
+/// 是否在 iOS 26 及以后的版本中使用液态玻璃效果，默认 NO
+@property(nonatomic, assign) BOOL usingLiquidGlassEffectAfteriOS26;
+
+/// 使用指定 URL 初始化视图控制器
+/// - Parameters:
+///   - url: 需要加载的页面 URL 字符串
 -(instancetype)initWithUrlString:(NSString *)url;
 
-/*
- * @brief 加载页面
- * @param url 页面地址
- */
+/// 加载指定 URL 的页面
+/// - Parameters:
+///   - url: 需要加载的页面 URL 字符串
 -(void)loadPage:(NSString *)url;
 
-/*
- * @brief webview背景颜色 默认值：#f2f2f2
- */
+/// 获取 Web 视图的背景颜色
+/// - Returns: Web 视图背景颜色，默认为#f2f2f2
 -(UIColor *)backgroundColor;
 
-/*
- * @brief webview进度条颜色 默认值：#e6001b
- */
+/// 获取进度条颜色
+/// - Returns: 进度条颜色，默认为#e6001b
 -(UIColor *)progressColor;
 
-/*
- * @brief webview返回按钮图标  useTextWithBackOrCloseButton返回false时有效
- */
+/// 获取返回按钮图标
+/// - Returns: 返回按钮图标，仅在 useTextWithBackOrCloseButton 为 false 时有效
 -(UIImage *)backIndicatorImage;
 
-/*
- * @brief webview关闭按钮图标 useTextWithBackOrCloseButton返回false时有效
- */
+/// 获取关闭按钮图标
+/// - Returns: 关闭按钮图标，仅在 useTextWithBackOrCloseButton 为 false 时有效
 -(UIImage *)closeIndicatorImage;
 
-/*
- * @brief 是否在返回或关闭按钮上使用文字  默认YES
- */
+/// 是否在返回或关闭按钮上使用文字
+/// - Returns: 是否使用文字，默认为 YES
 -(BOOL)useTextWithBackOrCloseButton;
 
-/*
- * @brief 注册插件
- * @param plugin 插件
- */
+/// 注册一个新的插件
+/// - Parameters:
+///   - plugin: 需要注册的插件实例
 - (void)registerPlugin:(id<QuickWebPluginProtocol>)plugin;
 
-/*
- * @brief 注册通知观察者完成
- */
+/// 通知观察者注册完成时调用
 -(void) didRegisterNotificationObserver;
 
-/*
- * @brief 移除通知观察者完成
- */
+/// 通知观察者移除完成时调用
 -(void) didRemoveNotificationObserver;
 
-/*
- * @brief 设置导航背景色
- * @param tintColor 导航背景色, nil表示清除
- */
+/// 设置导航栏背景色
+/// - Parameter tintColor: 导航栏背景色，传入 nil 则清除背景色
 -(void) setBarTintColor:(UIColor*)tintColor;
 
-/*
- * @brief 导航按钮前景色偏好
- * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
- */
+/// 获取导航按钮的首选前景色
+/// - Returns: 按钮前景色。若返回 nil 则使用全局外观设置，若全局未设置则使用默认色 [UIColor darkGrayColor]
 -(UIColor *)preferNavBtnTintColor;
 
-/*
- * @brief 导航按钮按下色(highlighted)偏好
- * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
- */
+/// 获取导航按钮的首选高亮色
+/// - Returns: 按钮高亮色。若返回 nil 则使用全局外观设置，若全局未设置则使用默认色 [UIColor darkGrayColor]
 -(UIColor *)preferNavBtnHighlightColor;
 
-/*
- * @brief 导航按钮前景色(disabled)偏好
- * @return 颜色, nil表示使用全局外观设置，若全局外观设置也未设置，则使用默认色[UIColor darkGrayColor]
- */
+/// 获取导航按钮的首选禁用状态颜色
+/// - Returns: 按钮禁用状态颜色。若返回 nil 则使用全局外观设置，若全局未设置则使用默认色 [UIColor darkGrayColor]
 -(UIColor *)preferNavBtnDisabledColor;
 
 @end

@@ -3,7 +3,7 @@
 //  QuickWebViewController
 //
 //  Created by pcjbird on 2017/12/18.
-//  Copyright © 2017年 Zero Status. All rights reserved.
+//  Copyright © 2017 年 Zero Status. All rights reserved.
 //
 
 #import "QuickWebViewController.h"
@@ -33,9 +33,9 @@
 #define IsNetworkActivityIndicatorShown()   [UIApplication sharedApplication].networkActivityIndicatorVisible
 #define SDK_BUNDLE [NSBundle bundleWithPath:[[NSBundle bundleForClass:[QuickWebViewController class]] pathForResource:@"QuickWebKit" ofType:@"bundle"]]
 #define DEFAULT_TINTCOLOR [UIColor darkGrayColor]
-// 状态栏高度(来电等情况下，状态栏高度会发生变化，所以应该实时计算)
+// 状态栏高度 (来电等情况下，状态栏高度会发生变化，所以应该实时计算)
 #define StatusBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height)
-// navigationBar相关frame
+// navigationBar 相关 frame
 #define NavigationBarHeight (44)
 
 #pragma mark - QuickWebPauseResumeEventObject
@@ -172,6 +172,7 @@ typedef enum
     _initUrl = nil;
     _progressHidden = NO;
     _navbarTransparent = NO;
+    _usingLiquidGlassEffectAfteriOS26 = NO;
     _pluginMap = [NSMutableDictionary dictionary];
     _popItems = [NSMutableArray array];
 }
@@ -304,7 +305,7 @@ typedef enum
     }
     if([QuickWebStringUtil isStringBlank:command.provider])
     {
-        SDK_LOG(@"JS调用失败，提供者(provider)不能为空。");
+        SDK_LOG(@"JS 调用失败，提供者 (provider) 不能为空。");
         return;
     }
     if([command.provider isEqualToString:self.jsProviderName])
@@ -669,6 +670,11 @@ typedef enum
         if([self useTextWithBackOrCloseButton])
         {
             _backItem = [[UIBarButtonItem alloc] init];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    _backItem.hidesSharedBackground = YES;
+                }
+            }
              QuickWebNavigationButton *btn = [[QuickWebNavigationButton alloc] initWithIcon:[self resolvedBackIndicatorImage] title:NSLocalizedStringFromTableInBundle(@"Back", @"Localizable", SDK_BUNDLE, nil)];
             [btn setFont:[self resolvedBtnFont]];
             btn.tintColor = [self resolvedBtnTintColor];
@@ -679,6 +685,11 @@ typedef enum
         else
         {
             _backItem = [[UIBarButtonItem alloc] initWithImage:[self resolvedBackIndicatorImage] style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    _backItem.hidesSharedBackground = YES;
+                }
+            }
         }
         _backItem.tintColor = [self resolvedBtnTintColor];
     }
@@ -692,10 +703,20 @@ typedef enum
         if([self useTextWithBackOrCloseButton])
         {
             _closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle(@"Close", @"Localizable", SDK_BUNDLE, nil) style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    _closeItem.hidesSharedBackground = YES;
+                }
+            }
         }
         else
         {
             _closeItem = [[UIBarButtonItem alloc] initWithImage:[self resolvedCloseIndicatorImage] style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    _closeItem.hidesSharedBackground = YES;
+                }
+            }
         }
         _closeItem.tintColor = [self resolvedBtnTintColor];
     }
@@ -745,6 +766,11 @@ typedef enum
     if([self.popItems isKindOfClass:[NSArray class]] && [self.popItems count] > 0)
     {
         UIBarButtonItem *moreBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more" inBundle:SDK_BUNDLE compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(popView:event:)];
+        if(!self.usingLiquidGlassEffectAfteriOS26) {
+            if(@available(iOS 26.0, *)) {
+                moreBtn.hidesSharedBackground = YES;
+            }
+        }
         [rightBtns addObject:moreBtn];
     }
     else
@@ -795,11 +821,21 @@ typedef enum
             
             [button addTarget:self action:@selector(OnPrimaryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    primaryBtn.hidesSharedBackground = YES;
+                }
+            }
             [rightBtns addObject:primaryBtn];
         }
         else
         {
             UIBarButtonItem *primaryBtn = [[UIBarButtonItem alloc] initWithTitle:self.primaryButton.title style:UIBarButtonItemStylePlain target:self action:@selector(OnPrimaryBtnClick:)];
+            if(!self.usingLiquidGlassEffectAfteriOS26) {
+                if(@available(iOS 26.0, *)) {
+                    primaryBtn.hidesSharedBackground = YES;
+                }
+            }
             [rightBtns addObject:primaryBtn];
         }
         
@@ -954,7 +990,7 @@ typedef enum
 {
     if(![plugin conformsToProtocol:@protocol(QuickWebPluginProtocol)])
     {
-        SDK_LOG(@"注册插件失败，请确保您的插件实现了QuickWebPluginProtocol协议。");
+        SDK_LOG(@"注册插件失败，请确保您的插件实现了 QuickWebPluginProtocol 协议。");
         return;
     }
     if([QuickWebStringUtil isStringBlank:plugin.name])
