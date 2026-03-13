@@ -8,6 +8,9 @@
 //  框架名称:QuickWebKit
 //  框架功能:A great & strong plugin based WebViewController. 一款基于插件的 WebView 视图控制器，您可以基于它设计您的浏览器插件，然后像积木一样来组装它们。
 //  修改记录：
+//     pcjbird    2026-03-13  Version:2.0.7 Build:20260313001
+//                            1.fix some bugs。
+//
 //     pcjbird    2025-09-17  Version:2.0.6 Build:202509170001
 //                            1.新增 usingLiquidGlassEffectAfteriOS26 属性，用于设置在 iOS 26 及以后的版本中是否使用液态玻璃效果。
 //

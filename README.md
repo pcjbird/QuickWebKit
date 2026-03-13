@@ -78,6 +78,10 @@ pod 'QuickWebKit'
 
 ## 版本 / Releases
 
+####   2026-03-13 V2.0.7
+![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build20260313001
+> 1.修复一些问题。
+
 ####   2025-09-17 V2.0.6
 ![](https://avatars3.githubusercontent.com/u/6175452?s=16) **pcjbird** released build202509170001
 > 1.新增属性设置 iOS26 及之后版本是否使用液态玻璃效果。

@@ -277,6 +277,7 @@ typedef enum
 
 -(void)dealloc
 {
+    [self.webView removeAllJavascriptInterfaces];
     [self quickweb_removeNotificationObserver];
 }
 
