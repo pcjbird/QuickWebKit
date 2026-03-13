@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
     s.screenshot       = 'https://github.com/pcjbird/QuickWebKit/raw/master/logo.png'
 
     s.platform         = :ios, '11.0'
+    s.ios.deployment_target = '11.0'
     s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'WebKit', 'JavaScriptCore' ,'QuartzCore', 'MobileCoreServices', 'CoreSpotlight'
 #s.preserve_paths   = ''
     s.source_files     = 'QuickWebKit/QuickWebKit.h'
